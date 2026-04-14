@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>藥師海巡 — 衛教介入儀表板</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --navy:#1a3a5c;--navy2:#234e7a;--white:#fff;
+  --red:#c0392b;--amber:#e67e22;--teal:#16a085;--gray:#6c757d;
+  --bg:#f4f7fb;--card:#fff;--border:#dde3ec;
+  --gap:16px;--r:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:#222;font-size:14px}
+.wrap{max-width:1300px;margin:0 auto;padding:var(--gap)}
+/* HEADER */
+.hdr{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:20px 24px;border-radius:var(--r);margin-bottom:var(--gap);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.hdr h1{font-size:20px;font-weight:700;letter-spacing:.5px}
+.hdr .sub{font-size:12px;opacity:.75;margin-top:2px}
+/* FILTERS */
+.filters{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filters select,.filters input{padding:6px 10px;border:1px solid rgba(255,255,255,.3);border-radius:6px;background:rgba(255,255,255,.12);color:#fff;font-size:13px;outline:none}
+.filters select option{color:#222;background:#fff}
+.filters input::placeholder{color:rgba(255,255,255,.6)}
+.btn-reset{padding:6px 14px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:6px;color:#fff;cursor:pointer;font-size:13px}
+.btn-reset:hover{background:rgba(255,255,255,.3)}
+/* KPI */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--gap);margin-bottom:var(--gap)}
+.kpi{background:var(--card);border-radius:var(--r);padding:18px 20px;box-shadow:0 1px 4px rgba(0,0,0,.07);border-left:4px solid var(--navy)}
+.kpi.red{border-color:var(--red)}
+.kpi.amber{border-color:var(--amber)}
+.kpi.teal{border-color:var(--teal)}
+.kpi.gray{border-color:var(--gray)}
+.kpi-label{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.kpi-val{font-size:30px;font-weight:700;color:var(--navy)}
+.kpi.red .kpi-val{color:var(--red)}
+.kpi.amber .kpi-val{color:var(--amber)}
+.kpi.teal .kpi-val{color:var(--teal)}
+/* CHARTS */
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin-bottom:var(--gap)}
+@media(max-width:700px){.chart-row{grid-template-columns:1fr}}
+.chart-card{background:var(--card);border-radius:var(--r);padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.chart-card h3{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:14px;text-transform:uppercase;letter-spacing:.4px}
+.chart-wrap{position:relative;height:220px}
+/* TABLE */
+.tbl-card{background:var(--card);border-radius:var(--r);padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.07);margin-bottom:var(--gap)}
+.tbl-card h3{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:14px;text-transform:uppercase;letter-spacing:.4px}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;white-space:nowrap;cursor:pointer;user-select:none}
+th:hover{background:var(--navy2)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top;max-width:280px}
+tr:hover td{background:#f0f4f9}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap}
+.badge-A{background:#fde8e8;color:#c0392b}
+.badge-B{background:#fdf0e0;color:#d35400}
+.badge-C{background:#fefae0;color:#b7770d}
+.badge-D{background:#e4f9f0;color:#16a085}
+.badge-X{background:#f0f0f0;color:#6c757d}
+.badge-高{background:#fde8e8;color:#c0392b}
+.badge-中{background:#fdf0e0;color:#d35400}
+.badge-低{background:#f0f0f0;color:#6c757d}
+.txt-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+a{color:var(--navy2);text-decoration:none}
+a:hover{text-decoration:underline}
+.count-badge{font-size:11px;background:var(--navy);color:#fff;padding:1px 7px;border-radius:8px;margin-left:8px;vertical-align:middle}
+.footer{text-align:center;color:var(--gray);font-size:12px;padding:12px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr">
+  <div>
+    <div class="h1" style="font-size:20px;font-weight:700">💊 藥師海巡 — 衛教介入儀表板</div>
+    <div class="sub" id="sub-title">載入中…</div>
+  </div>
+  <div class="filters">
+    <select id="f-cat" onchange="app.filter()">
+      <option value="">全部類別</option>
+      <option value="A">A — 錯誤用藥觀念</option>
+      <option value="B">B — 詢問藥品問題</option>
+      <option value="C">C — 高傳播衛教機會</option>
+      <option value="D">D — 形象正面切入</option>
+      <option value="X">X — 不介入</option>
+    </select>
+    <select id="f-pri" onchange="app.filter()">
+      <option value="">全部優先度</option>
+      <option value="高">高</option>
+      <option value="中">中</option>
+      <option value="低">低</option>
+    </select>
+    <input type="text" id="f-kw" placeholder="搜尋內文 / 作者…" oninput="app.filter()" style="width:180px">
+    <button class="btn-reset" onclick="app.reset()">重置</button>
+  </div>
+</header>
+
+<div class="kpi-row">
+  <div class="kpi"><div class="kpi-label">總貼文數</div><div class="kpi-val" id="k-total">—</div></div>
+  <div class="kpi red"><div class="kpi-label">A 錯誤用藥觀念</div><div class="kpi-val" id="k-a">—</div></div>
+  <div class="kpi amber"><div class="kpi-label">B 詢問藥品問題</div><div class="kpi-val" id="k-b">—</div></div>
+  <div class="kpi teal"><div class="kpi-label">C 高傳播機會</div><div class="kpi-val" id="k-c">—</div></div>
+  <div class="kpi"><div class="kpi-label">高優先介入</div><div class="kpi-val" id="k-high">—</div></div>
+  <div class="kpi gray"><div class="kpi-label">平均信心分數</div><div class="kpi-val" id="k-conf">—</div></div>
+</div>
+
+<div class="chart-row">
+  <div class="chart-card">
+    <h3>介入類別分布</h3>
+    <div class="chart-wrap"><canvas id="chart-cat"></canvas></div>
+  </div>
+  <div class="chart-card">
+    <h3>優先順序分布</h3>
+    <div class="chart-wrap"><canvas id="chart-pri"></canvas></div>
+  </div>
+</div>
+
+<div class="tbl-card">
+  <h3>貼文清單 <span class="count-badge" id="tbl-count">0</span></h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th onclick="app.sort('作者')">作者</th>
+          <th onclick="app.sort('內文')">內文摘要</th>
+          <th onclick="app.sort('愛心數')">愛心</th>
+          <th onclick="app.sort('留言數')">留言</th>
+          <th onclick="app.sort('介入類別')">類別</th>
+          <th onclick="app.sort('優先順序')">優先</th>
+          <th onclick="app.sort('信心分數')">信心</th>
+          <th>核心問題</th>
+          <th>建議留言</th>
+        </tr>
+      </thead>
+      <tbody id="tbl-body"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer" id="footer-date"></div>
+</div>
+
+<script>
+// DASHBOARD_DATA_START
+const ALL_DATA = [
+  {
+    "作者": "_wildflower.trivial",
+    "貼文連結": "https://www.threads.net/@_wildflower.trivial/post/DWEaEwuge9k",
+    "內文": "弟弟繁星上了台大物治 我瞬間變成三個小孩裡面目前學校排名最後的 媽：你也很棒啊，讀自己想讀的，身心科的藥物也減少了，你很棒喔 （眼睛要尿尿ㄌ   翻譯   1 / 2",
+    "愛心數": 34000,
+    "留言數": 150,
+    "轉發數": 116,
+    "分享數": 111,
+    "介入類別": "C",
+    "優先順序": "高",
+    "信心分數": 8,
+    "核心問題": "貼文提及身心科藥物減少，可藉此機會衛教民眾身心科藥物治療的正確觀念與減藥注意事項。",
+    "建議介入方式": "留言回覆",
+    "建議留言草稿": "恭喜弟弟！也為您感到開心，身心科藥物治療是個漫長的過程，能穩定減藥代表狀況進步很多！提醒您，身心科藥物減量務必與醫師討論，切勿自行停藥或調整劑量喔！",
+    "IG輪播主題": "身心科藥物減量停藥知多少？"
+  },
+  {
+    "作者": "laida0115",
+    "貼文連結": "https://www.threads.net/@laida0115/post/DVGBAb6Ei-P",
+    "內文": "我是皮膚科醫師👨‍⚕️，思媚是杜鵑花酸，除了改善黑色素沉澱，也有抗菌消炎清粉刺的效果。光敏感性低，可以白天使用。 雖然剛開始使用會有約幾分鐘刺刺的感覺，但整體而言是安全性高的不錯藥物。（對於備孕婦女如果擔心外用A酸也是一個不錯的替代選擇）☺️   翻譯",
+    "愛心數": 29000,
+    "留言數": 248,
+    "轉發數": 697,
+    "分享數": 5369,
+    "介入類別": "C",
+    "優先順序": "高",
+    "信心分數": 9,
+    "核心問題": "醫師貼文提供杜鵑花酸的正確資訊，但可補充更多用藥細節與注意事項，提升民眾用藥安全。",
+    "建議介入方式": "留言回覆",
+    "建議留言草稿": "感謝醫師分享杜鵑花酸的正確知識！藥師也提醒，初期使用若有刺激感是正常的，但若紅腫癢持續或加劇，應諮詢醫師或藥師。同時，白天使用仍建議搭配防曬，效果更佳喔！",
+    "IG輪播主題": "杜鵑花酸怎麼用？藥師教你正確使用與注意事項"
+  },
+  {
+    "作者": "dr.ppsuperman",
+    "貼文連結": "https://www.threads.net/@dr.ppsuperman/post/DWbYrbYk3q1",
+    "內文": "但是在 心血管疾病、老年人、胃潰瘍病史、慢性腎病的患者則是不建議使用啊 以上族群若需要止痛，可考慮普拿疼 或是其他種類藥物   翻譯   1 / 2",
+    "愛心數": 21000,
+    "留言數": 1256,
+    "轉發數": 1986,
+    "分享數": 42000,
+    "介入類別": "C",
+    "優先順序": "高",
+    "信心分數": 9,
+    "核心問題": "貼文提及特定族群不建議使用止痛藥，可補充說明原因及其他替代藥物選擇。",
+    "建議介入方式": "留言回覆",
+    "建議留言草稿": "感謝醫師分享！針對心血管疾病、腎病患者，非類固醇消炎止痛藥（NSAIDs）確實需謹慎。藥師可協助評估個人狀況，提供更安全的止痛建議，例如乙醯胺酚或局部止痛藥膏，並提醒用藥前諮詢專業。",
+    "IG輪播主題": "止痛藥怎麼選？心血管、腎病患者用藥停看聽"
+  },
+  {
+    "作者": "the.pharma_duo",
+    "貼文連結": "https://www.threads.net/@the.pharma_duo/post/DVyC-ciGTzW",
+    "內文": "​第二，也是最危險的一點。很多沒有刻痕的藥丸是特殊的緩釋錠或腸溶錠。外層的保護膜是用來控制藥物在體內慢慢釋放，或是保護藥效不被胃酸破壞。一旦你把它切開，原本應該緩慢釋放一整天的藥量，就會在幾分鐘內全部衝進血液裡，這會直接引發嚴重的副作用甚至藥物中毒。   翻譯   1 / 2",
+    "愛心數": 19000,
+    "留言數": 192,
+    "轉發數": 1519,
+    "分享數": 2985,
+    "介入類別": "C",
+    "優先順序": "高",
+    "信心分數": 9,
+    "核心問題": "此貼文衛教內容正確且傳播廣泛，藥師可補充更多藥品分割的注意事項。",
+    "建議介入方式": "留言回覆",
+    "建議留言草稿": "這篇衛教非常重要！除了緩釋錠和腸溶錠，有些藥物因劑量精確性、苦味或刺激性也不建議分割。服用前不確定是否能分割，務必諮詢藥師喔！",
+    "IG輪播主題": "藥品分割大學問：哪些藥不能切？"
+  },
+  {
+    "作者": "sunshinetour1975",
+    "貼文連結": "https://www.threads.net/@sunshinetour1975/post/DPxVHScCJMT",
+    "內文": "與常規的藥物或心理治療不同之處， 瑞典醫師可以鼓勵 患者探索大自然、造訪平靜地方或暫時遠離日常壓力。",
+    "愛心數": 14000,
+    "留言數": 84,
+    "轉發數": 749,
+    "分享數": 3963,
+    "介入類別": "C",
+    "優先順序": "高",
+    "信心分數": 8,
+    "核心問題": "探討自然療法與常規藥物治療的互補性及適用情境。",
+    "建議介入方式": "留言回覆",
+    "建議留言草稿": "瑞典醫師鼓勵患者探索大自然，這是一個很棒的輔助身心健康方式！藥物治療與自然療法並非互斥，而是可以相輔相成。在某些情況下，自然療法能有效緩解壓力、改善情緒，但對於特定疾病，藥物治療仍是不可或缺。建議大家在考慮任何治療方式時，都能與醫師或藥師討論，找到最適合自己的健康管理方案喔！",
+    "IG輪播主題": "自然療法能取代藥物嗎？藥師帶你了解輔助治療"
+  },
+  {
+    "作者": "71xylin",
+    "貼文連結": "https://www.threads.net/@71xylin/post/DUzUsLOkpT0",
+    "內文": "大過年的，如果各位有在身心科看診，但家裡的人不喜歡，藥物請藏好，我的藥剛被我爸爸拿走了，我23歲 :）：）：）   翻譯",
+    "愛心數": 11000,
+    "留言數": 237,
+    "轉發數": 94,
+    "分享數": 105,
+    "介入類別": "A",
+    "優先順序": "高",
+    "信心分數": 9,
+    "核心問題": "家人未經同意取走精神科藥物，可能導致用藥中斷及藥物濫用風險。",
+    "建議介入方式": "留言回覆",
+    "建議留言草稿": "看到您的經歷很心疼。精神科藥物需醫師評估才能使用，擅自停藥或服用他人藥物都可能影響健康。若家人對用藥有疑慮，建議陪同回診與醫師討論，或尋求專業協助，確保用藥安全。",
+    "IG輪播主題": "家人擅自取走精神科藥物？藥師教你如何溝通與保護用藥安全"
+  },
+  {
+    "作者": "a.u._____",
+    "貼文連結": "https://www.threads.net/@a.u._____/post/DV6Eu2TAWf6",
+    "內文": "你知道憂鬱症患者最矛盾的地方是什麼嗎 是他明明想好起來 卻又同時做好離世的心理準備 是他明明知道只有藥物對他才有幫助 卻抗拒吃藥 是他明明害怕家人變成遺族 卻同時害怕變成他們的負擔   翻譯",
+    "愛心數": 6435,
+    "留言數": 163,
+    "轉發數": 639,
+    "分享數": 361,
+    "介入類別": "C",
+    "優先順序": "高",
+    "信心分數": 9,
+    "核心問題": "憂鬱症患者對藥物治療的矛盾心理，可切入衛教藥物依從性與治療的重要性。",
+    "建議介入方式": "留言回覆",
+    "建議留言草稿": "這篇貼文點出了許多憂鬱症患者的心聲。藥物治療是重要的一環，但服藥的確需要很大的勇氣。藥師能提供藥物諮詢，協助了解藥效、副作用，並找到適合自己的服藥方式，讓治療過程更安心。請記得，您不是一個人！",
+    "IG輪播主題": "憂鬱症藥物治療：克服服藥抗拒，藥師陪你安心走過"
+  },
+  {
+    "作者": "2025_08_04a",
+    "貼文連結": "https://www.threads.net/@2025_08_04a/post/DNXiqRYhiOr",
+    "內文": "藥物流產需要注意什麼嗎 痛的程度有人能比喻嗎   翻譯   1 / 2",
+    "愛心數": 3229,
+    "留言數": 124,
+    "轉發數": 142,
+    "分享數": 3370,
+    "介入類別": "B",
+    "優先順序": "高",
+    "信心分數": 9,
+    "核心問題": "民眾詢問藥物流產的注意事項與疼痛程度，藥師可提供專業衛教資訊。",
+    "建議介入方式": "留言回覆",
+    "建議留言草稿": "藥物流產前務必與醫師詳細討論，了解流程、注意事項及可能副作用。疼痛程度因人而異，可與醫師討論止痛方式。若有任何疑慮，請隨時諮詢醫療專業人員。",
+    "IG輪播主題": "藥物流產知多少？注意事項與照護"
+  },
+  {
+    "作者": "yenyeee_0805",
+    "貼文連結": "https://www.threads.net/@yenyeee_0805/post/DUYca-SiYMI",
+    "內文": "好奇大家得癌症後 治療到目前為止花了多少錢了？ 包含藥物、看護、營養品、住院…等等 我先 血癌 去年五月到現在 已經花了快200萬去了…🥹🥹   翻譯",
+    "愛心數": 3067,
+    "留言數": 370,
+    "轉發數": 103,
+    "分享數": 1088,
+    "介入類別": "C",
+    "優先順序": "高",
+    "信心分數": 8,
+    "核心問題": "貼文討論癌症治療費用，可切入說明健保給付、自費藥物、商業保險等相關衛教知識。",
+    "建議介入方式": "留言回覆",
+    "建議留言草稿": "癌症治療費用確實是許多家庭的沉重負擔。除了健保給付，許多新藥或特殊治療可能需自費。藥師可以協助您了解藥品給付範圍、自費選項，並提供相關資源，讓治療過程更安心。",
+    "IG輪播主題": "癌症治療費用大哉問：健保、自費、保險一次搞懂"
+  },
+  {
+    "作者": "nickyhanfu",
+    "貼文連結": "https://www.threads.net/@nickyhanfu/post/DW07iiFk7Q3",
+    "內文": "我自行宣布 Threads 第一屆《你的職業不敢跟你的客戶說的大實話》大賽 正式開始",
+    "愛心數": 30000,
+    "留言數": 5961,
+    "轉發數": 1540,
+    "分享數": 6154,
+    "介入類別": "X",
+    "優先順序": "低",
+    "信心分數": 9,
+    "核心問題": "",
+    "建議介入方式": "不介入",
+    "建議留言草稿": "",
+    "IG輪播主題": ""
+  },
+  {
+    "作者": "is._.sugoi",
+    "貼文連結": "https://www.threads.net/@is._.sugoi/post/DW-RUoOEtNv",
+    "內文": "大樹藥局直接捅到最捨得花錢的族群。   翻譯",
+    "愛心數": 22000,
+    "留言數": 384,
+    "轉發數": 366,
+    "分享數": 546,
+    "介入類別": "X",
+    "優先順序": "低",
+    "信心分數": 10,
+    "核心問題": "",
+    "建議介入方式": "不介入",
+    "建議留言草稿": "",
+    "IG輪播主題": ""
+  },
+  {
+    "作者": "gooddog1219",
+    "貼文連結": "https://www.threads.net/@gooddog1219/post/DXA_ZUcE3HW",
+    "內文": "把寵物當小孩養的人都有病，不要惹毛家長不開心，我們會集體發瘋給政府看。 #毛孩的毛親大人   翻譯",
+    "愛心數": 15000,
+    "留言數": 471,
+    "轉發數": 1392,
+    "分享數": 1207,
+    "介入類別": "X",
+    "優先順序": "低",
+    "信心分數": 10,
+    "核心問題": "",
+    "建議介入方式": "不介入",
+    "建議留言草稿": "",
+    "IG輪播主題": ""
+  },
+  {
+    "作者": "justin_lin666",
+    "貼文連結": "https://www.threads.net/@justin_lin666/post/DW_aXX_mmKf",
+    "內文": "這位在京創業的台灣人 真的好屌！   翻譯",
+    "愛心數": 11000,
+    "留言數": 396,
+    "轉發數": 199,
+    "分享數": 1881,
+    "介入類別": "X",
+    "優先順序": "低",
+    "信心分數": 0,
+    "核心問題": "分析失敗：503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "建議介入方式": "不介入",
+    "建議留言草稿": "",
+    "IG輪播主題": ""
+  },
+  {
+    "作者": "fatiguephx_5566",
+    "貼文連結": "https://www.threads.net/@fatiguephx_5566/post/DTujuiUEszm",
+    "內文": "還好什麼啦？有就有，沒有就沒有。   翻譯   1 / 2",
+    "愛心數": 8883,
+    "留言數": 109,
+    "轉發數": 110,
+    "分享數": 371,
+    "介入類別": "X",
+    "優先順序": "低",
+    "信心分數": 9,
+    "核心問題": "",
+    "建議介入方式": "不介入",
+    "建議留言草稿": "",
+    "IG輪播主題": ""
+  },
+  {
+    "作者": "mammycatq",
+    "貼文連結": "https://www.threads.net/@mammycatq/post/DW4UCSaEnq6",
+    "內文": "頭真的超痛的 兒子（現在17歲）接觸到線上博弈 之前被拉進去當代理欠了三十幾萬 幫忙處理掉了 他也承諾不再接觸 現在又被發現還有在玩 還在外面跟朋友玩麻將也輸錢 現在累計五萬多塊 說自己有在打工才玩 但事實就是還沒錢可以還人家 現在一直被逼債才在緊張 真覺得沒痛過真的不會學到教訓欸 不幫處理又怕他亂簽本票或去借高利貸 幫處理感覺也是惡性循環 到底要怎麼辦呀⋯⋯   翻譯",
+    "愛心數": 7797,
+    "留言數": 1819,
+    "轉發數": 128,
+    "分享數": 5076,
+    "介入類別": "X",
+    "優先順序": "低",
+    "信心分數": 10,
+    "核心問題": "",
+    "建議介入方式": "不介入",
+    "建議留言草稿": "",
+    "IG輪播主題": ""
+  },
+  {
+    "作者": "sacrilegious_brute",
+    "貼文連結": "https://www.threads.net/@sacrilegious_brute/post/DW1ajQDj08n",
+    "內文": "協助後說有使用抗凝血藥物但雲端藥歷上從來不曾出現，完整釐清後原來是早上拔牙晚上洗腎，過程中有使用相關藥物以維持管路暢通，我也仔細的身體診察後觀察到是三顆狀況極度不佳的鬆動牙齒被移除中間的那顆後傷口在滲血，討論後因考量洗腎管路問題分析利弊暫不使用靜脈注射止血藥物，先給與含藥物的紗布局部加壓止血，囑咐因位置問題若效果不佳還是需要重新調整或注射及照會牙科醫師。",
+    "愛心數": 7039,
+    "留言數": 537,
+    "轉發數": 174,
+    "分享數": 1091,
+    "介入類別": "X",
+    "優先順序": "低",
+    "信心分數": 0,
+    "核心問題": "分析失敗：503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "建議介入方式": "不介入",
+    "建議留言草稿": "",
+    "IG輪播主題": ""
+  },
+  {
+    "作者": "masama9413",
+    "貼文連結": "https://www.threads.net/@masama9413/post/DW_exr_j9Vk",
+    "內文": "另外我們容易在半夜、週末、連續假日出狀況，再麻煩藥在農曆年假的凌晨三點幫我包藥。什麼？你說你不營業？沒事的，我家奴才會去你店門口拍門，讓你的鄰居請你來開門。不信你去問獸醫。我一開始說了，我奴才有病。",
+    "愛心數": 5095,
+    "留言數": 311,
+    "轉發數": 482,
+    "分享數": 458,
+    "介入類別": "X",
+    "優先順序": "低",
+    "信心分數": 10,
+    "核心問題": "",
+    "建議介入方式": "不介入",
+    "建議留言草稿": "",
+    "IG輪播主題": ""
+  },
+  {
+    "作者": "mailbox0402",
+    "貼文連結": "https://www.threads.net/@mailbox0402/post/DE_8LUkTu0_",
+    "內文": "因為去年換到竹科工作， 上網搜尋發現新竹馬偕腦神經內科， ‘’許彥瑋‘’醫師的頭痛門診， 一開始跟許醫師講我這幾年就診跟用藥經驗， 他很有耐心的聽我說完後，開始問診， 接著問了我十幾個問題後， 他微笑跟我說： 首先，我不會安排你做那些精密檢查， 你的頭痛病因來自於你的腦後跟肌肉的緊繃， 造成的拉扯性頭痛， 我一樣會開藥給你，但治標不治本， 接著許醫師教我做一些舒緩的動作還有肩頸沖熱水澡放鬆的方式， 其實當下覺得很不可思議， 畢竟這個問題困擾了我很久很久， 不過我認為要相信專業， 開始配合醫師的建議，沒想到真的大幅改善！！我現在已經幾週甚至1-2個月才會發作一次，而且我已經不需要依賴藥物，用熱敷跟外用藥膏來緩解我腦後跟頸部肌肉來舒緩頭痛。",
+    "愛心數": 2702,
+    "留言數": 193,
+    "轉發數": 182,
+    "分享數": 3150,
+    "介入類別": "X",
+    "優先順序": "低",
+    "信心分數": 0,
+    "核心問題": "分析失敗：503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "建議介入方式": "不介入",
+    "建議留言草稿": "",
+    "IG輪播主題": ""
+  },
+  {
+    "作者": "huahua101",
+    "貼文連結": "https://www.threads.net/@huahua101/post/DWt9e-mk-at",
+    "內文": "第一次使用時，身心從戰慄狀態逐漸轉為全身肌肉放鬆、精神安定鬆弛的時間只需20分鐘，讓我當時心想：「這藥未免也太神奇了吧！」一方面很驚艷於它的速效，一方面更警惕這類藥物將會帶來的依賴感。也怕如果平時有使用，真正需要時的藥效就會大幅降低，於是一直以來都只有乘坐飛機前才使用。",
+    "愛心數": 2141,
+    "留言數": 256,
+    "轉發數": 430,
+    "分享數": 2660,
+    "介入類別": "X",
+    "優先順序": "低",
+    "信心分數": 0,
+    "核心問題": "分析失敗：503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "建議介入方式": "不介入",
+    "建議留言草稿": "",
+    "IG輪播主題": ""
+  },
+  {
+    "作者": "greattree_tw",
+    "貼文連結": "https://www.threads.net/@greattree_tw/post/DW-eZz3CVG5",
+    "內文": "動物用藥新制 並非由大樹藥局推動、主導或提案 greattree.com.tw/new/4…   翻譯",
+    "愛心數": 748,
+    "留言數": 2205,
+    "轉發數": 116,
+    "分享數": 1446,
+    "介入類別": "X",
+    "優先順序": "低",
+    "信心分數": 0,
+    "核心問題": "分析失敗：503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
+    "建議介入方式": "不介入",
+    "建議留言草稿": "",
+    "IG輪播主題": ""
+  }
+];
+// DASHBOARD_DATA_END
+
+const PRIORITY_ORDER = {高:0,中:1,低:2};
+const CAT_LABEL = {A:"A",B:"B",C:"C",D:"D",X:"X"};
+
+const app = (() => {
+  let filtered = [...ALL_DATA];
+  let sortCol = "優先順序", sortDir = 1;
+  let chartCat, chartPri;
+
+  function init(){
+    filtered = [...ALL_DATA];
+    renderTable();
+    updateKPIs();
+    try { buildCharts(); } catch (e) { console.warn("Chart init failed:", e); }
+    updateCharts();
+    document.getElementById("footer-date").textContent =
+      "資料更新：" + new Date().toLocaleDateString("zh-TW");
+    const total = ALL_DATA.length;
+    document.getElementById("sub-title").textContent =
+      `共 ${total} 筆貼文`;
+  }
+
+  function buildCharts(){
+    if (typeof Chart === "undefined") return;
+    const cats = ["A","B","C","D","X"];
+    const catCounts = cats.map(c => ALL_DATA.filter(r=>r.介入類別===c).length);
+    const catColors = ["#c0392b","#e67e22","#f1c40f","#16a085","#bdc3c7"];
+
+    const ctx1 = document.getElementById("chart-cat").getContext("2d");
+    chartCat = new Chart(ctx1,{type:"doughnut",data:{
+      labels:["A 錯誤用藥","B 詢問藥品","C 高傳播","D 正面形象","X 不介入"],
+      datasets:[{data:catCounts,backgroundColor:catColors,borderWidth:2,borderColor:"#fff"}]
+    },options:{responsive:true,maintainAspectRatio:false,cutout:"60%",
+      plugins:{legend:{position:"right",labels:{font:{size:12},padding:10}}}}});
+
+    const pris = ["高","中","低"];
+    const priCounts = pris.map(p => ALL_DATA.filter(r=>r.優先順序===p).length);
+    const priColors = ["#c0392b","#e67e22","#6c757d"];
+    const ctx2 = document.getElementById("chart-pri").getContext("2d");
+    chartPri = new Chart(ctx2,{type:"bar",data:{
+      labels:pris,
+      datasets:[{label:"筆數",data:priCounts,backgroundColor:priColors,borderRadius:6}]
+    },options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{y:{beginAtZero:true,ticks:{stepSize:1}},x:{grid:{display:false}}}}});
+  }
+
+  function updateCharts(){
+    if(!chartCat || !chartPri) return;
+    const cats = ["A","B","C","D","X"];
+    chartCat.data.datasets[0].data = cats.map(c=>filtered.filter(r=>r.介入類別===c).length);
+    chartCat.update("none");
+    const pris = ["高","中","低"];
+    chartPri.data.datasets[0].data = pris.map(p=>filtered.filter(r=>r.優先順序===p).length);
+    chartPri.update("none");
+  }
+
+  function updateKPIs(){
+    const d = filtered;
+    document.getElementById("k-total").textContent = d.length;
+    document.getElementById("k-a").textContent = d.filter(r=>r.介入類別==="A").length;
+    document.getElementById("k-b").textContent = d.filter(r=>r.介入類別==="B").length;
+    document.getElementById("k-c").textContent = d.filter(r=>r.介入類別==="C").length;
+    document.getElementById("k-high").textContent = d.filter(r=>r.優先順序==="高").length;
+    const confs = d.map(r=>r.信心分數).filter(Boolean);
+    const avg = confs.length ? (confs.reduce((a,b)=>a+b,0)/confs.length).toFixed(1) : "—";
+    document.getElementById("k-conf").textContent = avg;
+  }
+
+  function renderTable(){
+    const sorted = [...filtered].sort((a,b)=>{
+      const av=a[sortCol], bv=b[sortCol];
+      if(sortCol==="優先順序") return sortDir*(PRIORITY_ORDER[av]||9) - sortDir*(PRIORITY_ORDER[bv]||9);
+      if(typeof av==="number") return sortDir*(av-bv);
+      return sortDir*String(av||"").localeCompare(String(bv||""),"zh-TW");
+    });
+    document.getElementById("tbl-count").textContent = sorted.length;
+    const rows = sorted.map(r=>`
+      <tr>
+        <td><a href="${r.貼文連結}" target="_blank">${esc(r.作者)}</a></td>
+        <td><div class="txt-clamp">${esc(r.內文)}</div></td>
+        <td style="text-align:center">${r.愛心數}</td>
+        <td style="text-align:center">${r.留言數}</td>
+        <td><span class="badge badge-${r.介入類別}">${r.介入類別}</span></td>
+        <td><span class="badge badge-${r.優先順序}">${r.優先順序}</span></td>
+        <td style="text-align:center">${r.信心分數}</td>
+        <td><div class="txt-clamp">${esc(r.核心問題)}</div></td>
+        <td><div class="txt-clamp">${esc(r.建議留言草稿)}</div></td>
+      </tr>`).join("");
+    document.getElementById("tbl-body").innerHTML = rows;
+  }
+
+  function esc(s){ return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;") }
+
+  function render(){
+    updateKPIs();
+    renderTable();
+    updateCharts();
+  }
+
+  function filter(){
+    const cat = document.getElementById("f-cat").value;
+    const pri = document.getElementById("f-pri").value;
+    const kw  = document.getElementById("f-kw").value.trim().toLowerCase();
+    filtered = ALL_DATA.filter(r=>{
+      if(cat && r.介入類別!==cat) return false;
+      if(pri && r.優先順序!==pri) return false;
+      if(kw && !r.內文.toLowerCase().includes(kw) && !r.作者.toLowerCase().includes(kw) && !r.核心問題.toLowerCase().includes(kw)) return false;
+      return true;
+    });
+    render();
+  }
+
+  function reset(){
+    document.getElementById("f-cat").value="";
+    document.getElementById("f-pri").value="";
+    document.getElementById("f-kw").value="";
+    filtered=[...ALL_DATA]; render();
+  }
+
+  function sort(col){
+    if(sortCol===col) sortDir*=-1;
+    else { sortCol=col; sortDir=1; }
+    renderTable();
+  }
+
+  return {init,filter,reset,sort};
+})();
+
+window.app = app;
+window.addEventListener("DOMContentLoaded", app.init);
+</script>
+</body>
+</html>
