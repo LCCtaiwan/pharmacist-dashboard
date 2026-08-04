@@ -99,3 +99,6 @@ GAS 排程或 GitHub Actions → 擷取來源 → 正規化／關鍵字分類 �
 - C-011 遠端驗證：Run 6 workflow conclusion `success`；同步步驟輸出 `sheet sync: ok (15 courses, 2026-01, 2026-02, 2026-03, 2026-04, 2026-05, 2026-06, 2026-07, 2026-08)`。
 - C-012：`Api.gs` 改為優先讀取 `Courses_All`／`Sources_Actions`，讓 GAS 儀表板與 Actions 採集結果共用同一份資料。
 - C-012 驗證：GAS Web App 第 17 版實機顯示「GAS 即時資料」，來源狀態列出 Actions 的 3 個來源；本機行為測試新增 Actions 資料優先讀取案例並通過。
+- C-013：移除 GAS API 依 `courseLookbackDays` 的 14 天截斷；設定表 `Settings!B7` 改為 0，保留完整 `Courses_All` 歷史資料。
+- C-013：GAS 與 GitHub Pages 前端預設不勾選「只顯示尚未結束」，清除篩選會顯示全部課程；該勾選仍可用於使用者自行篩選。
+- C-013 驗證：GAS Web App 第 19 版正式 `/exec` 顯示 15 堂課；本機 `node tests/gas-behavior.mjs`、`node tests/validate.mjs`、`node tests/collector.mjs`、`git diff --check` 全部通過。
