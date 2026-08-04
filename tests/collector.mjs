@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
-import { buildFeed, classifyRare, parsePublicCourseHtml, parseRss, parseTaiwanPharmacyHtml } from '../scripts/collect-public-courses.mjs';
+import { buildFeed, classifyRare, parseDate, parsePublicCourseHtml, parseRss, parseTaiwanPharmacyHtml } from '../scripts/collect-public-courses.mjs';
 
 const source = { sourceId: 'test', name: '測試來源', url: 'https://example.test/feed' };
 assert.equal(classifyRare('感染管制藥事實務').rareStatus, '稀有學分');
 assert.equal(classifyRare('藥事人員繼續教育').rareStatus, '一般課程');
+assert.match(parseDate('2026/08/20'), /^2026-08-19T16:00:00/);
+assert.match(parseDate('115/08/20'), /^2026-08-19T16:00:00/);
 
 const rss = parseRss('<rss><channel><item><title>醫療倫理與法規</title><link>https://example.test/course</link><pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate><description>繼續教育</description></item></channel></rss>', source);
 assert.equal(rss.length, 1);
