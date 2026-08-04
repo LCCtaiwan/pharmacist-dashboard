@@ -42,7 +42,7 @@ for (const file of gasFiles) {
   }
 }
 assert(
-  JSON.stringify(publicServerFunctions.sort()) === JSON.stringify(['doGet', 'getDashboardData', 'onOpen']),
+  JSON.stringify(publicServerFunctions.sort()) === JSON.stringify(['doGet', 'doPost', 'getDashboardData', 'onOpen']),
   `GAS 公開函式超出唯讀允許清單：${publicServerFunctions.join(', ')}`
 );
 
