@@ -1,6 +1,26 @@
 # 操作與維護手冊
 
-## 一、建立 GAS 後端
+目前正式方案只使用 GitHub Actions＋GitHub Pages；`gas/` 是舊版備份，不需要部署或操作。
+
+## 一、啟用 GitHub Actions＋Pages
+
+1. 開啟儲存庫的 **Actions**，確認允許工作流執行。
+2. 執行 `Collect pharmacist courses` → **Run workflow** → branch 選 `main`。
+3. 工作流會抓公開來源、自動分類稀有學分，產生 `web/data/courses.json` 與 `web/data/feed.xml`。
+4. 到 Settings → Pages，Source 選 **GitHub Actions**。
+5. `Deploy pharmacist dashboard` 會發布 `web/`；之後每次採集完成會自動重新部署。
+
+來源抓取失敗時會保留上一版資料並記錄來源錯誤，不會要求人工審核。
+
+## 二、啟用 Google Sheet 月份記錄（可選）
+
+1. 將 `gas/` 加入 Apps Script 專案並部署為 Web App，存取權限選「所有人」。這個 GAS 只接收 Actions 同步，不執行網站採集。
+2. 在試算表重新整理，從「稀有學分儀表板」選單執行「設定 GitHub Sheet 同步」，複製顯示的 URL 與 Token。
+3. 在 GitHub Settings → Secrets and variables → Actions 新增 `GAS_SYNC_URL` 與 `GAS_SYNC_TOKEN`。
+4. 下一次 Actions 執行會自動建立／更新：`Courses_All`、`2026-08` 等年月分頁、`Sources_Actions`、`RunHistory`。
+5. 年月分頁以課程開始日期為主；若沒有課程日期，標記為「公告／更新日期」。歷史年月分頁不會因新年度而被刪除。
+
+## 三、舊版 GAS 備份（目前不使用）
 
 1. 建立一份新的 Google Sheet，例如「藥師稀有學分資料庫」。
 2. 在試算表選「擴充功能 → Apps Script」。
@@ -10,13 +30,13 @@
 
 系統只蒐集與顯示課程，不會寄送 Email。
 
-## 二、啟用持續更新
+## 四、GAS 舊版持續更新
 
 1. 從試算表選單執行「立即更新公開來源」，確認 `Courses` 與 `Sources` 有更新。
 2. 執行「安裝自動更新排程」。預設每 6 小時更新一次；重複執行會先移除舊排程，再建立一個新排程。
 3. 日後仍可隨時使用「立即更新公開來源」手動更新。
 
-## 三、部署 GAS Web App
+## 五、部署 GAS Web App（舊版）
 
 1. Apps Script 右上角選「部署 → 新部署 → 網頁應用程式」。
 2. 執行身分選「我」。
@@ -27,7 +47,7 @@
 
 GAS 儀表板透過 `google.script.run` 讀取資料；API 仍支援 JSON、JSONP 與 RSS，供外部唯讀整合使用。RSS 是從 `Courses` 工作表目前已收集的課程產生，不代表已能自動抓到台灣藥學會全部新課程。
 
-## 四、同步儀表板並保存至 GitHub
+## 六、同步舊版 GAS 畫面
 
 1. 若有修改 `web/index.html`、`web/styles.css` 或 `web/app.js`，先執行 `node scripts/sync-gas-dashboard.mjs`。
 2. 將更新後的 `gas/Dashboard.html`、`gas/Styles.html`、`gas/Client.html` 貼回 Apps Script 專案並建立新部署版本。
@@ -36,7 +56,7 @@ GAS 儀表板透過 `google.script.run` 讀取資料；API 仍支援 JSON、JSON
 
 `web/` 保留為畫面開發來源與本機預覽；未連接 GAS 時會讀取 `demo-data.json`，但正式服務只使用 GAS Web App。
 
-## 五、自動彙整與分類
+## 七、自動彙整與分類
 
 - 課程每次匯入都會依課名與內容關鍵字自動標示「稀有學分」或「一般課程」。
 - 來源未提供的積分、費用、名額與截止日會顯示為「未提供」，不填入推測值。
@@ -51,7 +71,7 @@ GAS 儀表板透過 `google.script.run` 讀取資料；API 仍支援 JSON、JSON
 4. GitHub Pages 前端讀取 `data/courses.json`；若尚未有檔案，會退回範例資料，之後下一次工作流自動換成真實資料。
 5. `Deploy pharmacist dashboard` 會把 `web/` 發布到 GitHub Pages；第一次啟用時，在儲存庫 Settings → Pages 將來源交給 GitHub Actions。
 
-## 六、來源故障與復原
+## 八、來源故障與復原
 
 - `Sources.lastError` 有內容：代表最近一次自動擷取失敗。
 - 擷取失敗不會刪除 `Courses` 舊資料。
@@ -60,14 +80,14 @@ GAS 儀表板透過 `google.script.run` 讀取資料；API 仍支援 JSON、JSON
 - GAS 仍會對需要登入或未提供可公開介面的來源顯示「未自動匯入」；這表示來源不可由公開工作流取得，不是要求使用者做審核。
 - 修正解析器或來源網址後，可在 GitHub Actions 以 `Run workflow` 立即重試。
 
-## 七、資料安全
+## 九、資料安全
 
 - 公開 API 不回傳 `Settings`。
 - 名稱以 `_` 結尾的初始化、更新與排程管理函式不會暴露給 `google.script.run`；公開 client 只可取得唯讀課程 payload。
 - 不要把 Google Sheet ID、登入資訊或 API 金鑰放入 `web/`、`gas/` 或 GitHub。
 - GAS Web App 的公開頁面與 JSON API 都應視為公開資料。
 
-## 八、本機驗證
+## 十、本機驗證
 
 在專案根目錄執行下列命令，不需 Google 帳號或網路連線：
 
