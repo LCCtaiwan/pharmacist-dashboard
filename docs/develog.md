@@ -97,3 +97,5 @@ GAS 排程或 GitHub Actions → 擷取來源 → 正規化／關鍵字分類 �
 - C-010 遠端驗證：修正 `await page.content()` 後，Actions 成功產生 15 堂課與 RSS；台灣藥學會仍回報未解析到課程列，桃園／青藥 RSS 正常。
 - C-011：新增 Actions → GAS → Google Sheet 單向同步；依課程年月自動建立 `Courses_All` 與 `YYYY-MM` 分頁，並記錄來源狀態與每次執行歷史。
 - C-011 遠端驗證：Run 6 workflow conclusion `success`；同步步驟輸出 `sheet sync: ok (15 courses, 2026-01, 2026-02, 2026-03, 2026-04, 2026-05, 2026-06, 2026-07, 2026-08)`。
+- C-012：`Api.gs` 改為優先讀取 `Courses_All`／`Sources_Actions`，讓 GAS 儀表板與 Actions 採集結果共用同一份資料。
+- C-012 驗證：GAS Web App 第 17 版實機顯示「GAS 即時資料」，來源狀態列出 Actions 的 3 個來源；本機行為測試新增 Actions 資料優先讀取案例並通過。
