@@ -6,7 +6,7 @@
 
 - 修正 GAS API 不再依 14 天設定截斷 `Courses_All` 歷史課程；Google Sheet `Settings!B7` 改為 0。
 - 修正 GAS 與 GitHub Pages 儀表板預設顯示全部課程，「只顯示尚未結束」保留為可選篩選，清除篩選也會回到全部課程。
-- GAS Web App 第 19 版實機顯示 15 堂同步課程；本機 GAS 行為、資料契約、採集器與 diff 檢查全部通過。
+- GAS Web App 第 19 版實機顯示 15 堂同步課程；GitHub Pages 已改由 GitHub Actions 發布並實機顯示 15 堂課；本機 GAS 行為、資料契約、採集器與 diff 檢查全部通過。
 
 ## v0.6.0 — 2026-08-04
 
