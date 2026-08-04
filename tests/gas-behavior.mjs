@@ -4,7 +4,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 
 const root = path.resolve(import.meta.dirname, '..');
-const gasFiles = ['Config.gs', 'Utils.gs', 'Courses.gs', 'Setup.gs', 'Sources.gs', 'Api.gs'];
+const gasFiles = ['Config.gs', 'Utils.gs', 'Courses.gs', 'Setup.gs', 'Sources.gs', 'Api.gs', 'SheetSync.gs'];
 
 class FakeRange {
   constructor(sheet, row, column, rows = 1, columns = 1) {
@@ -29,6 +29,7 @@ class FakeRange {
   }
 
   setValue(value) { return this.setValues([[value]]); }
+  clearContent() { this.sheet.values = this.sheet.values.slice(0, this.row - 1); return this; }
   setBackground() { return this; }
   setFontColor() { return this; }
   setFontWeight() { return this; }
@@ -50,6 +51,7 @@ class FakeSheet {
   }
   setFrozenRows() {}
   autoResizeColumns() {}
+  appendRow(row) { this.values.push(row); return this; }
   valueAt(row, column) { return (this.values[row - 1] || [])[column - 1] ?? ''; }
   setValueAt(row, column, value) {
     while (this.values.length < row) this.values.push([]);
@@ -89,6 +91,7 @@ function createRuntime() {
     },
     Utilities: {
       formatDate: (date) => new Date(date).toISOString(),
+      getUuid: () => 'uuid-test',
       computeDigest: () => Array(32).fill(1),
       DigestAlgorithm: { SHA_256: 'sha256' },
       Charset: { UTF_8: 'utf8' }
@@ -97,6 +100,7 @@ function createRuntime() {
       MimeType: { JSON: 'application/json', JAVASCRIPT: 'application/javascript', XML: 'application/xml' },
       createTextOutput: (text) => ({ text, mimeType: '', setMimeType(mimeType) { this.mimeType = mimeType; return this; } })
     },
+    ScriptApp: { getService: () => ({ getUrl: () => 'https://script.google.com/macros/s/fake/exec' }) },
     HtmlService: {
       createTemplateFromFile: (filename) => ({
         evaluate: () => ({
@@ -119,6 +123,30 @@ function createRuntime() {
     properties,
     setActiveSpreadsheet: (value) => { activeSpreadsheet = value; }
   };
+}
+
+function sheetSyncTest() {
+  const runtime = createRuntime();
+  runtime.properties.set('SHEET_SYNC_TOKEN', 'secret');
+  const unauthorized = runtime.context.doPost({ postData: { contents: JSON.stringify({ syncToken: 'wrong' }) } });
+  assert.equal(JSON.parse(unauthorized.text).ok, false);
+  const payload = {
+    schemaVersion: 1,
+    generatedAt: '2026-08-04T03:00:00.000Z',
+    courses: [
+      { courseId: 'a', title: '倫理課程', category: '專業倫理', rareStatus: '稀有學分', startAt: '2026-08-09T01:00:00.000Z', sourceId: 'source-a' },
+      { courseId: 'b', title: '一般課程', rareStatus: '一般課程', startAt: '2027-01-10T01:00:00.000Z', sourceId: 'source-a' }
+    ],
+    sources: [{ sourceId: 'source-a', status: 'ok' }],
+    syncToken: 'secret'
+  };
+  const response = runtime.context.doPost({ postData: { contents: JSON.stringify(payload) } });
+  const result = JSON.parse(response.text);
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.monthKeys, ['2026-08', '2027-01']);
+  assert.equal(runtime.spreadsheet.getSheetByName('Courses_All').getLastRow(), 3);
+  assert.equal(runtime.spreadsheet.getSheetByName('2026-08').getLastRow(), 2);
+  assert.equal(runtime.spreadsheet.getSheetByName('2027-01').getLastRow(), 2);
 }
 
 function objectFromRow(headers, row) {
@@ -281,6 +309,7 @@ function failedFetchKeepsCoursesTest() {
   assert.match(String(objectFromRow(sourceHeaders, sourcesSheet.values[1]).lastError), /不支援/);
 }
 
+sheetSyncTest();
 initializeAndBindTest();
 upsertAutoClassificationTest();
 apiJsonAndJsonpTest();
@@ -288,4 +317,4 @@ apiRssTest();
 taiwanPharmacyPaginationTest();
 taiwanPharmacy403Test();
 failedFetchKeepsCoursesTest();
-console.log('gas behavior: ok (initialization, automatic rare classification, API, Taiwan Pharmacy pagination/403, scheduled refresh, failed fetch)');
+console.log('gas behavior: ok (initialization, automatic rare classification, Sheet month sync, API, Taiwan Pharmacy pagination/403, scheduled refresh, failed fetch)');
