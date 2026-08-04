@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "collect": "node scripts/collect-public-courses.mjs",
+    "sync:sheet": "node scripts/sync-sheet.mjs",
     "test:collector": "node tests/collector.mjs"
   }
 }
