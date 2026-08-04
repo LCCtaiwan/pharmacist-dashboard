@@ -37,5 +37,5 @@
 - C-010 修正驗收：`page.content()` 改為 await 後，最新 Actions 採集成功；台灣藥學會標記 error 並保留空資料，其他兩個 RSS 正常。
 - C-011 正式驗收：GAS 第 16 版部署同步橋接；GitHub Secrets `GAS_SYNC_URL`／`GAS_SYNC_TOKEN` 已設定；Actions Run 6 成功寫入 15 堂課、2026-01～2026-08 月份分頁、`Sources_Actions` 與 `RunHistory`。
 - C-012 正式驗收：GAS 第 17 版儀表板優先讀取 `Courses_All`／`Sources_Actions`；同一個 `/exec` 顯示 GAS 即時資料與 Actions 來源狀態。
-- C-013 正式驗收：GAS 第 19 版移除 API 的 14 天歷史課程截斷，前端預設顯示全部課程；正式 `/exec` 實測 15 堂課，仍可勾選「只顯示尚未結束」篩選。
+- C-013 正式驗收：GAS 第 19 版移除 API 的 14 天歷史課程截斷，前端預設顯示全部課程；正式 `/exec` 實測 15 堂課，仍可勾選「只顯示尚未結束」篩選；GitHub Pages 已切換為 GitHub Actions 來源並實測 15 堂課。
 - C-013 Sheet 設定：`Settings!B7` 改為 0，`Settings!C7` 註明保留全部歷史課程；GitHub Pages 前端同步改為相同預設行為。
