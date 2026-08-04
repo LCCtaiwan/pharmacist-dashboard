@@ -26,10 +26,40 @@ export const SOURCES = [
     browserFallback: true
   },
   {
+    sourceId: 'taiwan-pharmacy-news',
+    name: '台灣藥學會－繼續教育消息',
+    kind: 'html',
+    url: 'https://www.pharm.org.tw/news/index.asp?Type=14'
+  },
+  {
     sourceId: 'taoyuan-pharmacists',
     name: '桃園市藥師公會持續教育',
     kind: 'rss',
     url: 'https://www.pharmacist.org.tw/category/%E2%9E%AA%E6%8C%81%E7%BA%8C%E6%95%99%E8%82%B2%E5%B0%88%E5%8D%80/%E4%B8%8A%E8%AA%B2%E8%B3%87%E8%A8%8A/%E5%85%AC%E6%9C%83%E6%8C%81%E7%BA%8C%E6%95%99%E8%82%B2/feed/'
+  },
+  {
+    sourceId: 'tccpa-pharmacists',
+    name: '臺中市藥師公會公開課程',
+    kind: 'html',
+    url: 'https://www.tccpa.org.tw/web/index.html'
+  },
+  {
+    sourceId: 'kpa-pharmacists',
+    name: '高雄市藥師公會公開活動',
+    kind: 'html',
+    url: 'https://www.kpa.org.tw/'
+  },
+  {
+    sourceId: 'tainan-nanying-pharmacists',
+    name: '臺南市南瀛藥師公會公告',
+    kind: 'html',
+    url: 'https://www.tainan-pharmacist.org.tw/bulletin.php'
+  },
+  {
+    sourceId: 'vghtpe-pharmacy',
+    name: '臺北榮總藥學部繼續教育',
+    kind: 'html',
+    url: 'https://www.vghtpe.gov.tw/pharm/images/sg/Fpage.action?fid=19142&muid=21303'
   },
   {
     sourceId: 'young-pharmacists',
@@ -151,6 +181,50 @@ export function parseTaiwanPharmacyHtml(html, source) {
   return rows;
 }
 
+function absoluteUrl(href, baseUrl) {
+  try {
+    const url = new URL(String(href || ''), baseUrl);
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+  } catch (_) {
+    return '';
+  }
+}
+
+function extractDateRange(text) {
+  const matches = [...String(text || '').matchAll(/(?:民國\s*)?(\d{2,4})\s*[./年-]\s*(\d{1,2})\s*[./月-]\s*(\d{1,2})\s*日?/g)];
+  if (!matches.length) return { startAt: '', endAt: '' };
+  const toIso = (match) => parseDate(`${match[1]}/${match[2]}/${match[3]}`);
+  return { startAt: toIso(matches[0]), endAt: toIso(matches[1] || matches[0]) };
+}
+
+export function parsePublicCourseHtml(html, source) {
+  const rows = [];
+  const anchors = /<a\b[^>]*href\s*=\s*["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const courseWords = /課程|課|研習|教育|學分|藥事|藥師|講座|學術|培訓|訓練|研討|webinar|seminar/i;
+  for (const match of String(html).matchAll(anchors)) {
+    const title = stripHtml(match[2]);
+    if (!title || title.length < 4 || !courseWords.test(title)) continue;
+    const start = Math.max(0, match.index - 500);
+    const end = Math.min(String(html).length, match.index + match[0].length + 500);
+    const context = stripHtml(String(html).slice(start, end));
+    const dates = extractDateRange(context);
+    const credit = context.match(/(\d+(?:\.\d+)?)\s*(?:點|積分|學分)/);
+    const deliveryMode = /線上|視訊|直播|遠距|webinar/i.test(context) ? '線上' : /實體|現場/i.test(context) ? '實體' : '未提供';
+    rows.push(normalizeCourse({
+      title,
+      description: context,
+      startAt: dates.startAt,
+      endAt: dates.endAt,
+      creditPoints: credit ? Number(credit[1]) : null,
+      deliveryMode,
+      sourceUrl: absoluteUrl(match[1], source.url)
+    }, source));
+  }
+  const unique = new Map();
+  for (const row of rows) unique.set(row.courseId, row);
+  return [...unique.values()];
+}
+
 async function fetchText(url) {
   const response = await fetch(url, {
     headers: { 'user-agent': USER_AGENT, accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' },
@@ -177,8 +251,13 @@ async function fetchBrowserText(url) {
 async function fetchSource(source) {
   try {
     const text = await fetchText(source.url);
-    const courses = source.kind === 'rss' ? parseRss(text, source) : parseTaiwanPharmacyHtml(text, source);
+    const courses = source.kind === 'rss'
+      ? parseRss(text, source)
+      : source.kind === 'taiwan_pharmacy_society'
+        ? parseTaiwanPharmacyHtml(text, source)
+        : parsePublicCourseHtml(text, source);
     if (source.browserFallback && !courses.length) throw new Error('未解析到課程列');
+    if (!courses.length) throw new Error('未解析到公開課程候選');
     return courses;
   } catch (error) {
     if (!source.browserFallback) throw error;
