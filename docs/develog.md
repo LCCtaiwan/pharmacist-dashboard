@@ -91,3 +91,4 @@ GAS 排程或 GitHub Actions → 擷取來源 → 正規化／關鍵字分類 �
 - C-009 已完成：公開 RSS 可供訂閱；內容仍只反映 `Courses` 工作表已收集資料。
 - C-010 已完成：採集器與兩個 workflow 已建立；本機驗證通過，並已推送至 `LCCtaiwan/pharmacist-dashboard` 的 `main`；遠端 Actions 首次資料產生尚待確認。
 - C-010 handover：共享 handover SQLite 因資料庫路徑無法開啟，寫入失敗；本地 `PROGRESS.md`／`CHANGELOG.md`／本檔已保存 checkpoint。
+- C-010 遠端驗證：修正 `await page.content()` 後，Actions 成功產生 15 堂課與 RSS；台灣藥學會仍回報未解析到課程列，桃園／青藥 RSS 正常。
