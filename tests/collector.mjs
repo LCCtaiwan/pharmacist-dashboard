@@ -21,6 +21,9 @@ assert.equal(publicHtml[0].sourceUrl, 'https://example.test/course/1');
 assert.equal(publicHtml[0].creditPoints, 4);
 assert.equal(publicHtml[0].deliveryMode, '實體');
 
+const archiveHtml = parsePublicCourseHtml('<article><p>25/08/29 舊公告</p><a href="/course/2">藥師繼續教育課程</a></article>', { sourceId: 'public', name: '公開公會', url: 'https://example.test/index.html' });
+assert.equal(archiveHtml[0].startAt, '');
+
 const feed = buildFeed({ title: '測試', generatedAt: '2026-08-04T00:00:00.000Z', courses: rss });
 assert.match(feed, /^<\?xml version="1\.0" encoding="UTF-8"\?><rss version="2\.0">/);
 assert.match(feed, /<item>/);
