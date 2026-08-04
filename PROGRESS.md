@@ -1,20 +1,18 @@
 # PROGRESS
 
-- Change ID: C-010
+- Change ID: C-011
 - Date: 2026-08-04
-- Scope: GitHub Actions 自動採集與 GitHub Pages 部署
-- Status: 已建立每 6 小時／手動執行的採集工作流與 Pages 部署工作流；C-010 已推送到 `LCCtaiwan/pharmacist-dashboard` 的 `main`
-- Verification: `node scripts/sync-gas-dashboard.mjs`、`node tests/validate.mjs`、`node tests/gas-behavior.mjs`、`node tests/collector.mjs`、`git diff --check` 全部通過。
+- Scope: GitHub Actions 自動採集、GitHub Pages 與 Google Sheet 月份同步
+- Status: Actions＋Pages 為主流程；GAS Web App 第 16 版已部署為同步橋接，GitHub Secrets 已設定，正式試算表已產生月份分頁。
+- Verification: Actions Run 6 成功（15 堂課、2026-01～2026-08 分頁）；`node scripts/sync-gas-dashboard.mjs`、`node tests/validate.mjs`、`node tests/gas-behavior.mjs`、`node tests/collector.mjs`、`git diff --check` 全部通過。
 
 ## In Progress
 
-- GitHub Actions 首次資料已產生：15 堂課、1 堂自動分類稀有學分；`web/data/courses.json` 與 RSS 已寫入遠端。
-- GitHub Pages 需要在 Settings → Pages 選擇 GitHub Actions；部署 workflow 已隨 C-010 推送。
-- Pages workflow 已補上 `workflow_run`，採集完成後會自動重新部署。
+- 無阻塞項目。台灣藥學會仍可能因網站拒絕自動請求而顯示來源錯誤；其他公開 RSS 來源照常更新。
 
 ## Next Step
 
-- 確認 GitHub Pages 已顯示最新 JSON；後續可再擴充不受登入限制的公開來源。
+- 日常只需查看 GitHub Pages；若要確認月份資料，可開啟正式試算表的 `Courses_All` 或 `YYYY-MM` 分頁。
 
 ## Notes
 
@@ -37,3 +35,4 @@
 - C-010 本機驗收：GitHub Actions 採集器通過稀有關鍵字分類、RSS 解析、台灣藥學會表格解析與 RSS 輸出測試；前端已改讀 `data/courses.json`，缺檔時退回範例資料。
 - C-010 遠端推送：`LCCtaiwan/pharmacist-dashboard` 的 `main` 已包含完整專案、兩個 workflow 與最新進度文件。
 - C-010 修正驗收：`page.content()` 改為 await 後，最新 Actions 採集成功；台灣藥學會標記 error 並保留空資料，其他兩個 RSS 正常。
+- C-011 正式驗收：GAS 第 16 版部署同步橋接；GitHub Secrets `GAS_SYNC_URL`／`GAS_SYNC_TOKEN` 已設定；Actions Run 6 成功寫入 15 堂課、2026-01～2026-08 月份分頁、`Sources_Actions` 與 `RunHistory`。
