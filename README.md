@@ -1,6 +1,6 @@
 # 台灣藥師稀有學分課程儀表板
 
-以 Google Apps Script（GAS）與 GitHub Actions 定時蒐集公開課程來源，並提供行動裝置友善的查詢儀表板。GAS 版本維護 Google Sheet；GitHub Pages 版本直接讀取 Actions 產生的 JSON，兩者都使用相同的自動關鍵字分類。
+以 GitHub Actions 定時蒐集公開課程來源，並由 GitHub Pages 提供行動裝置友善的查詢儀表板。Actions 產生 JSON／RSS，Pages 直接讀取；GAS 只作為可選的 Google Sheet 同步橋接，不負責抓網站。
 
 ## 專案範圍
 
@@ -14,7 +14,7 @@
 
 ## 重要路徑
 
-- `gas/`：可直接部署的 Google Apps Script 工作流與儀表板。
+- `gas/`：Sheet 同步橋接與舊版 GAS 備份；不負責目前的網站採集。
 - `web/`：儀表板的開發來源與本機範例預覽。
 - `scripts/sync-gas-dashboard.mjs`：把 `web/` 的畫面同步進 `gas/`。
 - `scripts/collect-public-courses.mjs`：GitHub Actions 的公開來源採集器與 RSS 產生器。
@@ -29,9 +29,10 @@
 
 ## 上線摘要
 
-1. 建立 Google Sheet，將 `gas/` 內檔案加入綁定的 Apps Script 專案。
-2. 回到試算表重新整理，從「稀有學分儀表板」選單執行「初始化／修復工作表」及「安裝自動更新排程」，再部署為 Web App。
-3. 開啟 Web App `/exec` 網址即可看到儀表板；`?format=json` 提供唯讀 JSON，`?format=rss` 提供由目前 Courses 工作表產生的 RSS。
-4. 將專案放入 GitHub 後，啟用 Actions；工作流會更新 `web/data/`，GitHub Pages 便可直接顯示自動彙整結果。
+1. 在 GitHub Actions 執行 `Collect pharmacist courses`。
+2. 在 GitHub Settings → Pages 選擇 GitHub Actions。
+3. 開啟 GitHub Pages 網址；工作流會更新 `web/data/`，頁面自動顯示最新資料。
+
+若要記錄到 Google Sheet：在 GAS 專案執行「設定 GitHub Sheet 同步」，將顯示的 URL／Token 存成 GitHub Secrets `GAS_SYNC_URL`、`GAS_SYNC_TOKEN`。之後 Actions 會自動寫入 `Courses_All`、年月分頁、`Sources_Actions` 與 `RunHistory`。
 
 完整步驟見 `docs/OPERATIONS.md`。
