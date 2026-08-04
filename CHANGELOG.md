@@ -10,6 +10,7 @@
 - 產生 `web/data/courses.json` 與 `web/data/feed.xml`，GitHub Pages 直接讀 JSON；缺檔時退回範例資料。
 - 新增採集器單元測試與 Actions workflow；本機驗證全部通過，並已推送到 `LCCtaiwan/pharmacist-dashboard` 的 `main`。
 - 新增 Pages workflow，將 `web/` 發布為 GitHub Pages 儀表板。
+- Pages workflow 會在採集 workflow 完成後觸發，避免 Actions bot 提交資料時漏掉部署。
 
 ## v0.5.0 — 2026-08-03
 
