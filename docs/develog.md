@@ -89,5 +89,5 @@ GAS 排程或 GitHub Actions → 擷取來源 → 正規化／關鍵字分類 �
 - 尚待：Sol 最終驗收；確認 GitHub 儲存庫名稱與可見性後推送。
 - C-007 尚待：網站端提供 RSS／API、允許 Google UrlFetch IP，或使用者核准外部抓取層；在此之前台灣藥學會維持人工覆核狀態。
 - C-009 已完成：公開 RSS 可供訂閱；內容仍只反映 `Courses` 工作表已收集資料。
-- C-010 已完成：採集器與兩個 workflow 已建立；本機驗證通過，尚未推送或執行遠端 Actions。
+- C-010 已完成：採集器與兩個 workflow 已建立；本機驗證通過，並已推送至 `LCCtaiwan/pharmacist-dashboard` 的 `main`；遠端 Actions 首次資料產生尚待確認。
 - C-010 handover：共享 handover SQLite 因資料庫路徑無法開啟，寫入失敗；本地 `PROGRESS.md`／`CHANGELOG.md`／本檔已保存 checkpoint。
