@@ -11,6 +11,7 @@
 - 新增採集器單元測試與 Actions workflow；本機驗證全部通過，並已推送到 `LCCtaiwan/pharmacist-dashboard` 的 `main`。
 - 新增 Pages workflow，將 `web/` 發布為 GitHub Pages 儀表板。
 - Pages workflow 會在採集 workflow 完成後觸發，避免 Actions bot 提交資料時漏掉部署。
+- 修正 Playwright fallback 在 `page.content()` 尚未完成前關閉瀏覽器的錯誤；最新採集成功產生 15 堂課，其中 1 堂稀有學分。
 
 ## v0.5.0 — 2026-08-03
 
