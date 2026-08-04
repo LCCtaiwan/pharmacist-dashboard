@@ -4,6 +4,7 @@ function onOpen() {
     .addItem('初始化／修復工作表', 'setupProject_')
     .addItem('立即更新公開來源', 'refreshAllSources_')
     .addItem('安裝自動更新排程', 'installRefreshTrigger_')
+    .addItem('設定 GitHub Sheet 同步', 'setupSheetSyncToken_')
     .addToUi();
 }
 
