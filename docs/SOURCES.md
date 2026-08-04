@@ -24,6 +24,7 @@
 | 優先級 | 來源 | 公開程度 | 建議更新方式 | 網址 |
 |---|---|---|---|---|
 | 1 | 台灣藥學會繼續教育申請 | 公開課程／審查清單 | GitHub Actions 先以原生請求，403／空頁時再用瀏覽器擷取；仍受網站反爬限制時保留上一版資料 | https://www.pharm.org.tw/score/applyList.asp |
+| 1 | 台灣藥學會繼續教育消息 | 公開消息頁 | GitHub Actions 以公開 HTML 連結自動擷取課程候選 | https://www.pharm.org.tw/news/index.asp?Type=14 |
 | 1 | 衛福部繼續教育積分系統 | 權威查核，部分功能需登入 | 人工查核課程採認與個人入帳 | https://cec.mohw.gov.tw/ |
 | 1 | 藥師公會全聯會線上繼續教育 | 需會員登入 | 登入後人工補登 | https://taiwan-pharma.formosasoft.com/index/login?next=%2Fcourse%2Flatest |
 | 2 | 台灣臨床藥學會課程查詢 | 公開動態頁面 | 每日人工查詢或未來新增專用介接器 | https://www.tshp.org.tw/ehc-tshp/s/w/edu/teachMst/teachMstB1 |
@@ -31,8 +32,11 @@
 | 2 | 桃園市藥師公會持續教育 | 公開 WordPress 公告／RSS | GAS 與 GitHub Actions 自動匯入並依關鍵字分類 | https://www.pharmacist.org.tw/category/%E2%9E%AA%E6%8C%81%E7%BA%8C%E6%95%99%E8%82%B2/%E4%B8%8A%E8%AA%B2%E8%B3%87%E8%A8%8A/%E5%85%AC%E6%9C%83%E6%8C%81%E7%BA%8C%E6%95%99%E8%82%B2/ |
 | 2 | 臺中市藥師公會 | 公開公告；部分課程限會員 | 每日監看首頁與學術教育頁 | https://www.tccpa.org.tw/web/index.html |
 | 2 | 高雄市藥師公會 | 公開公告；部分課程限會員 | 每日監看首頁與繼續教育公告 | https://www.kpa.org.tw/ |
+| 2 | 臺南市南瀛藥師公會 | 公開公告與課程列表 | GitHub Actions 以公開 HTML 自動擷取課程候選 | https://www.tainan-pharmacist.org.tw/bulletin.php |
 | 3 | 台灣年輕藥師協會 | 公開 WordPress 公告／RSS | GAS 與 GitHub Actions 自動匯入並依關鍵字分類 | https://typg.org.tw/ |
 | 3 | 臺北榮總藥學部年度繼續教育 | 公開詳細課表 | 列入來源清單；自動欄位依來源內容填入 | https://www.vghtpe.gov.tw/pharm/images/sg/Fpage.action?fid=19142&muid=21303 |
+
+目前 GitHub Actions 會自動嘗試 8 個公開來源；登入限制、反爬或頁面改版的來源會標示異常並保留上一版資料，不會阻塞其他來源更新。
 
 ## 來源判讀原則
 
