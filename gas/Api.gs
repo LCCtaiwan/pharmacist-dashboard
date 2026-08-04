@@ -94,8 +94,6 @@ function include_(filename) {
 function buildPublicPayload_() {
   const spreadsheet = getSpreadsheet_();
   const config = settings_();
-  const lookback = number_(config.courseLookbackDays, 14);
-  const cutoff = new Date(now_().getTime() - lookback * 86400000);
   const actionsCourses = spreadsheet.getSheetByName('Courses_All');
   const courseSheet = actionsCourses && actionsCourses.getLastRow() > 1
     ? actionsCourses
@@ -105,10 +103,6 @@ function buildPublicPayload_() {
     ? actionsSources
     : spreadsheet.getSheetByName(SHEETS.SOURCES);
   const courses = getRowsAsObjects_(courseSheet)
-    .filter(function(course) {
-      const end = toDate_(course.endAt) || toDate_(course.startAt);
-      return !end || end >= cutoff;
-    })
     .map(publicCourse_)
     .sort(function(a, b) { return String(a.startAt).localeCompare(String(b.startAt)); });
   const sources = getRowsAsObjects_(sourceSheet)
