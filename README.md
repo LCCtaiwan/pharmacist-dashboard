@@ -1,6 +1,6 @@
 # 台灣藥師稀有學分課程儀表板
 
-以 GitHub Actions 定時蒐集公開課程來源，並由 GitHub Pages 提供行動裝置友善的查詢儀表板。Actions 產生 JSON／RSS，Pages 直接讀取；GAS 只作為可選的 Google Sheet 同步橋接，不負責抓網站。
+以 GitHub Actions 定時蒐集公開課程來源，並由 GitHub Pages 與 GAS Web App 提供行動裝置友善的查詢儀表板。Actions 產生 JSON／RSS，再同步到 GAS 的 Google Sheet；GAS 儀表板優先讀取 Actions 同步資料，不負責抓網站。
 
 ## 專案範圍
 
@@ -14,7 +14,7 @@
 
 ## 重要路徑
 
-- `gas/`：Sheet 同步橋接與舊版 GAS 備份；不負責目前的網站採集。
+- `gas/`：GAS 儀表板與 Actions → Sheet 同步橋接；不負責網站採集。
 - `web/`：儀表板的開發來源與本機範例預覽。
 - `scripts/sync-gas-dashboard.mjs`：把 `web/` 的畫面同步進 `gas/`。
 - `scripts/collect-public-courses.mjs`：GitHub Actions 的公開來源採集器與 RSS 產生器。
