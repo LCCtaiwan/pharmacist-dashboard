@@ -1,6 +1,12 @@
 name: Collect pharmacist courses
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'package.json'
+      - '.github/workflows/collect-courses.yml'
   workflow_dispatch:
   schedule:
     - cron: '17 */6 * * *'
