@@ -38,6 +38,12 @@ jobs:
       - name: Collect and build JSON/RSS
         run: npm run collect
 
+      - name: Sync Google Sheet
+        run: npm run sync:sheet
+        env:
+          GAS_SYNC_URL: ${{ secrets.GAS_SYNC_URL }}
+          GAS_SYNC_TOKEN: ${{ secrets.GAS_SYNC_TOKEN }}
+
       - name: Commit refreshed data
         run: |
           git config user.name 'github-actions[bot]'
