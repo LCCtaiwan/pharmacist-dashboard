@@ -222,6 +222,21 @@ function apiJsonAndJsonpTest() {
   assert.equal(JSON.parse(invalidCallback.text).schemaVersion, 1);
 }
 
+function actionsDataPreferredTest() {
+  const runtime = createRuntime();
+  runtime.context.setupProject_();
+  const actionsCourses = runtime.spreadsheet.insertSheet('Courses_All');
+  const actionsSources = runtime.spreadsheet.insertSheet('Sources_Actions');
+  const courseHeaders = ['courseId', 'sourceId', 'title', 'category', 'topicTag', 'creditPoints', 'creditStatus', 'deliveryMode', 'region', 'venue', 'startAt', 'endAt', 'registrationDeadline', 'fee', 'seatsTotal', 'seatsRemaining', 'registrationStatus', 'creditApprovalStatus', 'rareStatus', 'rareReason', 'organizer', 'sourceName', 'sourceUrl', 'firstSeenAt', 'lastUpdatedAt', 'notes', 'monthKey', 'dateBasis'];
+  const sourceHeaders = ['sourceId', 'name', 'url', 'updateMode', 'status', 'lastAttemptAt', 'lastSuccessAt', 'lastError', 'notes'];
+  replaceSheetRows(actionsCourses, courseHeaders, [{ courseId: 'actions-1', sourceId: 'actions-source', title: 'Actions 感染管制課程', category: '感染管制', rareStatus: '稀有學分', startAt: new Date('2030-01-10T09:00:00+08:00'), sourceUrl: 'https://example.test/actions-1' }]);
+  replaceSheetRows(actionsSources, sourceHeaders, [{ sourceId: 'actions-source', name: 'Actions RSS', url: 'https://example.test/actions', updateMode: 'rss', status: 'ok', lastSuccessAt: new Date('2030-01-01T00:00:00+08:00') }]);
+  const payload = runtime.context.getDashboardData();
+  assert.equal(payload.courses.length, 1);
+  assert.equal(payload.courses[0].courseId, 'actions-1');
+  assert.equal(payload.sources[0].updateMode, 'rss');
+}
+
 function apiRssTest() {
   const runtime = createRuntime();
   runtime.context.setupProject_();
@@ -313,6 +328,7 @@ sheetSyncTest();
 initializeAndBindTest();
 upsertAutoClassificationTest();
 apiJsonAndJsonpTest();
+actionsDataPreferredTest();
 apiRssTest();
 taiwanPharmacyPaginationTest();
 taiwanPharmacy403Test();
