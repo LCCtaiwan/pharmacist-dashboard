@@ -1,6 +1,6 @@
 # 操作與維護手冊
 
-目前正式方案以 GitHub Actions＋GitHub Pages 為主；GAS Web App 僅作為可選的 Google Sheet 月份同步橋接。
+目前正式方案由 GitHub Actions 負責採集，GitHub Pages 與 GAS Web App 共用結果；GAS 另外負責 Google Sheet 月份同步，不負責網站採集。
 
 ## 一、啟用 GitHub Actions＋Pages
 
@@ -14,7 +14,7 @@
 
 ## 二、啟用 Google Sheet 月份記錄（可選）
 
-1. GAS 專案已部署為 Web App 第 16 版，存取權限為「所有人」。這個 GAS 只接收 Actions 同步，不執行網站採集。
+1. GAS 專案已部署為 Web App 第 17 版，存取權限為「所有人」。這個 GAS 儀表板與 Sheet 都讀取 Actions 同步結果，不執行網站採集。
 2. 在正式試算表重新整理，從「稀有學分儀表板」選單執行「設定 GitHub Sheet 同步」，複製顯示的 URL 與 Token（若已設定，可略過）。
 3. 在 GitHub Settings → Secrets and variables → Actions 新增 `GAS_SYNC_URL` 與 `GAS_SYNC_TOKEN`。
 4. 下一次 Actions 執行會自動建立／更新：`Courses_All`、`2026-08` 等年月分頁、`Sources_Actions`、`RunHistory`；目前已驗證 15 堂課寫入成功。
