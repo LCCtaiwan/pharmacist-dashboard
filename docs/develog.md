@@ -102,3 +102,4 @@ GAS 排程或 GitHub Actions → 擷取來源 → 正規化／關鍵字分類 �
 - C-013：移除 GAS API 依 `courseLookbackDays` 的 14 天截斷；設定表 `Settings!B7` 改為 0，保留完整 `Courses_All` 歷史資料。
 - C-013：GAS 與 GitHub Pages 前端預設不勾選「只顯示尚未結束」，清除篩選會顯示全部課程；該勾選仍可用於使用者自行篩選。
 - C-013 驗證：GAS Web App 第 19 版正式 `/exec` 顯示 15 堂課；本機 `node tests/gas-behavior.mjs`、`node tests/validate.mjs`、`node tests/collector.mjs`、`git diff --check` 全部通過。
+- C-013 Pages：GitHub Pages 發布來源由 `main / (root)` 切換為 GitHub Actions；手動部署 Run 11 成功，正式頁面實測顯示 15 堂課。
