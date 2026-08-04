@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12372a">
+  <meta name="description" content="台灣藥師稀有學分課程儀表板">
+  
+  <title>台灣藥師稀有學分課程儀表板</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
+  <?!= include_('Styles'); ?>
+</head>
+<body>
+  <a class="skip-link" href="#course-list">跳到課程清單</a>
+  <header class="hero">
+    <div class="hero__inner shell">
+      <div>
+        <p class="eyebrow">TAIWAN PHARMACIST CE WATCH</p>
+        <h1 id="page-title">稀有學分課程儀表板</h1>
+        <p class="hero__summary">自動彙整專業品質、倫理、法規、感染管制與性別議題課程，快速找到稀有學分資訊。</p>
+      </div>
+      <div class="update-card" aria-live="polite">
+        <span class="update-card__label">資料狀態</span>
+        <strong id="data-status">載入中</strong>
+        <span id="last-updated">—</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="notice" aria-labelledby="definition-title">
+      <div>
+        <span class="notice__icon" aria-hidden="true">i</span>
+      </div>
+      <div>
+        <h2 id="definition-title">「稀有學分」是追蹤標籤，不是法規名稱</h2>
+        <p id="rare-definition">專業品質、專業倫理、專業相關法規、感染管制、性別議題</p>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="課程摘要">
+      <article class="metric metric--forest"><span>稀有學分課程</span><strong id="metric-confirmed">0</strong></article>
+      <article class="metric metric--sand"><span>已彙整課程</span><strong id="metric-candidate">0</strong></article>
+      <article class="metric metric--coral"><span>7 天內截止</span><strong id="metric-deadline">0</strong></article>
+      <article class="metric metric--ink"><span>名額有限</span><strong id="metric-limited">0</strong></article>
+    </section>
+
+    <section class="control-panel" aria-labelledby="filter-title">
+      <div class="section-heading">
+        <div><p class="eyebrow eyebrow--dark">FIND A COURSE</p><h2 id="filter-title">找適合的課程</h2></div>
+        <button class="text-button" id="reset-filters" type="button">清除篩選</button>
+      </div>
+      <div class="filters">
+        <label class="field field--wide"><span>搜尋</span><input id="search-input" type="search" placeholder="課名、主辦單位、地區"></label>
+        <label class="field"><span>稀有狀態</span><select id="rare-filter"><option value="">全部</option></select></label>
+        <label class="field"><span>課程類別</span><select id="category-filter"><option value="">全部</option></select></label>
+        <label class="field"><span>上課方式</span><select id="mode-filter"><option value="">全部</option></select></label>
+        <label class="field"><span>地區</span><select id="region-filter"><option value="">全部</option></select></label>
+      </div>
+      <label class="toggle"><input id="upcoming-only" type="checkbox" checked><span>只顯示尚未結束</span></label>
+    </section>
+
+    <section id="course-list" class="course-section" aria-labelledby="course-title">
+      <div class="section-heading">
+        <div><p class="eyebrow eyebrow--dark">COURSE WATCHLIST</p><h2 id="course-title">課程清單</h2></div>
+        <p id="result-count" class="result-count">0 堂</p>
+      </div>
+      <div id="course-grid" class="course-grid" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state" hidden>
+        <strong>找不到符合條件的課程</strong>
+        <p>可清除篩選，或稍後等待來源更新。</p>
+      </div>
+    </section>
+
+    <section class="source-section" aria-labelledby="source-title">
+      <div class="section-heading"><div><p class="eyebrow eyebrow--dark">SOURCE HEALTH</p><h2 id="source-title">公開來源狀態</h2></div></div>
+      <div class="source-table-wrap">
+        <table class="source-table">
+          <thead><tr><th>來源</th><th>狀態</th><th>最近成功</th><th>備註</th></tr></thead>
+          <tbody id="source-rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell"><p>資料由公開來源自動彙整；積分、名額、費用與報名資格以來源公告為準。</p></div></footer>
+  <script>window.APP_CONFIG = { dataMode: 'gas', deadlineDays: 7, limitedSeatsThreshold: 20 };</script>
+  <?!= include_('Client'); ?>
+</body>
+</html>

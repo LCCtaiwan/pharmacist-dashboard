@@ -1,0 +1,257 @@
+<script>
+(function () {
+  'use strict';
+
+  const config = window.APP_CONFIG || {};
+  const state = { payload: null, courses: [] };
+  const elements = {};
+
+  document.addEventListener('DOMContentLoaded', init);
+
+  async function init() {
+    cacheElements();
+    bindEvents();
+    try {
+      const payload = await loadPayload();
+      validatePayload(payload);
+      state.payload = payload;
+      state.courses = Array.isArray(payload.courses) ? payload.courses.map(normalizeCourseForDisplay) : [];
+      renderHeader();
+      populateFilters();
+      renderMetrics();
+      renderCourses();
+      renderSources();
+    } catch (error) {
+      elements.dataStatus.textContent = '載入失敗';
+      elements.lastUpdated.textContent = error.message || String(error);
+      elements.emptyState.hidden = false;
+      elements.emptyState.querySelector('strong').textContent = '資料暫時無法載入';
+    }
+  }
+
+  function cacheElements() {
+    [
+      'page-title', 'data-status', 'last-updated', 'rare-definition',
+      'metric-confirmed', 'metric-candidate', 'metric-deadline', 'metric-limited',
+      'search-input', 'rare-filter', 'category-filter', 'mode-filter', 'region-filter',
+      'upcoming-only', 'reset-filters', 'course-grid', 'empty-state', 'result-count', 'source-rows'
+    ].forEach((id) => { elements[toCamel(id)] = document.getElementById(id); });
+  }
+
+  function bindEvents() {
+    ['searchInput', 'rareFilter', 'categoryFilter', 'modeFilter', 'regionFilter', 'upcomingOnly']
+      .forEach((key) => elements[key].addEventListener(key === 'searchInput' ? 'input' : 'change', renderCourses));
+    elements.resetFilters.addEventListener('click', () => {
+      elements.searchInput.value = '';
+      elements.rareFilter.value = config.defaultRareStatus || '';
+      elements.categoryFilter.value = '';
+      elements.modeFilter.value = '';
+      elements.regionFilter.value = '';
+      elements.upcomingOnly.checked = true;
+      renderCourses();
+    });
+  }
+
+  async function loadPayload() {
+    if (config.dataMode === 'gas' && window.google && window.google.script && window.google.script.run) {
+      return loadFromGas();
+    }
+    if (!config.apiUrl) return fetchJson(config.demoDataUrl || 'demo-data.json');
+    try {
+      const separator = config.apiUrl.includes('?') ? '&' : '?';
+      return await fetchJson(config.apiUrl + separator + '_=' + Date.now());
+    } catch (fetchError) {
+      if (!/^https?:\/\//i.test(config.apiUrl)) {
+        return fetchJson(config.demoDataUrl || 'demo-data.json');
+      }
+      try {
+        return await loadJsonp(config.apiUrl);
+      } catch (_) {
+        return fetchJson(config.demoDataUrl || 'demo-data.json');
+      }
+    }
+  }
+
+  function loadFromGas() {
+    return new Promise((resolve, reject) => {
+      window.google.script.run
+        .withSuccessHandler(resolve)
+        .withFailureHandler((error) => reject(new Error(error && error.message ? error.message : String(error))))
+        .getDashboardData();
+    });
+  }
+
+  async function fetchJson(url) {
+    const response = await fetch(url, { cache: 'no-store' });
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    return response.json();
+  }
+
+  function loadJsonp(url) {
+    return new Promise((resolve, reject) => {
+      const callback = '__pharmacistCreditCallback' + Date.now();
+      const script = document.createElement('script');
+      const separator = url.includes('?') ? '&' : '?';
+      const timer = setTimeout(() => cleanup(new Error('GAS API 回應逾時')), 12000);
+      window[callback] = (data) => cleanup(null, data);
+      script.onerror = () => cleanup(new Error('GAS API 無法載入'));
+      script.src = url + separator + 'callback=' + callback + '&_=' + Date.now();
+      document.head.appendChild(script);
+      function cleanup(error, data) {
+        clearTimeout(timer);
+        delete window[callback];
+        script.remove();
+        error ? reject(error) : resolve(data);
+      }
+    });
+  }
+
+  function validatePayload(payload) {
+    if (!payload || payload.schemaVersion !== 1 || !Array.isArray(payload.courses)) {
+      throw new Error('資料格式不相容');
+    }
+  }
+
+  function renderHeader() {
+    document.title = state.payload.title || document.title;
+    elements.pageTitle.textContent = state.payload.title || '稀有學分課程儀表板';
+    elements.rareDefinition.textContent = state.payload.rareDefinition || '專業品質、專業倫理、專業相關法規、感染管制、性別議題';
+    elements.dataStatus.textContent = config.dataMode === 'gas' ? 'GAS 即時資料' : (config.apiUrl ? '即時資料' : '範例資料');
+    elements.lastUpdated.textContent = '更新於 ' + formatDateTime(state.payload.generatedAt);
+  }
+
+  function populateFilters() {
+    fillSelect(elements.rareFilter, unique(state.courses.map((course) => course.rareStatus)));
+    fillSelect(elements.categoryFilter, unique(state.courses.map((course) => course.category)));
+    fillSelect(elements.modeFilter, unique(state.courses.map((course) => course.deliveryMode)));
+    fillSelect(elements.regionFilter, unique(state.courses.map((course) => course.region)));
+    elements.rareFilter.value = config.defaultRareStatus || '';
+  }
+
+  function fillSelect(select, values) {
+    values.filter(Boolean).forEach((value) => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = value;
+      select.appendChild(option);
+    });
+  }
+
+  function renderMetrics() {
+    const now = new Date();
+    const active = state.courses.filter((course) => {
+      const end = courseEnd(course);
+      return end && end >= now;
+    });
+    elements.metricConfirmed.textContent = active.filter(isRareCourse).length;
+    elements.metricCandidate.textContent = state.courses.filter((course) => {
+      const end = courseEnd(course);
+      return !end || end >= now;
+    }).length;
+    elements.metricDeadline.textContent = active.filter(isClosingSoon).length;
+    elements.metricLimited.textContent = active.filter(isLimited).length;
+  }
+
+  function renderCourses() {
+    if (!state.payload) return;
+    const query = elements.searchInput.value.trim().toLowerCase();
+    const now = new Date();
+    const filtered = state.courses.filter((course) => {
+      const haystack = [course.title, course.organizer, course.region, course.category, course.topicTag].join(' ').toLowerCase();
+      if (query && !haystack.includes(query)) return false;
+      if (elements.rareFilter.value && course.rareStatus !== elements.rareFilter.value) return false;
+      if (elements.categoryFilter.value && course.category !== elements.categoryFilter.value) return false;
+      if (elements.modeFilter.value && course.deliveryMode !== elements.modeFilter.value) return false;
+      if (elements.regionFilter.value && course.region !== elements.regionFilter.value) return false;
+      const end = courseEnd(course);
+      if (elements.upcomingOnly.checked && end && end < now) return false;
+      return true;
+    }).sort((a, b) => sortDate(courseStart(a)) - sortDate(courseStart(b)));
+    elements.courseGrid.innerHTML = filtered.map(courseCard).join('');
+    elements.resultCount.textContent = filtered.length + ' 堂';
+    elements.emptyState.hidden = filtered.length !== 0;
+  }
+
+  function courseCard(course) {
+    const start = courseStart(course);
+    const end = courseEnd(course);
+    const ended = Boolean(end && end < new Date());
+    const statusBadge = isRareCourse(course)
+      ? '<span class="badge badge--confirmed">稀有學分</span>'
+      : '<span class="badge">一般課程</span>';
+    const urgent = isClosingSoon(course) ? '<span class="badge badge--urgent">即將截止</span>' : '';
+    const endedBadge = ended ? '<span class="badge badge--ended">已結束</span>' : '';
+    const credit = course.creditPoints == null ? '未提供' : formatNumber(course.creditPoints) + ' 點';
+    const deadline = course.registrationDeadline ? formatDateTime(course.registrationDeadline) : '未公告';
+    const seats = formatSeats(course);
+    const fee = course.fee == null || course.fee === '' ? '未公告' : (Number(course.fee) === 0 ? '免費' : 'NT$ ' + formatNumber(course.fee));
+    const url = safeUrl(course.sourceUrl);
+    const sourceAction = url
+      ? '<a class="source-link" href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">查看來源</a>'
+      : '<span class="source-link source-link--disabled">來源未提供</span>';
+    return '<article class="course-card">' +
+      '<div class="course-date"><strong>' + escapeHtml(formatMonthDay(start)) + '</strong><span>' + escapeHtml(formatWeekday(start)) + '<br>' + escapeHtml(formatTimeRange(course)) + '</span></div>' +
+      '<div class="course-main"><div class="badge-row">' + statusBadge + urgent + endedBadge + '</div><h3>' + escapeHtml(course.title) + '</h3>' +
+      '<div class="course-meta"><span>' + escapeHtml(course.category || '其他課程') + '</span><span>' + escapeHtml(course.deliveryMode || '未提供') + '</span><span>' + escapeHtml(course.region || '未提供') + '</span></div></div>' +
+      '<div class="course-facts"><span>積分 <strong>' + escapeHtml(credit) + '</strong></span><span>截止 <strong>' + escapeHtml(deadline) + '</strong></span><span>名額 <strong>' + escapeHtml(seats) + '</strong></span><span>費用 <strong>' + escapeHtml(fee) + '</strong></span><span>地點 <strong>' + escapeHtml(course.venue || '未公告') + '</strong></span><span>報名 <strong>' + escapeHtml(course.registrationStatus || '未提供') + '</strong></span></div>' +
+      '<div class="course-action">' + sourceAction + '</div>' +
+      '<p class="course-note">' + escapeHtml((course.organizer || '主辦單位未提供') + '｜' + (course.sourceName || '來源未提供') + '｜自動彙整｜最後更新 ' + formatDateTime(course.lastUpdatedAt)) + '</p></article>';
+  }
+
+  function renderSources() {
+    const sources = Array.isArray(state.payload.sources) ? state.payload.sources : [];
+    elements.sourceRows.innerHTML = sources.sort((a, b) => (a.priority || 99) - (b.priority || 99)).map((source) => {
+      const label = source.status === 'ok' ? '正常' : source.status === 'error' ? '抓取異常' : source.updateMode === 'manual' ? '未自動匯入' : '等待更新';
+      const note = cleanSourceNote(source.lastError || source.notes || '—');
+      const url = safeUrl(source.url);
+      const name = url ? '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(source.name) + '</a>' : escapeHtml(source.name);
+      return '<tr><td>' + name + '</td>' +
+        '<td><span class="health health--' + escapeHtml(source.status) + '">' + label + '</span></td><td>' + escapeHtml(formatDateTime(source.lastSuccessAt)) + '</td><td>' + escapeHtml(note) + '</td></tr>';
+    }).join('');
+  }
+
+  function normalizeCourseForDisplay(course) {
+    return Object.assign({}, course, { rareStatus: isRareCourse(course) ? '稀有學分' : '一般課程' });
+  }
+
+  function isRareCourse(course) {
+    return ['稀有學分', '已確認', '候選'].includes(String(course && course.rareStatus || ''));
+  }
+
+  function cleanSourceNote(value) {
+    return String(value || '—')
+      .replace(/人工覆核/g, '自動彙整來源')
+      .replace(/須自動覆核/g, '未提供自動欄位')
+      .replace(/須至主辦單位原公告覆核/g, '未提供自動欄位');
+  }
+
+  function isClosingSoon(course) {
+    if (!course.registrationDeadline) return false;
+    if (!isRegistrationOpen(course)) return false;
+    const deadline = parseDate(course.registrationDeadline);
+    if (!deadline) return false;
+    const diff = deadline.getTime() - Date.now();
+    return diff >= 0 && diff <= (Number(config.deadlineDays) || 7) * 86400000;
+  }
+
+  function isLimited(course) {
+    return isRegistrationOpen(course) && Number.isFinite(Number(course.seatsRemaining)) && Number(course.seatsRemaining) > 0 && Number(course.seatsRemaining) <= (Number(config.limitedSeatsThreshold) || 20);
+  }
+
+  function isRegistrationOpen(course) { return !/(額滿|截止|結束|取消|停止|關閉)/.test(String(course.registrationStatus || '')); }
+  function parseDate(value) { const date = new Date(value || ''); return isNaN(date.getTime()) ? null : date; }
+  function courseStart(course) { return parseDate(course.startAt); }
+  function courseEnd(course) { return parseDate(course.endAt) || courseStart(course); }
+  function sortDate(date) { return date ? date.getTime() : Number.MAX_SAFE_INTEGER; }
+  function formatDateTime(value) { const date = parseDate(value); return date ? new Intl.DateTimeFormat('zh-TW', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Taipei' }).format(date) : '—'; }
+  function formatMonthDay(date) { return date ? new Intl.DateTimeFormat('zh-TW', { month: 'short', day: 'numeric', timeZone: 'Asia/Taipei' }).format(date) : '日期待定'; }
+  function formatWeekday(date) { return date ? new Intl.DateTimeFormat('zh-TW', { weekday: 'short', timeZone: 'Asia/Taipei' }).format(date) : ''; }
+  function formatTimeRange(course) { const start = courseStart(course); const end = courseEnd(course); if (!start) return '時間待定'; const time = (date) => new Intl.DateTimeFormat('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Taipei' }).format(date); return time(start) + (course.endAt && end ? '–' + time(end) : ''); }
+  function formatSeats(course) { const remaining = course.seatsRemaining; const total = course.seatsTotal; if (remaining == null && total == null) return '未公告'; if (remaining == null) return '總計 ' + total + ' 名'; if (total == null) return '剩 ' + remaining + ' 名'; return remaining + '／' + total + ' 名'; }
+  function formatNumber(value) { return new Intl.NumberFormat('zh-TW', { maximumFractionDigits: 1 }).format(Number(value)); }
+  function unique(values) { return [...new Set(values)].sort((a, b) => String(a).localeCompare(String(b), 'zh-Hant')); }
+  function escapeHtml(value) { return String(value == null ? '' : value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;'); }
+  function safeUrl(value) { try { const url = new URL(String(value)); return ['http:', 'https:'].includes(url.protocol) ? url.href : ''; } catch (_) { return ''; } }
+  function toCamel(value) { return value.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()); }
+})();
+</script>

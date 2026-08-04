@@ -1,0 +1,41 @@
+name: Collect pharmacist courses
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install browser fallback
+        run: npm install --no-save --no-audit --no-fund playwright@1.55.0
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Test collector
+        run: npm run test:collector
+
+      - name: Collect and build JSON/RSS
+        run: npm run collect
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add web/data/courses.json web/data/feed.xml
+          git diff --cached --quiet || git commit -m "chore(data): refresh pharmacist courses"
+          git push

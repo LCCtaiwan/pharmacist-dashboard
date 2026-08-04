@@ -1,0 +1,9 @@
+{
+  "name": "taiwan-pharmacist-rare-credit-dashboard",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "collect": "node scripts/collect-public-courses.mjs",
+    "test:collector": "node tests/collector.mjs"
+  }
+}
