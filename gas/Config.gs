@@ -23,7 +23,7 @@ const SOURCE_HEADERS = [
 
 const SETTING_HEADERS = ['key', 'value', 'description'];
 const DEFAULT_SETTINGS = [
-  ['courseLookbackDays', '14', 'API 保留已結束課程的天數'],
+  ['courseLookbackDays', '0', '保留全部歷史課程；前端可自行篩選已結束課程'],
   ['triggerHours', '6', '自動刷新間隔小時'],
   ['rareDefinition', '專業品質、專業倫理、專業相關法規、感染管制、性別議題', '本工具的稀有學分追蹤定義']
 ];
