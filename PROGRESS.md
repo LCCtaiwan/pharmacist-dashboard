@@ -3,7 +3,7 @@
 - Change ID: C-013
 - Date: 2026-08-04
 - Scope: GitHub Actions、GAS 儀表板與 Google Sheet 月份同步
-- Status: GAS Web App 第 19 版已修正為回傳並預設顯示全部同步課程；「只顯示尚未結束」改為可選篩選，Google Sheet 設定同步為 0（不截斷歷史課程）。
+- Status: GAS Web App 第 19 版已修正為回傳並預設顯示全部同步課程；「只顯示尚未結束」改為可選篩選，Google Sheet 設定同步為 0（不截斷歷史課程）；GitHub Actions 自動來源擴充至 8 個公開頁面／RSS。
 - Verification: GAS 實機顯示 15 堂課、預設未勾選結束篩選；本機 `node tests/gas-behavior.mjs`、`node tests/validate.mjs`、`node tests/collector.mjs`、`git diff --check` 全部通過。
 
 ## In Progress
@@ -39,3 +39,4 @@
 - C-012 正式驗收：GAS 第 17 版儀表板優先讀取 `Courses_All`／`Sources_Actions`；同一個 `/exec` 顯示 GAS 即時資料與 Actions 來源狀態。
 - C-013 正式驗收：GAS 第 19 版移除 API 的 14 天歷史課程截斷，前端預設顯示全部課程；正式 `/exec` 實測 15 堂課，仍可勾選「只顯示尚未結束」篩選；GitHub Pages 已切換為 GitHub Actions 來源並實測 15 堂課。
 - C-013 Sheet 設定：`Settings!B7` 改為 0，`Settings!C7` 註明保留全部歷史課程；GitHub Pages 前端同步改為相同預設行為。
+- C-014 來源擴充：新增台灣藥學會消息、臺中／高雄／臺南南瀛藥師公會與臺北榮總公開 HTML 來源；新增通用公開課程連結解析器，自動抽取日期、學分、上課方式與來源連結。
