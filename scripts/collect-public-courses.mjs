@@ -100,10 +100,13 @@ function tagText(block, tag) {
 
 export function parseDate(value) {
   const text = String(value || '').trim();
-  const roc = text.match(/(\d{2,3})[./-](\d{1,2})[./-](\d{1,2})/);
-  if (roc) {
-    const year = Number(roc[1]) < 1911 ? Number(roc[1]) + 1911 : Number(roc[1]);
-    const iso = `${String(year).padStart(4, '0')}-${String(roc[2]).padStart(2, '0')}-${String(roc[3]).padStart(2, '0')}T00:00:00+08:00`;
+  // Match four-digit Gregorian years first. Otherwise a date such as
+  // 2026/08/20 can be mistaken for ROC 026/08/20 and become year 1937.
+  const gregorian = text.match(/(\d{4})[./-](\d{1,2})[./-](\d{1,2})/);
+  const parts = gregorian || text.match(/(?:民國\s*)?(\d{2,3})[./年-](\d{1,2})[./月-](\d{1,2})\s*日?/);
+  if (parts) {
+    const year = gregorian ? Number(parts[1]) : Number(parts[1]) + 1911;
+    const iso = `${String(year).padStart(4, '0')}-${String(parts[2]).padStart(2, '0')}-${String(parts[3]).padStart(2, '0')}T00:00:00+08:00`;
     const date = new Date(iso);
     if (!Number.isNaN(date.getTime())) return date.toISOString();
   }
