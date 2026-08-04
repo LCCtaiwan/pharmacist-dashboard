@@ -1,10 +1,10 @@
 # PROGRESS
 
-- Change ID: C-011
+- Change ID: C-012
 - Date: 2026-08-04
-- Scope: GitHub Actions 自動採集、GitHub Pages 與 Google Sheet 月份同步
-- Status: Actions＋Pages 為主流程；GAS Web App 第 16 版已部署為同步橋接，GitHub Secrets 已設定，正式試算表已產生月份分頁。
-- Verification: Actions Run 6 成功（15 堂課、2026-01～2026-08 分頁）；`node scripts/sync-gas-dashboard.mjs`、`node tests/validate.mjs`、`node tests/gas-behavior.mjs`、`node tests/collector.mjs`、`git diff --check` 全部通過。
+- Scope: GitHub Actions、GAS 儀表板與 Google Sheet 月份同步
+- Status: GAS Web App 第 17 版已改讀 `Courses_All`／`Sources_Actions`，與 Actions 採集資料一致；Pages 與 Sheet 同步保留。
+- Verification: GAS 實機顯示「GAS 即時資料」並載入 Actions 來源狀態；本機 `node tests/gas-behavior.mjs`、`node tests/validate.mjs`、`node tests/collector.mjs`、`git diff --check` 全部通過。
 
 ## In Progress
 
@@ -12,7 +12,7 @@
 
 ## Next Step
 
-- 日常只需查看 GitHub Pages；若要確認月份資料，可開啟正式試算表的 `Courses_All` 或 `YYYY-MM` 分頁。
+- 日常可查看 GitHub Pages 或 GAS 儀表板；若要確認月份資料，可開啟正式試算表的 `Courses_All` 或 `YYYY-MM` 分頁。
 
 ## Notes
 
@@ -36,3 +36,4 @@
 - C-010 遠端推送：`LCCtaiwan/pharmacist-dashboard` 的 `main` 已包含完整專案、兩個 workflow 與最新進度文件。
 - C-010 修正驗收：`page.content()` 改為 await 後，最新 Actions 採集成功；台灣藥學會標記 error 並保留空資料，其他兩個 RSS 正常。
 - C-011 正式驗收：GAS 第 16 版部署同步橋接；GitHub Secrets `GAS_SYNC_URL`／`GAS_SYNC_TOKEN` 已設定；Actions Run 6 成功寫入 15 堂課、2026-01～2026-08 月份分頁、`Sources_Actions` 與 `RunHistory`。
+- C-012 正式驗收：GAS 第 17 版儀表板優先讀取 `Courses_All`／`Sources_Actions`；同一個 `/exec` 顯示 GAS 即時資料與 Actions 來源狀態。
