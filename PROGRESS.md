@@ -10,6 +10,7 @@
 
 - GitHub Actions 首次資料產生尚待確認；目前 `web/data/courses.json` 尚未出現在遠端，可能需要在 Actions 頁面手動執行或啟用 Actions。
 - GitHub Pages 需要在 Settings → Pages 選擇 GitHub Actions；部署 workflow 已隨 C-010 推送。
+- Pages workflow 已補上 `workflow_run`，採集完成後會自動重新部署。
 
 ## Next Step
 
