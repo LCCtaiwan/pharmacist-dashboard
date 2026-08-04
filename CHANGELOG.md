@@ -8,7 +8,7 @@
 - 自動抓取台灣藥學會公開審查列表、桃園市藥師公會 RSS、台灣年輕藥師協會 RSS；台灣藥學會遇到 403／空頁時自動嘗試 Chromium。
 - 依課名與內容關鍵字自動標示「稀有學分」或「一般課程」，不設人工審核流程；來源失敗時保留上一版資料並記錄錯誤。
 - 產生 `web/data/courses.json` 與 `web/data/feed.xml`，GitHub Pages 直接讀 JSON；缺檔時退回範例資料。
-- 新增採集器單元測試與 Actions workflow；本機驗證全部通過，尚未推送到 GitHub。
+- 新增採集器單元測試與 Actions workflow；本機驗證全部通過，並已推送到 `LCCtaiwan/pharmacist-dashboard` 的 `main`。
 - 新增 Pages workflow，將 `web/` 發布為 GitHub Pages 儀表板。
 
 ## v0.5.0 — 2026-08-03
