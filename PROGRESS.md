@@ -8,13 +8,13 @@
 
 ## In Progress
 
-- GitHub Actions 首次資料產生尚待確認；目前 `web/data/courses.json` 尚未出現在遠端，可能需要在 Actions 頁面手動執行或啟用 Actions。
+- GitHub Actions 首次資料已產生：15 堂課、1 堂自動分類稀有學分；`web/data/courses.json` 與 RSS 已寫入遠端。
 - GitHub Pages 需要在 Settings → Pages 選擇 GitHub Actions；部署 workflow 已隨 C-010 推送。
 - Pages workflow 已補上 `workflow_run`，採集完成後會自動重新部署。
 
 ## Next Step
 
-- 執行一次 `Collect pharmacist courses`；再以 GitHub Pages 檢查真實 JSON 是否成功載入。
+- 確認 GitHub Pages 已顯示最新 JSON；後續可再擴充不受登入限制的公開來源。
 
 ## Notes
 
@@ -36,3 +36,4 @@
 - C-009 公開驗收：GAS 第 15 版改用 `ContentService.MimeType.XML`，部署存取設為「所有人」；公開 URL 實測回傳 `application/xml` RSS 2.0，RSS 內容含目前 Courses 課程。
 - C-010 本機驗收：GitHub Actions 採集器通過稀有關鍵字分類、RSS 解析、台灣藥學會表格解析與 RSS 輸出測試；前端已改讀 `data/courses.json`，缺檔時退回範例資料。
 - C-010 遠端推送：`LCCtaiwan/pharmacist-dashboard` 的 `main` 已包含完整專案、兩個 workflow 與最新進度文件。
+- C-010 修正驗收：`page.content()` 改為 await 後，最新 Actions 採集成功；台灣藥學會標記 error 並保留空資料，其他兩個 RSS 正常。
