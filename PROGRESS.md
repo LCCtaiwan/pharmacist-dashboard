@@ -1,10 +1,10 @@
 # PROGRESS
 
-- Change ID: C-012
+- Change ID: C-013
 - Date: 2026-08-04
 - Scope: GitHub Actions、GAS 儀表板與 Google Sheet 月份同步
-- Status: GAS Web App 第 17 版已改讀 `Courses_All`／`Sources_Actions`，與 Actions 採集資料一致；Pages 與 Sheet 同步保留。
-- Verification: GAS 實機顯示「GAS 即時資料」並載入 Actions 來源狀態；本機 `node tests/gas-behavior.mjs`、`node tests/validate.mjs`、`node tests/collector.mjs`、`git diff --check` 全部通過。
+- Status: GAS Web App 第 19 版已修正為回傳並預設顯示全部同步課程；「只顯示尚未結束」改為可選篩選，Google Sheet 設定同步為 0（不截斷歷史課程）。
+- Verification: GAS 實機顯示 15 堂課、預設未勾選結束篩選；本機 `node tests/gas-behavior.mjs`、`node tests/validate.mjs`、`node tests/collector.mjs`、`git diff --check` 全部通過。
 
 ## In Progress
 
@@ -37,3 +37,5 @@
 - C-010 修正驗收：`page.content()` 改為 await 後，最新 Actions 採集成功；台灣藥學會標記 error 並保留空資料，其他兩個 RSS 正常。
 - C-011 正式驗收：GAS 第 16 版部署同步橋接；GitHub Secrets `GAS_SYNC_URL`／`GAS_SYNC_TOKEN` 已設定；Actions Run 6 成功寫入 15 堂課、2026-01～2026-08 月份分頁、`Sources_Actions` 與 `RunHistory`。
 - C-012 正式驗收：GAS 第 17 版儀表板優先讀取 `Courses_All`／`Sources_Actions`；同一個 `/exec` 顯示 GAS 即時資料與 Actions 來源狀態。
+- C-013 正式驗收：GAS 第 19 版移除 API 的 14 天歷史課程截斷，前端預設顯示全部課程；正式 `/exec` 實測 15 堂課，仍可勾選「只顯示尚未結束」篩選。
+- C-013 Sheet 設定：`Settings!B7` 改為 0，`Settings!C7` 註明保留全部歷史課程；GitHub Pages 前端同步改為相同預設行為。
