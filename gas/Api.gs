@@ -96,21 +96,29 @@ function buildPublicPayload_() {
   const config = settings_();
   const lookback = number_(config.courseLookbackDays, 14);
   const cutoff = new Date(now_().getTime() - lookback * 86400000);
-  const courses = getRowsAsObjects_(spreadsheet.getSheetByName(SHEETS.COURSES))
+  const actionsCourses = spreadsheet.getSheetByName('Courses_All');
+  const courseSheet = actionsCourses && actionsCourses.getLastRow() > 1
+    ? actionsCourses
+    : spreadsheet.getSheetByName(SHEETS.COURSES);
+  const actionsSources = spreadsheet.getSheetByName('Sources_Actions');
+  const sourceSheet = actionsSources && actionsSources.getLastRow() > 1
+    ? actionsSources
+    : spreadsheet.getSheetByName(SHEETS.SOURCES);
+  const courses = getRowsAsObjects_(courseSheet)
     .filter(function(course) {
       const end = toDate_(course.endAt) || toDate_(course.startAt);
       return !end || end >= cutoff;
     })
     .map(publicCourse_)
     .sort(function(a, b) { return String(a.startAt).localeCompare(String(b.startAt)); });
-  const sources = getRowsAsObjects_(spreadsheet.getSheetByName(SHEETS.SOURCES))
-    .filter(function(source) { return bool_(source.enabled); })
+  const sources = getRowsAsObjects_(sourceSheet)
+    .filter(function(source) { return source.enabled === undefined ? true : bool_(source.enabled); })
     .map(function(source) {
       return {
         sourceId: String(source.sourceId || ''), name: String(source.name || ''),
-        url: String(source.url || ''), updateMode: String(source.type || ''), priority: number_(source.priority, 99),
+        url: String(source.url || ''), updateMode: String(source.type || source.updateMode || ''), priority: number_(source.priority, 99),
         lastAttemptAt: iso_(source.lastAttemptAt), lastSuccessAt: iso_(source.lastSuccessAt),
-        status: source.lastError ? 'error' : (source.lastSuccessAt ? 'ok' : 'not_checked'),
+        status: String(source.status || '') || (source.lastError ? 'error' : (source.lastSuccessAt ? 'ok' : 'not_checked')),
         lastError: source.lastError ? String(source.lastError).slice(0, 160) : '', notes: String(source.notes || '')
       };
     });
