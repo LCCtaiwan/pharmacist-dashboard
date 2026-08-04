@@ -34,4 +34,4 @@
 - C-008 Sol 建議已採納：台灣藥學會暫列人工覆核，避免排程持續重試已知 403；20 頁上限改為明確錯誤。
 - C-009 公開驗收：GAS 第 15 版改用 `ContentService.MimeType.XML`，部署存取設為「所有人」；公開 URL 實測回傳 `application/xml` RSS 2.0，RSS 內容含目前 Courses 課程。
 - C-010 本機驗收：GitHub Actions 採集器通過稀有關鍵字分類、RSS 解析、台灣藥學會表格解析與 RSS 輸出測試；前端已改讀 `data/courses.json`，缺檔時退回範例資料。
-- C-010 遠端推送：`LCCtaiwan/pharmacist-dashboard` 的 `main` 已包含完整專案與兩個 workflow；最後文件修正需再同步一次。
+- C-010 遠端推送：`LCCtaiwan/pharmacist-dashboard` 的 `main` 已包含完整專案、兩個 workflow 與最新進度文件。
