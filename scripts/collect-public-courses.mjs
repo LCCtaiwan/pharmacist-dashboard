@@ -168,7 +168,7 @@ async function fetchBrowserText(url) {
   try {
     const page = await browser.newPage({ userAgent: USER_AGENT });
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
-    return page.content();
+    return await page.content();
   } finally {
     await browser.close();
   }
