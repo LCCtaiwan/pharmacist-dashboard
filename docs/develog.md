@@ -6,7 +6,7 @@
 
 ## Stack And Run Commands
 
-- Backend: Google Apps Script V8、Google Sheets、time-based triggers；GitHub Actions Node.js 22 採集器。
+- Backend: GitHub Actions Node.js 22 採集器；GAS V8 僅作為可選的 Google Sheet 同步橋接。
 - Frontend: 原生 HTML、CSS、JavaScript；GAS HtmlService 或 GitHub Pages 靜態網站。
 - Local preview: 在專案根目錄以靜態伺服器開啟 `web/`。
 - Sync: `node scripts/sync-gas-dashboard.mjs`。
@@ -92,3 +92,4 @@ GAS 排程或 GitHub Actions → 擷取來源 → 正規化／關鍵字分類 �
 - C-010 已完成：採集器與兩個 workflow 已建立；本機驗證通過，並已推送至 `LCCtaiwan/pharmacist-dashboard` 的 `main`；遠端 Actions 首次資料產生尚待確認。
 - C-010 handover：共享 handover SQLite 因資料庫路徑無法開啟，寫入失敗；本地 `PROGRESS.md`／`CHANGELOG.md`／本檔已保存 checkpoint。
 - C-010 遠端驗證：修正 `await page.content()` 後，Actions 成功產生 15 堂課與 RSS；台灣藥學會仍回報未解析到課程列，桃園／青藥 RSS 正常。
+- C-011：新增 Actions → GAS → Google Sheet 單向同步；依課程年月自動建立 `Courses_All` 與 `YYYY-MM` 分頁，並記錄來源狀態與每次執行歷史。
