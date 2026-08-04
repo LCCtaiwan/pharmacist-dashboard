@@ -46,7 +46,7 @@
       elements.categoryFilter.value = '';
       elements.modeFilter.value = '';
       elements.regionFilter.value = '';
-      elements.upcomingOnly.checked = true;
+      elements.upcomingOnly.checked = false;
       renderCourses();
     });
   }
