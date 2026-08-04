@@ -52,6 +52,9 @@ GAS 排程或 GitHub Actions → 擷取來源 → 正規化／關鍵字分類 �
 - C-010：前端改讀 GitHub Pages 靜態 JSON，缺檔時退回 demo；自動分類介面移除候選／人工審核語意。
 - C-010：新增採集器測試；同步、GAS 行為、資料契約與 diff 檢查全部通過。
 
+- C-011：新增 `gas/SheetSync.gs` 與 `scripts/sync-sheet.mjs`，以 GitHub Actions payload 單向同步至 `Courses_All`、來源／執行紀錄與 `YYYY-MM` 月份分頁。
+- C-011：Apps Script 專案已部署第 16 版；以 GitHub Secrets 保存 Web App URL／同步 Token，Actions Run 6 實測 15 堂課同步成功並建立 2026-01～2026-08 分頁。
+
 - C-009：新增 GAS `/exec?format=rss` 內部 RSS 輸出；以 XML escape 保護課程文字，並加入 RSS 行為測試。此輸出只反映目前 `Courses` 工作表，不繞過台灣藥學會 HTTP 403。
 - C-009 驗證補記：本機 XML／MIME／escape 測試通過；GAS 第 15 版改用 `ContentService.MimeType.XML` 並設為「所有人」，公開 URL 實測回傳 RSS 2.0 XML，RSS reader 可讀取。
 
@@ -93,3 +96,4 @@ GAS 排程或 GitHub Actions → 擷取來源 → 正規化／關鍵字分類 �
 - C-010 handover：共享 handover SQLite 因資料庫路徑無法開啟，寫入失敗；本地 `PROGRESS.md`／`CHANGELOG.md`／本檔已保存 checkpoint。
 - C-010 遠端驗證：修正 `await page.content()` 後，Actions 成功產生 15 堂課與 RSS；台灣藥學會仍回報未解析到課程列，桃園／青藥 RSS 正常。
 - C-011：新增 Actions → GAS → Google Sheet 單向同步；依課程年月自動建立 `Courses_All` 與 `YYYY-MM` 分頁，並記錄來源狀態與每次執行歷史。
+- C-011 遠端驗證：Run 6 workflow conclusion `success`；同步步驟輸出 `sheet sync: ok (15 courses, 2026-01, 2026-02, 2026-03, 2026-04, 2026-05, 2026-06, 2026-07, 2026-08)`。
