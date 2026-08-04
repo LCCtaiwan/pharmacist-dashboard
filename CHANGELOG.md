@@ -2,6 +2,11 @@
 
 ## v0.6.0 — 2026-08-04
 
+### C-012 — 2026-08-04
+
+- GAS 儀表板改為優先讀取 GitHub Actions 同步的 `Courses_All` 與 `Sources_Actions`，不再與 Actions 資料分流。
+- GAS Web App 第 17 版部署完成；同一個 `/exec` 現在串起 Actions、GAS、Google Sheet 與儀表板。
+
 ### C-011 — 2026-08-04
 
 - 新增 `gas/SheetSync.gs` 與 `scripts/sync-sheet.mjs`，讓 GitHub Actions 將採集結果單向寫入 Google Sheet。
