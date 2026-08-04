@@ -3,17 +3,17 @@
 - Change ID: C-010
 - Date: 2026-08-04
 - Scope: GitHub Actions 自動採集與 GitHub Pages 部署
-- Status: 已建立每 6 小時／手動執行的採集工作流與 Pages 部署工作流；自動分類稀有學分並輸出 JSON／RSS；尚未推送到 GitHub
+- Status: 已建立每 6 小時／手動執行的採集工作流與 Pages 部署工作流；C-010 已推送到 `LCCtaiwan/pharmacist-dashboard` 的 `main`
 - Verification: `node scripts/sync-gas-dashboard.mjs`、`node tests/validate.mjs`、`node tests/gas-behavior.mjs`、`node tests/collector.mjs`、`git diff --check` 全部通過。
 
 ## In Progress
 
-- 需要將專案推送到已登入的 GitHub 儲存庫，並在 GitHub Pages 指向 `web/`；第一次 Actions 執行後會產生 `web/data/`。
-- 台灣藥學會若拒絕 GitHub Actions 的原生請求與 Chromium，工作流會保留上一版資料並記錄來源錯誤，不會阻塞其他來源。
+- GitHub Actions 首次資料產生尚待確認；目前 `web/data/courses.json` 尚未出現在遠端，可能需要在 Actions 頁面手動執行或啟用 Actions。
+- GitHub Pages 需要在 Settings → Pages 選擇 GitHub Actions；部署 workflow 已隨 C-010 推送。
 
 ## Next Step
 
-- 確認 GitHub 儲存庫後推送並執行一次 `Collect pharmacist courses`；再以 GitHub Pages 檢查真實 JSON 是否成功載入。
+- 執行一次 `Collect pharmacist courses`；再以 GitHub Pages 檢查真實 JSON 是否成功載入。
 
 ## Notes
 
@@ -34,3 +34,4 @@
 - C-008 Sol 建議已採納：台灣藥學會暫列人工覆核，避免排程持續重試已知 403；20 頁上限改為明確錯誤。
 - C-009 公開驗收：GAS 第 15 版改用 `ContentService.MimeType.XML`，部署存取設為「所有人」；公開 URL 實測回傳 `application/xml` RSS 2.0，RSS 內容含目前 Courses 課程。
 - C-010 本機驗收：GitHub Actions 採集器通過稀有關鍵字分類、RSS 解析、台灣藥學會表格解析與 RSS 輸出測試；前端已改讀 `data/courses.json`，缺檔時退回範例資料。
+- C-010 遠端推送：`LCCtaiwan/pharmacist-dashboard` 的 `main` 已包含完整專案與兩個 workflow；最後文件修正需再同步一次。
