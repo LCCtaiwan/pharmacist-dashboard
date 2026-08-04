@@ -2,6 +2,12 @@
 
 ## v0.6.0 — 2026-08-04
 
+### C-011 — 2026-08-04
+
+- 新增 `gas/SheetSync.gs` 與 `scripts/sync-sheet.mjs`，讓 GitHub Actions 將採集結果單向寫入 Google Sheet。
+- 自動建立／更新 `Courses_All`、`Sources_Actions`、`RunHistory` 與 `YYYY-MM` 月份分頁；跨年度分頁保留，不刪除歷史資料。
+- GAS Web App 第 16 版已部署，GitHub Actions Secrets 已設定；Run 6 實測同步成功（15 堂課、2026-01～2026-08）。
+
 ### C-010 — 2026-08-04
 
 - 新增 GitHub Actions 採集器，預設每 6 小時執行，也可從 Actions 手動啟動。
