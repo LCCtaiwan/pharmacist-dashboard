@@ -196,8 +196,12 @@ function absoluteUrl(href, baseUrl) {
 function extractDateRange(text) {
   const matches = [...String(text || '').matchAll(/(?:民國\s*)?(\d{2,4})\s*[./年-]\s*(\d{1,2})\s*[./月-]\s*(\d{1,2})\s*日?/g)];
   if (!matches.length) return { startAt: '', endAt: '' };
-  const toIso = (match) => parseDate(`${match[1]}/${match[2]}/${match[3]}`);
-  return { startAt: toIso(matches[0]), endAt: toIso(matches[1] || matches[0]) };
+  const dates = matches.map((match) => parseDate(`${match[1]}/${match[2]}/${match[3]}`))
+    // Public bulletin pages often include decades-old archive dates near a
+    // current course link; do not turn those archive dates into dashboard tabs.
+    .filter((iso) => iso && Number(iso.slice(0, 4)) >= 2000);
+  if (!dates.length) return { startAt: '', endAt: '' };
+  return { startAt: dates[0], endAt: dates[1] || dates[0] };
 }
 
 export function parsePublicCourseHtml(html, source) {
