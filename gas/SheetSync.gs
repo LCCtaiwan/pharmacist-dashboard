@@ -9,11 +9,12 @@ const ACTIONS_COURSE_HEADERS = [
   'deliveryMode', 'region', 'venue', 'startAt', 'endAt', 'registrationDeadline', 'fee',
   'seatsTotal', 'seatsRemaining', 'registrationStatus', 'creditApprovalStatus', 'rareStatus',
   'rareReason', 'organizer', 'sourceName', 'sourceUrl', 'firstSeenAt', 'lastUpdatedAt',
-  'notes', 'monthKey', 'dateBasis'
+  'notes', 'monthKey', 'dateBasis', 'publishedAt', 'datePrecision', 'registrationUrl',
+  'evidence', 'dataQuality', 'creditCategories', 'sourceRecordId', 'sessions'
 ];
 
 const ACTIONS_SOURCE_HEADERS = [
-  'sourceId', 'name', 'url', 'updateMode', 'status', 'lastAttemptAt', 'lastSuccessAt', 'lastError', 'notes'
+  'sourceId', 'name', 'url', 'updateMode', 'status', 'lastAttemptAt', 'lastSuccessAt', 'lastError', 'notes', 'courseCount'
 ];
 
 const ACTIONS_RUN_HEADERS = [
@@ -62,7 +63,10 @@ function syncActionsPayload_(payload) {
     return ACTIONS_COURSE_HEADERS.map(function(header) {
       if (header === 'monthKey') return monthKey;
       if (header === 'dateBasis') return course.startAt ? '上課日期' : '公告／更新日期';
-      return course[header] === null || course[header] === undefined ? '' : course[header];
+      const value = course[header];
+      if (value === null || value === undefined) return '';
+      if (typeof value === 'object') return JSON.stringify(value);
+      return typeof value === 'string' && /^[=+@-]/.test(value) ? "'" + value : value;
     });
   });
   const allSheet = ensureSyncSheet_(spreadsheet, ACTIONS_SYNC_SHEETS.ALL, ACTIONS_COURSE_HEADERS);
@@ -87,7 +91,7 @@ function syncActionsPayload_(payload) {
   replaceSyncRows_(ensureSyncSheet_(spreadsheet, ACTIONS_SYNC_SHEETS.SOURCES, ACTIONS_SOURCE_HEADERS), ACTIONS_SOURCE_HEADERS, sourceRows);
 
   const rareCount = payload.courses.filter(function(course) { return course.rareStatus === '稀有學分'; }).length;
-  const errorCount = (payload.sources || []).filter(function(source) { return source.status === 'error'; }).length;
+  const errorCount = (payload.sources || []).filter(function(source) { return source.status === 'error' || source.status === 'partial'; }).length;
   const runSheet = ensureSyncSheet_(spreadsheet, ACTIONS_SYNC_SHEETS.RUNS, ACTIONS_RUN_HEADERS);
   runSheet.appendRow([
     Utilities.getUuid(), payload.generatedAt || '', new Date(), payload.courses.length, rareCount,
@@ -98,16 +102,25 @@ function syncActionsPayload_(payload) {
 }
 
 function monthKeyForCourse_(course, fallback) {
-  const value = String(course && (course.startAt || fallback) || '');
-  const match = value.match(/^(\d{4})-(\d{2})/);
-  if (match) return match[1] + '-' + match[2];
-  return Utilities.formatDate(new Date(fallback || new Date()), TZ, 'yyyy-MM');
+  const value = course && (course.startAt || course.publishedAt) || fallback;
+  const date = new Date(value);
+  if (!isNaN(date.getTime())) {
+    const taipei = new Date(date.getTime() + 8 * 60 * 60 * 1000);
+    const year = taipei.getUTCFullYear();
+    if (year >= 2000 && year <= new Date().getFullYear() + 3) {
+      return year + '-' + ('0' + (taipei.getUTCMonth() + 1)).slice(-2);
+    }
+  }
+  return '日期待確認';
 }
 
 function ensureSyncSheet_(spreadsheet, name, headers) {
   let sheet = spreadsheet.getSheetByName(name);
   if (!sheet) sheet = spreadsheet.insertSheet(name);
-  if (!sheet.getLastRow()) sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+  if (sheet.getMaxColumns && sheet.getMaxColumns() < headers.length) {
+    sheet.insertColumnsAfter(sheet.getMaxColumns(), headers.length - sheet.getMaxColumns());
+  }
+  sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
   sheet.setFrozenRows(1);
   sheet.getRange(1, 1, 1, headers.length).setBackground('#12372A').setFontColor('#FFFFFF').setFontWeight('bold');
   return sheet;

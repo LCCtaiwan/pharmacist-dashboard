@@ -134,7 +134,7 @@ function sheetSyncTest() {
     schemaVersion: 1,
     generatedAt: '2026-08-04T03:00:00.000Z',
     courses: [
-      { courseId: 'a', title: '倫理課程', category: '專業倫理', rareStatus: '稀有學分', startAt: '2026-08-09T01:00:00.000Z', sourceId: 'source-a' },
+      { courseId: 'a', sessions: [{title:'節次',creditPoints:2}], evidence: {credits:'公告2點'}, dataQuality: {status:'needs_review',issues:['分類待確認']}, title: '倫理課程', category: '專業倫理', rareStatus: '稀有學分', startAt: '2026-08-09T01:00:00.000Z', sourceId: 'source-a' },
       { courseId: 'b', title: '一般課程', rareStatus: '一般課程', startAt: '2027-01-10T01:00:00.000Z', sourceId: 'source-a' }
     ],
     sources: [{ sourceId: 'source-a', status: 'ok' }],
@@ -147,6 +147,15 @@ function sheetSyncTest() {
   assert.equal(runtime.spreadsheet.getSheetByName('Courses_All').getLastRow(), 3);
   assert.equal(runtime.spreadsheet.getSheetByName('2026-08').getLastRow(), 2);
   assert.equal(runtime.spreadsheet.getSheetByName('2027-01').getLastRow(), 2);
+  const api = runtime.context.buildPublicPayload_();
+  assert.equal(api.generatedAt, payload.generatedAt);
+  const roundtrip=api.courses.find(c=>c.courseId==='a');
+  assert.equal(roundtrip.sessions[0].creditPoints,2);
+  assert.equal(roundtrip.evidence.credits,'公告2點');
+  assert.equal(roundtrip.dataQuality.issues[0],'分類待確認');
+  assert.equal(runtime.context.monthKeyForCourse_({startAt:'2026-10-31T16:00:00Z'},''), '2026-11');
+  assert.equal(runtime.context.monthKeyForCourse_({startAt:'2848-01-01T00:00:00Z'},''), '日期待確認');
+  assert.equal(runtime.context.publicCourse_({dataQuality: JSON.stringify({status:'needs_review',issues:['test']})}).dataQuality.issues[0], 'test');
 }
 
 function objectFromRow(headers, row) {

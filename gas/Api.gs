@@ -113,13 +113,14 @@ function buildPublicPayload_() {
         url: String(source.url || ''), updateMode: String(source.type || source.updateMode || ''), priority: number_(source.priority, 99),
         lastAttemptAt: iso_(source.lastAttemptAt), lastSuccessAt: iso_(source.lastSuccessAt),
         status: String(source.status || '') || (source.lastError ? 'error' : (source.lastSuccessAt ? 'ok' : 'not_checked')),
+        courseCount: number_(source.courseCount, null),
         lastError: source.lastError ? String(source.lastError).slice(0, 160) : '', notes: String(source.notes || '')
       };
     });
   return {
     schemaVersion: 1,
     appVersion: APP_VERSION,
-    generatedAt: iso_(now_()),
+    generatedAt: actionsCourses ? latestActionsGeneratedAt_(spreadsheet) : iso_(now_()),
     title: '台灣藥師稀有學分課程儀表板',
     rareDefinition: String(config.rareDefinition || ''),
     courses: courses,
@@ -143,6 +144,23 @@ function publicCourse_(course) {
     rareStatus: String(course.rareStatus || ''), rareReason: String(course.rareReason || ''),
     organizer: String(course.organizer || ''), sourceName: String(course.sourceName || ''),
     sourceUrl: String(course.sourceUrl || ''), firstSeenAt: iso_(course.firstSeenAt),
-    lastUpdatedAt: iso_(course.lastUpdatedAt), notes: String(course.notes || '')
+    lastUpdatedAt: iso_(course.lastUpdatedAt), notes: String(course.notes || ''),
+    publishedAt: iso_(course.publishedAt), datePrecision: String(course.datePrecision || 'unknown'),
+    registrationUrl: String(course.registrationUrl || ''),
+    evidence: parseSyncObject_(course.evidence, {}),
+    dataQuality: parseSyncObject_(course.dataQuality, { status: 'needs_review', issues: ['舊版資料尚未經新版驗證'] }),
+    creditCategories: parseSyncObject_(course.creditCategories, []),
+    sessions: parseSyncObject_(course.sessions, [])
   };
+}
+
+function parseSyncObject_(value, fallback) {
+  if (value && typeof value === 'object') return value;
+  try { return value ? JSON.parse(String(value)) : fallback; } catch (_) { return fallback; }
+}
+
+function latestActionsGeneratedAt_(spreadsheet) {
+  const runs = spreadsheet.getSheetByName('RunHistory');
+  const rows = runs ? getRowsAsObjects_(runs) : [];
+  return rows.length ? iso_(rows[rows.length - 1].generatedAt) : '';
 }
