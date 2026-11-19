@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "appVersion": "github-actions-0.2.0",
-  "generatedAt": "2026-11-18T20:38:50.811Z",
+  "generatedAt": "2026-11-19T07:34:48.157Z",
   "title": "台灣藥師持續教育課程索引",
   "rareDefinition": "關鍵字議題提示，不代表正式採認積分",
   "courses": [
@@ -41,7 +41,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/d09d2e1cf7484bf995748cc65c1f603f",
       "firstSeenAt": "2026-11-04T01:26:39.599Z",
-      "lastUpdatedAt": "2026-11-18T20:38:53.201Z",
+      "lastUpdatedAt": "2026-11-19T07:34:50.451Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。 本活動不開放對外報名。",
       "evidence": {
         "dates": "116/01/14~116/05/12",
@@ -156,7 +156,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/7f2963862fb542128fb811f490818462",
       "firstSeenAt": "2026-11-04T01:26:39.601Z",
-      "lastUpdatedAt": "2026-11-18T20:38:53.556Z",
+      "lastUpdatedAt": "2026-11-19T07:34:50.794Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。",
       "evidence": {
         "dates": "116/01/09~116/01/09",
@@ -249,7 +249,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/0cb716ca4fbe4bf19f29c49b9c61e0b1",
       "firstSeenAt": "2026-11-04T01:26:39.601Z",
-      "lastUpdatedAt": "2026-11-18T20:38:53.905Z",
+      "lastUpdatedAt": "2026-11-19T07:34:51.165Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。 本活動不開放對外報名。",
       "evidence": {
         "dates": "116/01/06~116/06/24",
@@ -401,7 +401,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/1f57e85c64394001893ce3c9c22cc04e",
       "firstSeenAt": "2026-11-04T01:26:39.602Z",
-      "lastUpdatedAt": "2026-11-18T20:38:54.253Z",
+      "lastUpdatedAt": "2026-11-19T07:34:51.503Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。 本活動不開放對外報名。",
       "evidence": {
         "dates": "116/01/05~116/12/22",
@@ -622,7 +622,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/51d7a24d16b440b484ae0728d124fc99",
       "firstSeenAt": "2026-11-12T20:01:59.231Z",
-      "lastUpdatedAt": "2026-11-18T20:38:54.640Z",
+      "lastUpdatedAt": "2026-11-19T07:34:51.853Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。 本活動不開放對外報名。",
       "evidence": {
         "dates": "116/01/01~116/12/31",
@@ -838,7 +838,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/c07aaab27f004d4db4c027afbf8b26a3",
       "firstSeenAt": "2026-11-12T20:01:59.231Z",
-      "lastUpdatedAt": "2026-11-18T20:38:54.953Z",
+      "lastUpdatedAt": "2026-11-19T07:34:52.200Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。 本活動不開放對外報名。",
       "evidence": {
         "dates": "115/12/20~116/01/17",
@@ -969,7 +969,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/a3d33c35307d4df08dba93ee3570f9f2",
       "firstSeenAt": "2026-11-04T01:26:39.602Z",
-      "lastUpdatedAt": "2026-11-18T20:38:55.293Z",
+      "lastUpdatedAt": "2026-11-19T07:34:52.541Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。",
       "evidence": {
         "dates": "115/12/18~115/12/18",
@@ -1049,7 +1049,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/308b7c363be84706b483fb5ab1d75b2e",
       "firstSeenAt": "2026-11-04T01:26:39.602Z",
-      "lastUpdatedAt": "2026-11-18T20:38:55.660Z",
+      "lastUpdatedAt": "2026-11-19T07:34:52.895Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。 本活動不開放對外報名。",
       "evidence": {
         "dates": "115/12/17~116/10/28",
@@ -1396,7 +1396,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/3f08b8fd549e4b94bca1925da3559d9d",
       "firstSeenAt": "2026-11-12T20:01:59.232Z",
-      "lastUpdatedAt": "2026-11-18T20:38:55.993Z",
+      "lastUpdatedAt": "2026-11-19T07:34:53.240Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。 本活動不開放對外報名。",
       "evidence": {
         "dates": "115/12/16~115/12/16",
@@ -1463,7 +1463,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/82dc662f50ad467b92a62de723194895",
       "firstSeenAt": "2026-11-06T06:56:36.604Z",
-      "lastUpdatedAt": "2026-11-18T20:38:56.351Z",
+      "lastUpdatedAt": "2026-11-19T07:34:53.585Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。",
       "evidence": {
         "dates": "115/12/15~115/12/15",
@@ -1522,7 +1522,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/187eb005d1954a52937f3bc123572e37",
       "firstSeenAt": "2026-11-10T19:49:09.248Z",
-      "lastUpdatedAt": "2026-11-18T20:38:56.692Z",
+      "lastUpdatedAt": "2026-11-19T07:34:53.965Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。 本活動不開放對外報名。",
       "evidence": {
         "dates": "115/12/14~115/12/14",
@@ -1542,6 +1542,145 @@
           "category": "專業課程",
           "topicTag": "",
           "creditPoints": 1.2
+        }
+      ]
+    },
+    {
+      "courseId": "85cf706485e4b38a0ac750bb",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "15fe8e4ef65b4852a71b8db9ddea1dbb",
+      "title": "115年12月臨床藥學會南區雙月會-師資培育研討會",
+      "category": "專業倫理／專業課程",
+      "topicTag": "性別議題／專業倫理",
+      "creditPoints": 4.2,
+      "creditCategories": [
+        {
+          "category": "專業倫理",
+          "points": 1.4,
+          "evidence": "公開課程表逐節學員積分"
+        },
+        {
+          "category": "專業課程",
+          "points": 2.8,
+          "evidence": "公開課程表逐節學員積分"
+        }
+      ],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "已核定",
+      "deliveryMode": "實體",
+      "region": "未提供",
+      "venue": "實體地點：807高雄市三民區自由一路100號(啟川大樓第二講堂);",
+      "startAt": "2026-12-11T16:00:00.000Z",
+      "endAt": "2026-12-11T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "公告開放報名，請查資格",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "稀有學分",
+      "rareReason": "議題關鍵字：性別議題、專業倫理；不代表核定積分",
+      "organizer": "財團法人私立高雄醫學大學附設中和紀念醫院",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/15fe8e4ef65b4852a71b8db9ddea1dbb",
+      "firstSeenAt": "2026-11-04T01:26:39.603Z",
+      "lastUpdatedAt": "2026-11-19T07:34:54.295Z",
+      "notes": "積分為整個活動合計；各節課時間與積分請見原公告。",
+      "evidence": {
+        "dates": "115/12/12~115/12/12",
+        "credits": "藥師執照繼續教育：4.2 積分",
+        "approval": "臨藥 繼 字第1150937號",
+        "registration": "開放報名，說明："
+      },
+      "dataQuality": {
+        "status": "verified",
+        "issues": []
+      },
+      "sessions": [
+        {
+          "title": "共創性別友善職場－守護線上／線下的你我他",
+          "startAt": "2026-12-12T05:30:00.000Z",
+          "endAt": "2026-12-12T06:40:00.000Z",
+          "category": "專業倫理",
+          "topicTag": "性別議題",
+          "creditPoints": 1.4
+        },
+        {
+          "title": "Claude AI於數據分析與醫學教育之應用",
+          "startAt": "2026-12-12T06:45:00.000Z",
+          "endAt": "2026-12-12T07:55:00.000Z",
+          "category": "專業課程",
+          "topicTag": "",
+          "creditPoints": 1.4
+        },
+        {
+          "title": "快樂於轉念之間-談激勵與紓壓",
+          "startAt": "2026-12-12T08:00:00.000Z",
+          "endAt": "2026-12-12T09:10:00.000Z",
+          "category": "專業課程",
+          "topicTag": "",
+          "creditPoints": 1.4
+        }
+      ]
+    },
+    {
+      "courseId": "c9dfd8f7d25dd21e1fc2178e",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "94b09a65d68c4d719aeb60b9702982d1",
+      "title": "連續性葡萄糖監測（CGM）工作坊課程－南區",
+      "category": "專業課程",
+      "topicTag": "",
+      "creditPoints": 3.6,
+      "creditCategories": [
+        {
+          "category": "專業課程",
+          "points": 3.6,
+          "evidence": "公開課程表逐節學員積分"
+        }
+      ],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "已核定",
+      "deliveryMode": "實體",
+      "region": "未提供",
+      "venue": "實體地點：高雄漢來大飯店 15F 群賢閣＆嘉賓閣，高雄市前金區成功一路266號;",
+      "startAt": "2026-12-11T16:00:00.000Z",
+      "endAt": "2026-12-11T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "公告開放報名，請查資格",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "一般課程",
+      "rareReason": "未命中議題關鍵字",
+      "organizer": "社團法人臺灣社區藥學會",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/94b09a65d68c4d719aeb60b9702982d1",
+      "firstSeenAt": "2026-11-19T07:34:49.124Z",
+      "lastUpdatedAt": "2026-11-19T07:34:54.640Z",
+      "notes": "積分為整個活動合計；各節課時間與積分請見原公告。",
+      "evidence": {
+        "dates": "115/12/12~115/12/12",
+        "credits": "藥師執照繼續教育：3.6 積分",
+        "approval": "臨藥 繼 字第1151175號",
+        "registration": "開放報名，說明：會於官網統一開放資訊與報名連結"
+      },
+      "dataQuality": {
+        "status": "verified",
+        "issues": []
+      },
+      "sessions": [
+        {
+          "title": "從國際共識到臨床應用，看 CGM 如何翻轉糖尿病控制",
+          "startAt": "2026-12-12T05:30:00.000Z",
+          "endAt": "2026-12-12T08:30:00.000Z",
+          "category": "專業課程",
+          "topicTag": "",
+          "creditPoints": 3.6
         }
       ]
     },
@@ -1586,7 +1725,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/c785a7f1174a462f81e3b53008465c77",
       "firstSeenAt": "2026-11-04T01:26:39.603Z",
-      "lastUpdatedAt": "2026-11-18T20:38:57.050Z",
+      "lastUpdatedAt": "2026-11-19T07:34:54.993Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。",
       "evidence": {
         "dates": "115/12/12~115/12/12",
@@ -1650,86 +1789,6 @@
       ]
     },
     {
-      "courseId": "85cf706485e4b38a0ac750bb",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "15fe8e4ef65b4852a71b8db9ddea1dbb",
-      "title": "115年12月臨床藥學會南區雙月會-師資培育研討會",
-      "category": "專業倫理／專業課程",
-      "topicTag": "性別議題／專業倫理",
-      "creditPoints": 4.2,
-      "creditCategories": [
-        {
-          "category": "專業倫理",
-          "points": 1.4,
-          "evidence": "公開課程表逐節學員積分"
-        },
-        {
-          "category": "專業課程",
-          "points": 2.8,
-          "evidence": "公開課程表逐節學員積分"
-        }
-      ],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "已核定",
-      "deliveryMode": "實體",
-      "region": "未提供",
-      "venue": "實體地點：807高雄市三民區自由一路100號(啟川大樓第二講堂);",
-      "startAt": "2026-12-11T16:00:00.000Z",
-      "endAt": "2026-12-11T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "公告開放報名，請查資格",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "稀有學分",
-      "rareReason": "議題關鍵字：性別議題、專業倫理；不代表核定積分",
-      "organizer": "財團法人私立高雄醫學大學附設中和紀念醫院",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/15fe8e4ef65b4852a71b8db9ddea1dbb",
-      "firstSeenAt": "2026-11-04T01:26:39.603Z",
-      "lastUpdatedAt": "2026-11-18T20:38:57.885Z",
-      "notes": "積分為整個活動合計；各節課時間與積分請見原公告。",
-      "evidence": {
-        "dates": "115/12/12~115/12/12",
-        "credits": "藥師執照繼續教育：4.2 積分",
-        "approval": "臨藥 繼 字第1150937號",
-        "registration": "開放報名，說明："
-      },
-      "dataQuality": {
-        "status": "verified",
-        "issues": []
-      },
-      "sessions": [
-        {
-          "title": "共創性別友善職場－守護線上／線下的你我他",
-          "startAt": "2026-12-12T05:30:00.000Z",
-          "endAt": "2026-12-12T06:40:00.000Z",
-          "category": "專業倫理",
-          "topicTag": "性別議題",
-          "creditPoints": 1.4
-        },
-        {
-          "title": "Claude AI於數據分析與醫學教育之應用",
-          "startAt": "2026-12-12T06:45:00.000Z",
-          "endAt": "2026-12-12T07:55:00.000Z",
-          "category": "專業課程",
-          "topicTag": "",
-          "creditPoints": 1.4
-        },
-        {
-          "title": "快樂於轉念之間-談激勵與紓壓",
-          "startAt": "2026-12-12T08:00:00.000Z",
-          "endAt": "2026-12-12T09:10:00.000Z",
-          "category": "專業課程",
-          "topicTag": "",
-          "creditPoints": 1.4
-        }
-      ]
-    },
-    {
       "courseId": "4011657a1c1a1306422a0bcd",
       "sourceId": "tshp-continuing-education",
       "sourceRecordId": "0660177f0d31420db41b0c9a0406424a",
@@ -1765,7 +1824,7 @@
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
       "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/0660177f0d31420db41b0c9a0406424a",
       "firstSeenAt": "2026-11-04T01:26:39.604Z",
-      "lastUpdatedAt": "2026-11-18T20:38:58.174Z",
+      "lastUpdatedAt": "2026-11-19T07:34:55.339Z",
       "notes": "積分為整個活動合計；各節課時間與積分請見原公告。 本活動不開放對外報名。",
       "evidence": {
         "dates": "115/12/10~115/12/10",
@@ -1833,8 +1892,13 @@
         "registration": "不開放報名，說明：院內報名"
       },
       "dataQuality": {
-        "status": "verified",
-        "issues": []
+        "status": "needs_review",
+        "issues": [
+          "積分類別尚未確認",
+          "藥師積分核定狀態尚未確認",
+          "本次未擷取詳情，仍需確認分類與報名",
+          "本次詳情未更新，保留上次已擷取欄位"
+        ]
       },
       "sessions": [
         {
@@ -2000,6 +2064,83 @@
       ]
     },
     {
+      "courseId": "24675bf8f8d470eaffa28976",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "fce6323e1ae647369093e25a0e41d50e",
+      "title": "藥事人員繼續教育115年12月霸凌溝通課程",
+      "category": "專業課程／專業相關法規",
+      "topicTag": "專業相關法規",
+      "creditPoints": 2,
+      "creditCategories": [
+        {
+          "category": "專業課程",
+          "points": 1,
+          "evidence": "公開課程表逐節學員積分"
+        },
+        {
+          "category": "專業相關法規",
+          "points": 1,
+          "evidence": "公開課程表逐節學員積分"
+        }
+      ],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "已核定",
+      "deliveryMode": "實體",
+      "region": "未提供",
+      "venue": "實體地點：萬芳醫院藥劑部 B1會議室;",
+      "startAt": "2026-12-08T16:00:00.000Z",
+      "endAt": "2026-12-14T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "不開放報名",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "稀有學分",
+      "rareReason": "議題關鍵字：專業相關法規；不代表核定積分",
+      "organizer": "臺北市立萬芳醫院-委託臺北醫學大學辦理",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/fce6323e1ae647369093e25a0e41d50e",
+      "firstSeenAt": "2026-11-04T01:26:39.604Z",
+      "lastUpdatedAt": "2026-11-12T07:21:09.262Z",
+      "notes": "積分為整個活動合計；各節課時間與積分請見原公告。 本活動不開放對外報名。",
+      "evidence": {
+        "dates": "115/12/09~115/12/15",
+        "credits": "藥師執照繼續教育：2 積分",
+        "approval": "臨藥 繼 字第1151093號",
+        "registration": "不開放報名，說明：限萬芳醫院藥師"
+      },
+      "dataQuality": {
+        "status": "needs_review",
+        "issues": [
+          "積分類別尚未確認",
+          "藥師積分核定狀態尚未確認",
+          "本次未擷取詳情，仍需確認分類與報名",
+          "本次詳情未更新，保留上次已擷取欄位"
+        ]
+      },
+      "sessions": [
+        {
+          "title": "從客訴到信任：藥師的溝通與衝突處理技巧",
+          "startAt": "2026-12-09T00:00:00.000Z",
+          "endAt": "2026-12-09T00:50:00.000Z",
+          "category": "專業課程",
+          "topicTag": "",
+          "creditPoints": 1
+        },
+        {
+          "title": "職場霸凌法規暨案例討論",
+          "startAt": "2026-12-15T00:00:00.000Z",
+          "endAt": "2026-12-15T00:50:00.000Z",
+          "category": "專業相關法規",
+          "topicTag": "",
+          "creditPoints": 1
+        }
+      ]
+    },
+    {
       "courseId": "d58487cfa883a718ae5a7422",
       "sourceId": "tshp-continuing-education",
       "sourceRecordId": "fffd095e26cf487d8bee0e763eef4c2c",
@@ -2136,83 +2277,6 @@
       ]
     },
     {
-      "courseId": "24675bf8f8d470eaffa28976",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "fce6323e1ae647369093e25a0e41d50e",
-      "title": "藥事人員繼續教育115年12月霸凌溝通課程",
-      "category": "專業課程／專業相關法規",
-      "topicTag": "專業相關法規",
-      "creditPoints": 2,
-      "creditCategories": [
-        {
-          "category": "專業課程",
-          "points": 1,
-          "evidence": "公開課程表逐節學員積分"
-        },
-        {
-          "category": "專業相關法規",
-          "points": 1,
-          "evidence": "公開課程表逐節學員積分"
-        }
-      ],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "已核定",
-      "deliveryMode": "實體",
-      "region": "未提供",
-      "venue": "實體地點：萬芳醫院藥劑部 B1會議室;",
-      "startAt": "2026-12-08T16:00:00.000Z",
-      "endAt": "2026-12-14T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "不開放報名",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "稀有學分",
-      "rareReason": "議題關鍵字：專業相關法規；不代表核定積分",
-      "organizer": "臺北市立萬芳醫院-委託臺北醫學大學辦理",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/fce6323e1ae647369093e25a0e41d50e",
-      "firstSeenAt": "2026-11-04T01:26:39.604Z",
-      "lastUpdatedAt": "2026-11-12T07:21:09.262Z",
-      "notes": "積分為整個活動合計；各節課時間與積分請見原公告。 本活動不開放對外報名。",
-      "evidence": {
-        "dates": "115/12/09~115/12/15",
-        "credits": "藥師執照繼續教育：2 積分",
-        "approval": "臨藥 繼 字第1151093號",
-        "registration": "不開放報名，說明：限萬芳醫院藥師"
-      },
-      "dataQuality": {
-        "status": "needs_review",
-        "issues": [
-          "積分類別尚未確認",
-          "藥師積分核定狀態尚未確認",
-          "本次未擷取詳情，仍需確認分類與報名",
-          "本次詳情未更新，保留上次已擷取欄位"
-        ]
-      },
-      "sessions": [
-        {
-          "title": "從客訴到信任：藥師的溝通與衝突處理技巧",
-          "startAt": "2026-12-09T00:00:00.000Z",
-          "endAt": "2026-12-09T00:50:00.000Z",
-          "category": "專業課程",
-          "topicTag": "",
-          "creditPoints": 1
-        },
-        {
-          "title": "職場霸凌法規暨案例討論",
-          "startAt": "2026-12-15T00:00:00.000Z",
-          "endAt": "2026-12-15T00:50:00.000Z",
-          "category": "專業相關法規",
-          "topicTag": "",
-          "creditPoints": 1
-        }
-      ]
-    },
-    {
       "courseId": "e598b47edb038c06043039a8",
       "sourceId": "tshp-continuing-education",
       "sourceRecordId": "6b9024d4059b4f0d919e2587d6024bfa",
@@ -2259,52 +2323,6 @@
       }
     },
     {
-      "courseId": "435a951f56cda7fd2c0db28c",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "8b44ab0821f64f47b5344d5840678bb7",
-      "title": "全民健康保險慢性阻塞性肺病醫療給付改善方案之教育訓練課程 『健保慢性阻塞性肺病照護醫師資格認證進修課程』",
-      "category": "未確認",
-      "topicTag": "",
-      "creditPoints": 7,
-      "creditCategories": [],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "未提供",
-      "deliveryMode": "未提供",
-      "region": "未提供",
-      "venue": "",
-      "startAt": "2026-12-05T16:00:00.000Z",
-      "endAt": "2026-12-05T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "未提供",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "一般課程",
-      "rareReason": "未命中議題關鍵字",
-      "organizer": "台灣慢性阻塞性肺病學會",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/8b44ab0821f64f47b5344d5840678bb7",
-      "firstSeenAt": "2026-11-17T08:02:56.159Z",
-      "lastUpdatedAt": "2026-11-17T08:02:56.159Z",
-      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
-      "evidence": {
-        "dates": "115/12/06~115/12/06",
-        "credits": "藥師執照繼續教育：7 積分"
-      },
-      "dataQuality": {
-        "status": "needs_review",
-        "issues": [
-          "積分類別尚未確認",
-          "藥師積分核定狀態尚未確認",
-          "本次未擷取詳情，仍需確認分類與報名",
-          "本次詳情未更新，保留上次已擷取欄位"
-        ]
-      }
-    },
-    {
       "courseId": "ca6a314e72d34fdf6f5192b0",
       "sourceId": "tshp-continuing-education",
       "sourceRecordId": "8d637206690442b9858f67e967f8a5de",
@@ -2339,6 +2357,52 @@
       "evidence": {
         "dates": "115/12/06~115/12/06",
         "credits": "藥師執照繼續教育：8 積分"
+      },
+      "dataQuality": {
+        "status": "needs_review",
+        "issues": [
+          "積分類別尚未確認",
+          "藥師積分核定狀態尚未確認",
+          "本次未擷取詳情，仍需確認分類與報名",
+          "本次詳情未更新，保留上次已擷取欄位"
+        ]
+      }
+    },
+    {
+      "courseId": "435a951f56cda7fd2c0db28c",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "8b44ab0821f64f47b5344d5840678bb7",
+      "title": "全民健康保險慢性阻塞性肺病醫療給付改善方案之教育訓練課程 『健保慢性阻塞性肺病照護醫師資格認證進修課程』",
+      "category": "未確認",
+      "topicTag": "",
+      "creditPoints": 7,
+      "creditCategories": [],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "未提供",
+      "deliveryMode": "未提供",
+      "region": "未提供",
+      "venue": "",
+      "startAt": "2026-12-05T16:00:00.000Z",
+      "endAt": "2026-12-05T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "未提供",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "一般課程",
+      "rareReason": "未命中議題關鍵字",
+      "organizer": "台灣慢性阻塞性肺病學會",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/8b44ab0821f64f47b5344d5840678bb7",
+      "firstSeenAt": "2026-11-17T08:02:56.159Z",
+      "lastUpdatedAt": "2026-11-17T08:02:56.159Z",
+      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
+      "evidence": {
+        "dates": "115/12/06~115/12/06",
+        "credits": "藥師執照繼續教育：7 積分"
       },
       "dataQuality": {
         "status": "needs_review",
@@ -2421,6 +2485,98 @@
           "creditPoints": 1.2
         }
       ]
+    },
+    {
+      "courseId": "5a73f11e464abe32e02b07a9",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "7c18a59271b548f98183e382e0d4f3f6",
+      "title": "生活型態專業人員初階課程",
+      "category": "未確認",
+      "topicTag": "",
+      "creditPoints": 14.4,
+      "creditCategories": [],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "未提供",
+      "deliveryMode": "未提供",
+      "region": "未提供",
+      "venue": "",
+      "startAt": "2026-12-04T16:00:00.000Z",
+      "endAt": "2026-12-05T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "未提供",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "一般課程",
+      "rareReason": "未命中議題關鍵字",
+      "organizer": "醫療財團法人羅許基金會羅東博愛醫院",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/7c18a59271b548f98183e382e0d4f3f6",
+      "firstSeenAt": "2026-11-10T19:49:09.604Z",
+      "lastUpdatedAt": "2026-11-10T19:49:09.604Z",
+      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
+      "evidence": {
+        "dates": "115/12/05~115/12/06",
+        "credits": "藥師執照繼續教育：14.4 積分"
+      },
+      "dataQuality": {
+        "status": "needs_review",
+        "issues": [
+          "積分類別尚未確認",
+          "藥師積分核定狀態尚未確認",
+          "本次未擷取詳情，仍需確認分類與報名",
+          "本次詳情未更新，保留上次已擷取欄位"
+        ]
+      }
+    },
+    {
+      "courseId": "d7d13bcb9d5ef81b5d2e25c6",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "03c03f3b2450441989c2e2985364f952",
+      "title": "連續性葡萄糖監測（CGM）工作坊課程－中區",
+      "category": "未確認",
+      "topicTag": "",
+      "creditPoints": 3.6,
+      "creditCategories": [],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "未提供",
+      "deliveryMode": "未提供",
+      "region": "未提供",
+      "venue": "",
+      "startAt": "2026-12-04T16:00:00.000Z",
+      "endAt": "2026-12-04T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "未提供",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "一般課程",
+      "rareReason": "未命中議題關鍵字",
+      "organizer": "社團法人臺灣社區藥學會",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/03c03f3b2450441989c2e2985364f952",
+      "firstSeenAt": "2026-11-16T06:42:57.898Z",
+      "lastUpdatedAt": "2026-11-16T06:42:57.898Z",
+      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
+      "evidence": {
+        "dates": "115/12/05~115/12/05",
+        "credits": "藥師執照繼續教育：3.6 積分"
+      },
+      "dataQuality": {
+        "status": "needs_review",
+        "issues": [
+          "積分類別尚未確認",
+          "藥師積分核定狀態尚未確認",
+          "本次未擷取詳情，仍需確認分類與報名",
+          "本次詳情未更新，保留上次已擷取欄位"
+        ]
+      }
     },
     {
       "courseId": "65021ba643af93d2c86d1a1d",
@@ -2590,98 +2746,6 @@
       ]
     },
     {
-      "courseId": "d7d13bcb9d5ef81b5d2e25c6",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "03c03f3b2450441989c2e2985364f952",
-      "title": "連續性葡萄糖監測（CGM）工作坊課程－中區",
-      "category": "未確認",
-      "topicTag": "",
-      "creditPoints": 3.6,
-      "creditCategories": [],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "未提供",
-      "deliveryMode": "未提供",
-      "region": "未提供",
-      "venue": "",
-      "startAt": "2026-12-04T16:00:00.000Z",
-      "endAt": "2026-12-04T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "未提供",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "一般課程",
-      "rareReason": "未命中議題關鍵字",
-      "organizer": "社團法人臺灣社區藥學會",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/03c03f3b2450441989c2e2985364f952",
-      "firstSeenAt": "2026-11-16T06:42:57.898Z",
-      "lastUpdatedAt": "2026-11-16T06:42:57.898Z",
-      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
-      "evidence": {
-        "dates": "115/12/05~115/12/05",
-        "credits": "藥師執照繼續教育：3.6 積分"
-      },
-      "dataQuality": {
-        "status": "needs_review",
-        "issues": [
-          "積分類別尚未確認",
-          "藥師積分核定狀態尚未確認",
-          "本次未擷取詳情，仍需確認分類與報名",
-          "本次詳情未更新，保留上次已擷取欄位"
-        ]
-      }
-    },
-    {
-      "courseId": "5a73f11e464abe32e02b07a9",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "7c18a59271b548f98183e382e0d4f3f6",
-      "title": "生活型態專業人員初階課程",
-      "category": "未確認",
-      "topicTag": "",
-      "creditPoints": 14.4,
-      "creditCategories": [],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "未提供",
-      "deliveryMode": "未提供",
-      "region": "未提供",
-      "venue": "",
-      "startAt": "2026-12-04T16:00:00.000Z",
-      "endAt": "2026-12-05T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "未提供",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "一般課程",
-      "rareReason": "未命中議題關鍵字",
-      "organizer": "醫療財團法人羅許基金會羅東博愛醫院",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/7c18a59271b548f98183e382e0d4f3f6",
-      "firstSeenAt": "2026-11-10T19:49:09.604Z",
-      "lastUpdatedAt": "2026-11-10T19:49:09.604Z",
-      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
-      "evidence": {
-        "dates": "115/12/05~115/12/06",
-        "credits": "藥師執照繼續教育：14.4 積分"
-      },
-      "dataQuality": {
-        "status": "needs_review",
-        "issues": [
-          "積分類別尚未確認",
-          "藥師積分核定狀態尚未確認",
-          "本次未擷取詳情，仍需確認分類與報名",
-          "本次詳情未更新，保留上次已擷取欄位"
-        ]
-      }
-    },
-    {
       "courseId": "4a0feb8a3ba4e9485bdd08dc",
       "sourceId": "tshp-continuing-education",
       "sourceRecordId": "180c4510ec4644f88c502ec71a5932c6",
@@ -2840,6 +2904,98 @@
       }
     },
     {
+      "courseId": "c9708c9b7698d3d6768f242a",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "7760bc96b7654ffdb6e922e93b82fb96",
+      "title": "115年高醫岡山醫院持續教育訓練課程(二)",
+      "category": "未確認",
+      "topicTag": "",
+      "creditPoints": 4.8,
+      "creditCategories": [],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "未提供",
+      "deliveryMode": "未提供",
+      "region": "未提供",
+      "venue": "",
+      "startAt": "2026-12-01T16:00:00.000Z",
+      "endAt": "2026-12-09T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "未提供",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "一般課程",
+      "rareReason": "未命中議題關鍵字",
+      "organizer": "財團法人私立高雄醫學大學附設高醫岡山醫院",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/7760bc96b7654ffdb6e922e93b82fb96",
+      "firstSeenAt": "2026-11-12T20:01:59.607Z",
+      "lastUpdatedAt": "2026-11-12T20:01:59.607Z",
+      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
+      "evidence": {
+        "dates": "115/12/02~115/12/10",
+        "credits": "藥師執照繼續教育：4.8 積分"
+      },
+      "dataQuality": {
+        "status": "needs_review",
+        "issues": [
+          "積分類別尚未確認",
+          "藥師積分核定狀態尚未確認",
+          "本次未擷取詳情，仍需確認分類與報名",
+          "本次詳情未更新，保留上次已擷取欄位"
+        ]
+      }
+    },
+    {
+      "courseId": "ebd6716d7dd59ac47ae1365e",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "a87f5f1466634ab595cf6053c359d163",
+      "title": "115年度藥學繼續教育系列課程(三十七)",
+      "category": "未確認",
+      "topicTag": "",
+      "creditPoints": 0.8,
+      "creditCategories": [],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "未提供",
+      "deliveryMode": "未提供",
+      "region": "未提供",
+      "venue": "",
+      "startAt": "2026-12-01T16:00:00.000Z",
+      "endAt": "2026-12-01T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "未提供",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "一般課程",
+      "rareReason": "未命中議題關鍵字",
+      "organizer": "衛生福利部桃園醫院",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/a87f5f1466634ab595cf6053c359d163",
+      "firstSeenAt": "2026-11-12T20:01:59.607Z",
+      "lastUpdatedAt": "2026-11-12T20:01:59.607Z",
+      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
+      "evidence": {
+        "dates": "115/12/02~115/12/02",
+        "credits": "藥師執照繼續教育：0.8 積分"
+      },
+      "dataQuality": {
+        "status": "needs_review",
+        "issues": [
+          "積分類別尚未確認",
+          "藥師積分核定狀態尚未確認",
+          "本次未擷取詳情，仍需確認分類與報名",
+          "本次詳情未更新，保留上次已擷取欄位"
+        ]
+      }
+    },
+    {
       "courseId": "fa27ced8297a8f01b2c28004",
       "sourceId": "tshp-continuing-education",
       "sourceRecordId": "001820f621df464e801ba41d6079e5f5",
@@ -2920,21 +3076,21 @@
       ]
     },
     {
-      "courseId": "ebd6716d7dd59ac47ae1365e",
+      "courseId": "e581df536439f4a3bafd1b48",
       "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "a87f5f1466634ab595cf6053c359d163",
-      "title": "115年度藥學繼續教育系列課程(三十七)",
+      "sourceRecordId": "a6746a2afd2d4adb953473438c40ae8b",
+      "title": "彰基藥學部2026年持續教育課程(3)",
       "category": "未確認",
       "topicTag": "",
-      "creditPoints": 0.8,
+      "creditPoints": 8,
       "creditCategories": [],
       "creditStatus": "臨床藥學會公開清單所列積分",
       "creditApprovalStatus": "未提供",
       "deliveryMode": "未提供",
       "region": "未提供",
       "venue": "",
-      "startAt": "2026-12-01T16:00:00.000Z",
-      "endAt": "2026-12-01T16:00:00.000Z",
+      "startAt": "2026-11-30T16:00:00.000Z",
+      "endAt": "2026-12-28T16:00:00.000Z",
       "datePrecision": "date",
       "publishedAt": "",
       "registrationDeadline": "",
@@ -2945,61 +3101,15 @@
       "seatsRemaining": null,
       "rareStatus": "一般課程",
       "rareReason": "未命中議題關鍵字",
-      "organizer": "衛生福利部桃園醫院",
+      "organizer": "彰化基督教醫療財團法人彰化基督教醫院",
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/a87f5f1466634ab595cf6053c359d163",
-      "firstSeenAt": "2026-11-12T20:01:59.607Z",
-      "lastUpdatedAt": "2026-11-12T20:01:59.607Z",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/a6746a2afd2d4adb953473438c40ae8b",
+      "firstSeenAt": "2026-11-16T06:43:00.918Z",
+      "lastUpdatedAt": "2026-11-16T06:43:00.918Z",
       "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
       "evidence": {
-        "dates": "115/12/02~115/12/02",
-        "credits": "藥師執照繼續教育：0.8 積分"
-      },
-      "dataQuality": {
-        "status": "needs_review",
-        "issues": [
-          "積分類別尚未確認",
-          "藥師積分核定狀態尚未確認",
-          "本次未擷取詳情，仍需確認分類與報名",
-          "本次詳情未更新，保留上次已擷取欄位"
-        ]
-      }
-    },
-    {
-      "courseId": "c9708c9b7698d3d6768f242a",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "7760bc96b7654ffdb6e922e93b82fb96",
-      "title": "115年高醫岡山醫院持續教育訓練課程(二)",
-      "category": "未確認",
-      "topicTag": "",
-      "creditPoints": 4.8,
-      "creditCategories": [],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "未提供",
-      "deliveryMode": "未提供",
-      "region": "未提供",
-      "venue": "",
-      "startAt": "2026-12-01T16:00:00.000Z",
-      "endAt": "2026-12-09T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "未提供",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "一般課程",
-      "rareReason": "未命中議題關鍵字",
-      "organizer": "財團法人私立高雄醫學大學附設高醫岡山醫院",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/7760bc96b7654ffdb6e922e93b82fb96",
-      "firstSeenAt": "2026-11-12T20:01:59.607Z",
-      "lastUpdatedAt": "2026-11-12T20:01:59.607Z",
-      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
-      "evidence": {
-        "dates": "115/12/02~115/12/10",
-        "credits": "藥師執照繼續教育：4.8 積分"
+        "dates": "115/12/01~115/12/29",
+        "credits": "藥師執照繼續教育：8 積分"
       },
       "dataQuality": {
         "status": "needs_review",
@@ -3076,52 +3186,6 @@
       ]
     },
     {
-      "courseId": "e581df536439f4a3bafd1b48",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "a6746a2afd2d4adb953473438c40ae8b",
-      "title": "彰基藥學部2026年持續教育課程(3)",
-      "category": "未確認",
-      "topicTag": "",
-      "creditPoints": 8,
-      "creditCategories": [],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "未提供",
-      "deliveryMode": "未提供",
-      "region": "未提供",
-      "venue": "",
-      "startAt": "2026-11-30T16:00:00.000Z",
-      "endAt": "2026-12-28T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "未提供",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "一般課程",
-      "rareReason": "未命中議題關鍵字",
-      "organizer": "彰化基督教醫療財團法人彰化基督教醫院",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/a6746a2afd2d4adb953473438c40ae8b",
-      "firstSeenAt": "2026-11-16T06:43:00.918Z",
-      "lastUpdatedAt": "2026-11-16T06:43:00.918Z",
-      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
-      "evidence": {
-        "dates": "115/12/01~115/12/29",
-        "credits": "藥師執照繼續教育：8 積分"
-      },
-      "dataQuality": {
-        "status": "needs_review",
-        "issues": [
-          "積分類別尚未確認",
-          "藥師積分核定狀態尚未確認",
-          "本次未擷取詳情，仍需確認分類與報名",
-          "本次詳情未更新，保留上次已擷取欄位"
-        ]
-      }
-    },
-    {
       "courseId": "72a7cf953647c6db984cd02e",
       "sourceId": "tshp-continuing-education",
       "sourceRecordId": "f3556cfd2f3a41d3b965b1185a6c5f0e",
@@ -3156,6 +3220,52 @@
       "evidence": {
         "dates": "115/11/30~115/11/30",
         "credits": "藥師執照繼續教育：3 積分"
+      },
+      "dataQuality": {
+        "status": "needs_review",
+        "issues": [
+          "積分類別尚未確認",
+          "藥師積分核定狀態尚未確認",
+          "本次未擷取詳情，仍需確認分類與報名",
+          "本次詳情未更新，保留上次已擷取欄位"
+        ]
+      }
+    },
+    {
+      "courseId": "f397d1b5dc5ea712dbe0791d",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "4c4bf379d5fa4bc3a8759c98b7f960f4",
+      "title": "115年度藥學繼續教育系列課程(三十九)",
+      "category": "未確認",
+      "topicTag": "",
+      "creditPoints": 0.8,
+      "creditCategories": [],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "未提供",
+      "deliveryMode": "未提供",
+      "region": "未提供",
+      "venue": "",
+      "startAt": "2026-11-29T16:00:00.000Z",
+      "endAt": "2026-11-29T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "未提供",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "一般課程",
+      "rareReason": "未命中議題關鍵字",
+      "organizer": "衛生福利部桃園醫院",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/4c4bf379d5fa4bc3a8759c98b7f960f4",
+      "firstSeenAt": "2026-11-10T19:49:09.606Z",
+      "lastUpdatedAt": "2026-11-10T19:49:09.606Z",
+      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
+      "evidence": {
+        "dates": "115/11/30~115/11/30",
+        "credits": "藥師執照繼續教育：0.8 積分"
       },
       "dataQuality": {
         "status": "needs_review",
@@ -3214,21 +3324,21 @@
       }
     },
     {
-      "courseId": "f397d1b5dc5ea712dbe0791d",
+      "courseId": "21665d02e57b44d7a79eeb4f",
       "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "4c4bf379d5fa4bc3a8759c98b7f960f4",
-      "title": "115年度藥學繼續教育系列課程(三十九)",
+      "sourceRecordId": "c1723b7f8ce74b17a0a268dd5d71fc19",
+      "title": "連續性葡萄糖監測（CGM）工作坊課程－北區",
       "category": "未確認",
       "topicTag": "",
-      "creditPoints": 0.8,
+      "creditPoints": 3.6,
       "creditCategories": [],
       "creditStatus": "臨床藥學會公開清單所列積分",
       "creditApprovalStatus": "未提供",
       "deliveryMode": "未提供",
       "region": "未提供",
       "venue": "",
-      "startAt": "2026-11-29T16:00:00.000Z",
-      "endAt": "2026-11-29T16:00:00.000Z",
+      "startAt": "2026-11-28T16:00:00.000Z",
+      "endAt": "2026-11-28T16:00:00.000Z",
       "datePrecision": "date",
       "publishedAt": "",
       "registrationDeadline": "",
@@ -3239,15 +3349,15 @@
       "seatsRemaining": null,
       "rareStatus": "一般課程",
       "rareReason": "未命中議題關鍵字",
-      "organizer": "衛生福利部桃園醫院",
+      "organizer": "社團法人臺灣社區藥學會",
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/4c4bf379d5fa4bc3a8759c98b7f960f4",
-      "firstSeenAt": "2026-11-10T19:49:09.606Z",
-      "lastUpdatedAt": "2026-11-10T19:49:09.606Z",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/c1723b7f8ce74b17a0a268dd5d71fc19",
+      "firstSeenAt": "2026-11-16T06:43:00.918Z",
+      "lastUpdatedAt": "2026-11-16T06:43:00.918Z",
       "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
       "evidence": {
-        "dates": "115/11/30~115/11/30",
-        "credits": "藥師執照繼續教育：0.8 積分"
+        "dates": "115/11/29~115/11/29",
+        "credits": "藥師執照繼續教育：3.6 積分"
       },
       "dataQuality": {
         "status": "needs_review",
@@ -3352,21 +3462,21 @@
       }
     },
     {
-      "courseId": "21665d02e57b44d7a79eeb4f",
+      "courseId": "aeae425194ce33f2fd26f2b7",
       "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "c1723b7f8ce74b17a0a268dd5d71fc19",
-      "title": "連續性葡萄糖監測（CGM）工作坊課程－北區",
+      "sourceRecordId": "d0c9087a6e8f4f93a92942a19ef83b6b",
+      "title": "115年度乳癌治療新知學術研討會(四)",
       "category": "未確認",
       "topicTag": "",
-      "creditPoints": 3.6,
+      "creditPoints": 3.2,
       "creditCategories": [],
       "creditStatus": "臨床藥學會公開清單所列積分",
       "creditApprovalStatus": "未提供",
       "deliveryMode": "未提供",
       "region": "未提供",
       "venue": "",
-      "startAt": "2026-11-28T16:00:00.000Z",
-      "endAt": "2026-11-28T16:00:00.000Z",
+      "startAt": "2026-11-27T16:00:00.000Z",
+      "endAt": "2026-11-27T16:00:00.000Z",
       "datePrecision": "date",
       "publishedAt": "",
       "registrationDeadline": "",
@@ -3377,15 +3487,15 @@
       "seatsRemaining": null,
       "rareStatus": "一般課程",
       "rareReason": "未命中議題關鍵字",
-      "organizer": "社團法人臺灣社區藥學會",
+      "organizer": "中華民國乳癌教育暨防治學會",
       "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/c1723b7f8ce74b17a0a268dd5d71fc19",
-      "firstSeenAt": "2026-11-16T06:43:00.918Z",
-      "lastUpdatedAt": "2026-11-16T06:43:00.918Z",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/d0c9087a6e8f4f93a92942a19ef83b6b",
+      "firstSeenAt": "2026-11-16T06:43:00.920Z",
+      "lastUpdatedAt": "2026-11-16T06:43:00.920Z",
       "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
       "evidence": {
-        "dates": "115/11/29~115/11/29",
-        "credits": "藥師執照繼續教育：3.6 積分"
+        "dates": "115/11/28~115/11/28",
+        "credits": "藥師執照繼續教育：3.2 積分"
       },
       "dataQuality": {
         "status": "needs_review",
@@ -3432,52 +3542,6 @@
       "evidence": {
         "dates": "115/11/28~115/11/28",
         "credits": "藥師執照繼續教育：3.6 積分"
-      },
-      "dataQuality": {
-        "status": "needs_review",
-        "issues": [
-          "積分類別尚未確認",
-          "藥師積分核定狀態尚未確認",
-          "本次未擷取詳情，仍需確認分類與報名",
-          "本次詳情未更新，保留上次已擷取欄位"
-        ]
-      }
-    },
-    {
-      "courseId": "aeae425194ce33f2fd26f2b7",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "d0c9087a6e8f4f93a92942a19ef83b6b",
-      "title": "115年度乳癌治療新知學術研討會(四)",
-      "category": "未確認",
-      "topicTag": "",
-      "creditPoints": 3.2,
-      "creditCategories": [],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "未提供",
-      "deliveryMode": "未提供",
-      "region": "未提供",
-      "venue": "",
-      "startAt": "2026-11-27T16:00:00.000Z",
-      "endAt": "2026-11-27T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "未提供",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "一般課程",
-      "rareReason": "未命中議題關鍵字",
-      "organizer": "中華民國乳癌教育暨防治學會",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/d0c9087a6e8f4f93a92942a19ef83b6b",
-      "firstSeenAt": "2026-11-16T06:43:00.920Z",
-      "lastUpdatedAt": "2026-11-16T06:43:00.920Z",
-      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
-      "evidence": {
-        "dates": "115/11/28~115/11/28",
-        "credits": "藥師執照繼續教育：3.2 積分"
       },
       "dataQuality": {
         "status": "needs_review",
@@ -3674,52 +3738,6 @@
       }
     },
     {
-      "courseId": "8e508e91301c14906b03c0b1",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "fc27ff6d53824b08bb1e102dabec903d",
-      "title": "RCA與CAPA在偏差調查作業中所扮演的角色 <中區>",
-      "category": "未確認",
-      "topicTag": "",
-      "creditPoints": 3.6,
-      "creditCategories": [],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "未提供",
-      "deliveryMode": "未提供",
-      "region": "未提供",
-      "venue": "",
-      "startAt": "2026-11-23T16:00:00.000Z",
-      "endAt": "2026-11-23T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "未提供",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "一般課程",
-      "rareReason": "未命中議題關鍵字",
-      "organizer": "財團法人醫藥工業技術發展中心",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/fc27ff6d53824b08bb1e102dabec903d",
-      "firstSeenAt": "2026-11-16T06:43:00.921Z",
-      "lastUpdatedAt": "2026-11-16T06:43:00.921Z",
-      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
-      "evidence": {
-        "dates": "115/11/24~115/11/24",
-        "credits": "藥師執照繼續教育：3.6 積分"
-      },
-      "dataQuality": {
-        "status": "needs_review",
-        "issues": [
-          "積分類別尚未確認",
-          "藥師積分核定狀態尚未確認",
-          "本次未擷取詳情，仍需確認分類與報名",
-          "本次詳情未更新，保留上次已擷取欄位"
-        ]
-      }
-    },
-    {
       "courseId": "6a9e868f101762d6646f0540",
       "sourceId": "tshp-continuing-education",
       "sourceRecordId": "55a622b0cca74992b3a2af8f8a24551e",
@@ -3754,6 +3772,52 @@
       "evidence": {
         "dates": "115/11/24~115/11/24",
         "credits": "藥師執照繼續教育：0.6 積分"
+      },
+      "dataQuality": {
+        "status": "needs_review",
+        "issues": [
+          "積分類別尚未確認",
+          "藥師積分核定狀態尚未確認",
+          "本次未擷取詳情，仍需確認分類與報名",
+          "本次詳情未更新，保留上次已擷取欄位"
+        ]
+      }
+    },
+    {
+      "courseId": "8e508e91301c14906b03c0b1",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "fc27ff6d53824b08bb1e102dabec903d",
+      "title": "RCA與CAPA在偏差調查作業中所扮演的角色 <中區>",
+      "category": "未確認",
+      "topicTag": "",
+      "creditPoints": 3.6,
+      "creditCategories": [],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "未提供",
+      "deliveryMode": "未提供",
+      "region": "未提供",
+      "venue": "",
+      "startAt": "2026-11-23T16:00:00.000Z",
+      "endAt": "2026-11-23T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "未提供",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "一般課程",
+      "rareReason": "未命中議題關鍵字",
+      "organizer": "財團法人醫藥工業技術發展中心",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/fc27ff6d53824b08bb1e102dabec903d",
+      "firstSeenAt": "2026-11-16T06:43:00.921Z",
+      "lastUpdatedAt": "2026-11-16T06:43:00.921Z",
+      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
+      "evidence": {
+        "dates": "115/11/24~115/11/24",
+        "credits": "藥師執照繼續教育：3.6 積分"
       },
       "dataQuality": {
         "status": "needs_review",
@@ -3904,52 +3968,6 @@
       }
     },
     {
-      "courseId": "c3357587749ccf050ad4b71d",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "b9d504d65017459d85d96c9c327e6ffa",
-      "title": "2026年度學術研討會暨第17屆第2次會員代表大會-邁向卓越藥學：賦能、創新與跨域協作",
-      "category": "未確認",
-      "topicTag": "",
-      "creditPoints": 47.2,
-      "creditCategories": [],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "未提供",
-      "deliveryMode": "未提供",
-      "region": "未提供",
-      "venue": "",
-      "startAt": "2026-11-21T16:00:00.000Z",
-      "endAt": "2026-11-21T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "未提供",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "一般課程",
-      "rareReason": "未命中議題關鍵字",
-      "organizer": "社團法人臺灣臨床藥學會",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/b9d504d65017459d85d96c9c327e6ffa",
-      "firstSeenAt": "2026-11-12T20:01:59.956Z",
-      "lastUpdatedAt": "2026-11-12T20:01:59.956Z",
-      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
-      "evidence": {
-        "dates": "115/11/22~115/11/22",
-        "credits": "藥師執照繼續教育：47.2 積分"
-      },
-      "dataQuality": {
-        "status": "needs_review",
-        "issues": [
-          "積分類別尚未確認",
-          "藥師積分核定狀態尚未確認",
-          "本次未擷取詳情，仍需確認分類與報名",
-          "本次詳情未更新，保留上次已擷取欄位"
-        ]
-      }
-    },
-    {
       "courseId": "534580bf3f891debae7db436",
       "sourceId": "tshp-continuing-education",
       "sourceRecordId": "edfdccc2f80446459e7b3c50edf3c4ee",
@@ -4042,6 +4060,98 @@
       }
     },
     {
+      "courseId": "c3357587749ccf050ad4b71d",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "b9d504d65017459d85d96c9c327e6ffa",
+      "title": "2026年度學術研討會暨第17屆第2次會員代表大會-邁向卓越藥學：賦能、創新與跨域協作",
+      "category": "未確認",
+      "topicTag": "",
+      "creditPoints": 47.2,
+      "creditCategories": [],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "未提供",
+      "deliveryMode": "未提供",
+      "region": "未提供",
+      "venue": "",
+      "startAt": "2026-11-21T16:00:00.000Z",
+      "endAt": "2026-11-21T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "未提供",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "一般課程",
+      "rareReason": "未命中議題關鍵字",
+      "organizer": "社團法人臺灣臨床藥學會",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/b9d504d65017459d85d96c9c327e6ffa",
+      "firstSeenAt": "2026-11-12T20:01:59.956Z",
+      "lastUpdatedAt": "2026-11-12T20:01:59.956Z",
+      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
+      "evidence": {
+        "dates": "115/11/22~115/11/22",
+        "credits": "藥師執照繼續教育：47.2 積分"
+      },
+      "dataQuality": {
+        "status": "needs_review",
+        "issues": [
+          "積分類別尚未確認",
+          "藥師積分核定狀態尚未確認",
+          "本次未擷取詳情，仍需確認分類與報名",
+          "本次詳情未更新，保留上次已擷取欄位"
+        ]
+      }
+    },
+    {
+      "courseId": "5bafd1cc5f3a6f2a91ee98a0",
+      "sourceId": "tshp-continuing-education",
+      "sourceRecordId": "ec025692f49642b2b628354625891874",
+      "title": "2026年「國家級防疫一體抗生素抗藥性管理行動計畫」 成果發表會",
+      "category": "未確認",
+      "topicTag": "感染管制",
+      "creditPoints": 4,
+      "creditCategories": [],
+      "creditStatus": "臨床藥學會公開清單所列積分",
+      "creditApprovalStatus": "未提供",
+      "deliveryMode": "未提供",
+      "region": "未提供",
+      "venue": "",
+      "startAt": "2026-11-20T16:00:00.000Z",
+      "endAt": "2026-11-20T16:00:00.000Z",
+      "datePrecision": "date",
+      "publishedAt": "",
+      "registrationDeadline": "",
+      "registrationUrl": "",
+      "registrationStatus": "未提供",
+      "fee": null,
+      "seatsTotal": null,
+      "seatsRemaining": null,
+      "rareStatus": "稀有學分",
+      "rareReason": "議題關鍵字：感染管制；不代表核定積分",
+      "organizer": "國立臺灣大學醫學院附設醫院",
+      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
+      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/ec025692f49642b2b628354625891874",
+      "firstSeenAt": "2026-11-06T06:56:36.966Z",
+      "lastUpdatedAt": "2026-11-06T06:56:36.966Z",
+      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
+      "evidence": {
+        "dates": "115/11/21~115/11/21",
+        "credits": "藥師執照繼續教育：4 積分"
+      },
+      "dataQuality": {
+        "status": "needs_review",
+        "issues": [
+          "積分類別尚未確認",
+          "藥師積分核定狀態尚未確認",
+          "本次未擷取詳情，仍需確認分類與報名",
+          "本次詳情未更新，保留上次已擷取欄位"
+        ]
+      }
+    },
+    {
       "courseId": "f8dc7b48b1dd0bcf3d4b1757",
       "sourceId": "tshp-continuing-education",
       "sourceRecordId": "a1466bbe2311408599c4d3bf650e97a5",
@@ -4122,52 +4232,6 @@
       "evidence": {
         "dates": "115/11/21~115/12/12",
         "credits": "藥師執照繼續教育：8 積分"
-      },
-      "dataQuality": {
-        "status": "needs_review",
-        "issues": [
-          "積分類別尚未確認",
-          "藥師積分核定狀態尚未確認",
-          "本次未擷取詳情，仍需確認分類與報名",
-          "本次詳情未更新，保留上次已擷取欄位"
-        ]
-      }
-    },
-    {
-      "courseId": "5bafd1cc5f3a6f2a91ee98a0",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "ec025692f49642b2b628354625891874",
-      "title": "2026年「國家級防疫一體抗生素抗藥性管理行動計畫」 成果發表會",
-      "category": "未確認",
-      "topicTag": "感染管制",
-      "creditPoints": 4,
-      "creditCategories": [],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "未提供",
-      "deliveryMode": "未提供",
-      "region": "未提供",
-      "venue": "",
-      "startAt": "2026-11-20T16:00:00.000Z",
-      "endAt": "2026-11-20T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "未提供",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "稀有學分",
-      "rareReason": "議題關鍵字：感染管制；不代表核定積分",
-      "organizer": "國立臺灣大學醫學院附設醫院",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/ec025692f49642b2b628354625891874",
-      "firstSeenAt": "2026-11-06T06:56:36.966Z",
-      "lastUpdatedAt": "2026-11-06T06:56:36.966Z",
-      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
-      "evidence": {
-        "dates": "115/11/21~115/11/21",
-        "credits": "藥師執照繼續教育：4 積分"
       },
       "dataQuality": {
         "status": "needs_review",
@@ -4318,52 +4382,6 @@
       }
     },
     {
-      "courseId": "7c1899ba5293305216ec28f5",
-      "sourceId": "tshp-continuing-education",
-      "sourceRecordId": "4ed89fbd71284752a7251b4d364630d6",
-      "title": "115年度藥學繼續教育系列課程(三十五)",
-      "category": "未確認",
-      "topicTag": "",
-      "creditPoints": 0.8,
-      "creditCategories": [],
-      "creditStatus": "臨床藥學會公開清單所列積分",
-      "creditApprovalStatus": "未提供",
-      "deliveryMode": "未提供",
-      "region": "未提供",
-      "venue": "",
-      "startAt": "2026-11-17T16:00:00.000Z",
-      "endAt": "2026-11-17T16:00:00.000Z",
-      "datePrecision": "date",
-      "publishedAt": "",
-      "registrationDeadline": "",
-      "registrationUrl": "",
-      "registrationStatus": "未提供",
-      "fee": null,
-      "seatsTotal": null,
-      "seatsRemaining": null,
-      "rareStatus": "一般課程",
-      "rareReason": "未命中議題關鍵字",
-      "organizer": "衛生福利部桃園醫院",
-      "sourceName": "臺灣臨床藥學會－藥師執照繼續教育",
-      "sourceUrl": "https://www.tshp.org.tw/ehc-tshp/s/w/edu/scheduleInfo1/schedule/4ed89fbd71284752a7251b4d364630d6",
-      "firstSeenAt": "2026-11-04T01:26:40.358Z",
-      "lastUpdatedAt": "2026-11-04T01:26:40.358Z",
-      "notes": "清單積分為活動總數；多節課請查原公告，不代表全部節次均可報名。",
-      "evidence": {
-        "dates": "115/11/18~115/11/18",
-        "credits": "藥師執照繼續教育：0.8 積分"
-      },
-      "dataQuality": {
-        "status": "needs_review",
-        "issues": [
-          "積分類別尚未確認",
-          "藥師積分核定狀態尚未確認",
-          "本次未擷取詳情，仍需確認分類與報名",
-          "本次詳情未更新，保留上次已擷取欄位"
-        ]
-      }
-    },
-    {
       "courseId": "413ab5fea6ece1303e5d8a0f",
       "sourceId": "gtpa-pharmacists",
       "sourceRecordId": "",
@@ -4399,7 +4417,7 @@
       "sourceName": "臺中市大臺中藥師公會",
       "sourceUrl": "https://www.gtpa.org.tw/index.php?option=module&lang=cht&task=pageinfo&id=5930&index=3",
       "firstSeenAt": "2026-11-05T06:57:02.810Z",
-      "lastUpdatedAt": "2026-11-18T20:38:59.681Z",
+      "lastUpdatedAt": "2026-11-19T07:34:56.245Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "2026-10-08 重要會務提醒(繼續教育公告)115年10月31日(六)，專業課程6學分學術演講-實體課程，限額40人額滿即止，請參閱。",
@@ -4442,7 +4460,7 @@
       "sourceName": "臺中市大臺中藥師公會",
       "sourceUrl": "https://www.gtpa.org.tw/index.php?option=module&lang=cht&task=pageinfo&id=6021&index=3",
       "firstSeenAt": "2026-11-17T08:03:07.285Z",
-      "lastUpdatedAt": "2026-11-18T20:38:59.969Z",
+      "lastUpdatedAt": "2026-11-19T07:34:56.457Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "2026-11-06 轉知，有關國立成功大學與成大研究基金會(知識管理服務中心)將於115年12月1日至115年12月2日合辦醫療器材技術人員繼續教育訓練課程(臺北實體/線上同步)，請參閱。"
@@ -4486,7 +4504,7 @@
       "sourceName": "臺中市大臺中藥師公會",
       "sourceUrl": "https://www.gtpa.org.tw/index.php?option=module&lang=cht&task=pageinfo&id=5941&index=7",
       "firstSeenAt": "2026-11-17T08:03:07.285Z",
-      "lastUpdatedAt": "2026-11-18T20:39:00.318Z",
+      "lastUpdatedAt": "2026-11-19T07:34:56.837Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "2026-10-15 轉知，臺中市政府衛生局於115年11月20日(星期五)辦理「臺中市糖尿病共同照護網醫事人員認證專業知識課程電腦考試」，請參閱。"
@@ -4530,7 +4548,7 @@
       "sourceName": "臺中市大臺中藥師公會",
       "sourceUrl": "https://www.gtpa.org.tw/index.php?option=module&lang=cht&task=pageinfo&id=6034&index=1",
       "firstSeenAt": "2026-11-09T06:46:59.123Z",
-      "lastUpdatedAt": "2026-11-18T20:39:00.675Z",
+      "lastUpdatedAt": "2026-11-19T07:34:57.151Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "2026-11-09 轉知，臺北榮民總醫院於115年11月10日下午舉辦「藥物基因體學與精準處方-從實證研究到臨床應用的橋接」線上直播研討會，請參閱。"
@@ -4574,7 +4592,7 @@
       "sourceName": "臺中市大臺中藥師公會",
       "sourceUrl": "https://www.gtpa.org.tw/index.php?option=module&lang=cht&task=pageinfo&id=6019&index=2",
       "firstSeenAt": "2026-11-09T06:46:59.123Z",
-      "lastUpdatedAt": "2026-11-18T20:39:01.016Z",
+      "lastUpdatedAt": "2026-11-19T07:34:57.520Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "2026-11-05 轉知，本院藥學部將於115年11月10日下午舉辦「藥物基因體學與精準處方－從實證研究到臨床應用的橋接」線上直播研討會，請參閱。"
@@ -4618,7 +4636,7 @@
       "sourceName": "臺中市大臺中藥師公會",
       "sourceUrl": "https://www.gtpa.org.tw/index.php?option=module&lang=cht&task=pageinfo&id=5881&index=5",
       "firstSeenAt": "2026-11-09T06:46:59.123Z",
-      "lastUpdatedAt": "2026-11-18T20:39:01.418Z",
+      "lastUpdatedAt": "2026-11-19T07:34:57.861Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "2026-10-07 轉知，臺灣遠距藥事照護協會於民國115年11月14日(週六)及15日(週日)舉行第六梯次「AI高效工作仿:打造醫療數位效率生產線(初階)」實體持續教育課程，請參閱。"
@@ -4662,7 +4680,7 @@
       "sourceName": "臺中市大臺中藥師公會",
       "sourceUrl": "https://www.gtpa.org.tw/index.php?option=module&lang=cht&task=pageinfo&id=5864&index=6",
       "firstSeenAt": "2026-11-09T06:46:59.123Z",
-      "lastUpdatedAt": "2026-11-18T20:39:01.779Z",
+      "lastUpdatedAt": "2026-11-19T07:34:58.196Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "2026-09-24 轉知，【藥師公會全聯會 開課資訊】-「緊急避孕與生殖健康藥事服務專業訓練課程」，請參閱。"
@@ -4706,7 +4724,7 @@
       "sourceName": "臺中市大臺中藥師公會",
       "sourceUrl": "https://www.gtpa.org.tw/index.php?option=module&lang=cht&task=pageinfo&id=5860&index=7",
       "firstSeenAt": "2026-11-09T06:46:59.123Z",
-      "lastUpdatedAt": "2026-11-18T20:39:02.127Z",
+      "lastUpdatedAt": "2026-11-19T07:34:58.552Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "115年10月03日(六) 09:00-16:15"
@@ -4750,7 +4768,7 @@
       "sourceName": "桃園市藥師公會持續教育",
       "sourceUrl": "https://www.pharmacist.org.tw/2026/08/05/115-08-09%e7%a4%be%e5%8d%80%e8%97%a5%e5%b1%80%e7%b9%bc%e7%ba%8c%e6%95%99%e8%82%b2%e4%ba%8c_%e8%ac%9b%e7%be%a9%e4%b8%8b%e8%bc%89/",
       "firstSeenAt": "2026-11-03T19:33:33.726Z",
-      "lastUpdatedAt": "2026-11-18T20:39:03.948Z",
+      "lastUpdatedAt": "2026-11-19T07:35:01.178Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "115/8/9(日)"
@@ -4794,7 +4812,7 @@
       "sourceName": "桃園市藥師公會持續教育",
       "sourceUrl": "https://www.pharmacist.org.tw/2026/07/14/115%e5%b9%b4%e5%ba%a6%e7%a4%be%e5%8d%80%e8%97%a5%e5%b1%80%e7%b9%bc%e7%ba%8c%e6%95%99%e8%82%b2%e4%ba%8c_%e2%98%85%e4%b8%8a%e8%aa%b2%e9%80%9a%e7%9f%a5%e2%98%85/",
       "firstSeenAt": "2026-11-03T19:33:33.726Z",
-      "lastUpdatedAt": "2026-11-18T20:39:04.467Z",
+      "lastUpdatedAt": "2026-11-19T07:35:01.659Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "115/8/9(日)"
@@ -4838,7 +4856,7 @@
       "sourceName": "桃園市藥師公會持續教育",
       "sourceUrl": "https://www.pharmacist.org.tw/2026/06/17/115-07-25-07-26%e6%9c%ac%e6%9c%83%e8%97%a5%e4%ba%8b%e6%95%99%e8%82%b2%e8%a6%8f%e5%8a%83%e5%a7%94%e5%93%a1%e6%9c%83%e8%be%a6%e7%90%86%e3%80%90115%e5%b9%b4%e5%ba%a6%e7%ac%ac%e4%b8%80%e6%9c%9f%e7%b9%bc/",
       "firstSeenAt": "2026-11-03T19:33:33.726Z",
-      "lastUpdatedAt": "2026-11-18T20:39:04.975Z",
+      "lastUpdatedAt": "2026-11-19T07:35:02.572Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "115.07.25-07.26本會藥事教育規劃委員會辦理【115年度第一期繼續教育課程】，敬請踴躍"
@@ -4882,7 +4900,7 @@
       "sourceName": "桃園市藥師公會持續教育",
       "sourceUrl": "https://www.pharmacist.org.tw/2026/05/05/115-05-24-%e5%be%9e%e5%bf%83%e5%87%ba%e7%99%bc%e7%9a%84%e9%86%ab%e7%99%82%e5%af%a6%e5%8b%99%ef%bc%9a%e5%bf%83%e7%90%86%e5%81%a5%e5%ba%b7%e8%88%87%e7%85%a7%e8%ad%b7%e5%9f%b9%e8%a8%93%e8%aa%b2%e7%a8%8b_/",
       "firstSeenAt": "2026-11-03T19:33:33.726Z",
-      "lastUpdatedAt": "2026-11-18T20:39:05.463Z",
+      "lastUpdatedAt": "2026-11-19T07:35:03.439Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "115.05.24-從心出發的醫療實務：心理健康與照護培訓課程_上課通知"
@@ -4926,7 +4944,7 @@
       "sourceName": "桃園市藥師公會持續教育",
       "sourceUrl": "https://www.pharmacist.org.tw/2026/03/05/115-03-08%e8%a8%ba%e6%89%80%e8%97%a5%e5%b8%ab%e7%b9%bc%e7%ba%8c%e6%95%99%e8%82%b2%e4%ba%8c%e8%ac%9b%e7%be%a9%e4%b8%8b%e8%bc%89/",
       "firstSeenAt": "2026-11-03T19:33:33.726Z",
-      "lastUpdatedAt": "2026-11-18T20:39:06.001Z",
+      "lastUpdatedAt": "2026-11-19T07:35:04.179Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "115/3/8(日)"
@@ -4970,7 +4988,7 @@
       "sourceName": "桃園市藥師公會持續教育",
       "sourceUrl": "https://www.pharmacist.org.tw/2026/02/09/115-03-22-115%e5%b9%b4%e5%ba%a6%e4%b8%ad%e8%97%a5%e5%9f%ba%e7%a4%8e%e5%af%a6%e4%bd%9c%e8%aa%b2%e7%a8%8b%ef%bc%88%e4%b8%80%ef%bc%89/",
       "firstSeenAt": "2026-11-03T19:33:33.727Z",
-      "lastUpdatedAt": "2026-11-18T20:39:06.521Z",
+      "lastUpdatedAt": "2026-11-19T07:35:05.239Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "115.03.22-115年度中藥基礎實作課程（一）"
@@ -5014,7 +5032,7 @@
       "sourceName": "桃園市藥師公會持續教育",
       "sourceUrl": "https://www.pharmacist.org.tw/2026/02/09/115-03-08_%e3%80%8c%e8%97%a5%e5%b8%ab%e5%b0%88%e6%a5%ad%e6%96%b0%e5%83%b9%e5%80%bc%e8%88%87%e6%96%9c%e6%a7%93%e8%81%b7%e6%b6%af%e7%99%bc%e5%b1%95%e3%80%8d%e8%aa%b2%e7%a8%8b/",
       "firstSeenAt": "2026-11-03T19:33:33.727Z",
-      "lastUpdatedAt": "2026-11-18T20:39:07.006Z",
+      "lastUpdatedAt": "2026-11-19T07:35:05.904Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "115.03.08_「藥師專業新價值與斜槓職涯發展」課程"
@@ -5058,7 +5076,7 @@
       "sourceName": "桃園市藥師公會持續教育",
       "sourceUrl": "https://www.pharmacist.org.tw/2026/02/04/115-02-0_8%e7%a4%be%e5%8d%80%e8%97%a5%e5%b1%80%e7%b9%bc%e7%ba%8c%e6%95%99%e8%82%b2%e4%b8%80_%e4%b8%8a%e8%aa%b2%e8%ac%9b%e7%be%a9/",
       "firstSeenAt": "2026-11-03T19:33:33.727Z",
-      "lastUpdatedAt": "2026-11-18T20:39:07.557Z",
+      "lastUpdatedAt": "2026-11-19T07:35:06.945Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "115/2/8(日)"
@@ -5102,7 +5120,7 @@
       "sourceName": "桃園市藥師公會持續教育",
       "sourceUrl": "https://www.pharmacist.org.tw/2026/01/16/115%e5%b9%b4%e5%ba%a6%e6%a1%83%e5%9c%92%e5%b8%82%e8%a8%ba%e6%89%80%e8%97%a5%e5%b8%ab%e7%b9%bc%e7%ba%8c%e6%95%99%e8%82%b2%e8%aa%b2%e7%a8%8b%ef%bc%88%e4%b8%80%ef%bc%89_%e8%ac%9b%e7%be%a9%e4%b8%8b/",
       "firstSeenAt": "2026-11-03T19:33:33.727Z",
-      "lastUpdatedAt": "2026-11-18T20:39:08.073Z",
+      "lastUpdatedAt": "2026-11-19T07:35:07.600Z",
       "notes": "摘要欄位依主辦公告擷取；報名資格及正式採認請查原文。",
       "evidence": {
         "dates": "115/1/18(日)"
@@ -5418,7 +5436,7 @@
       "sourceName": "臺南市南瀛藥師公會公告",
       "sourceUrl": "https://www.tainan-pharmacist.org.tw/bulletin_index.php?id=1291",
       "firstSeenAt": "2026-11-04T01:27:02.714Z",
-      "lastUpdatedAt": "2026-11-18T20:39:12.310Z",
+      "lastUpdatedAt": "2026-11-19T07:35:11.078Z",
       "notes": "課程候選；待原公告內容確認。",
       "evidence": {},
       "dataQuality": {
@@ -5462,7 +5480,7 @@
       "sourceName": "臺南市南瀛藥師公會公告",
       "sourceUrl": "https://www.tainan-pharmacist.org.tw/bulletin_index.php?id=1282",
       "firstSeenAt": "2026-11-04T01:27:02.714Z",
-      "lastUpdatedAt": "2026-11-18T20:39:12.311Z",
+      "lastUpdatedAt": "2026-11-19T07:35:11.078Z",
       "notes": "課程候選；待原公告內容確認。",
       "evidence": {},
       "dataQuality": {
@@ -5506,7 +5524,7 @@
       "sourceName": "臺南市南瀛藥師公會公告",
       "sourceUrl": "https://www.tainan-pharmacist.org.tw/bulletin_index.php?id=1298",
       "firstSeenAt": "2026-11-13T19:49:32.434Z",
-      "lastUpdatedAt": "2026-11-18T20:39:12.311Z",
+      "lastUpdatedAt": "2026-11-19T07:35:11.078Z",
       "notes": "課程候選；待原公告內容確認。",
       "evidence": {},
       "dataQuality": {
@@ -5550,7 +5568,7 @@
       "sourceName": "臺南市南瀛藥師公會公告",
       "sourceUrl": "https://www.tainan-pharmacist.org.tw/bulletin_index.php?id=1299",
       "firstSeenAt": "2026-11-13T19:49:32.434Z",
-      "lastUpdatedAt": "2026-11-18T20:39:12.311Z",
+      "lastUpdatedAt": "2026-11-19T07:35:11.078Z",
       "notes": "課程候選；待原公告內容確認。",
       "evidence": {},
       "dataQuality": {
@@ -5745,11 +5763,11 @@
       "maxDetails": 15,
       "updateMode": "tshp",
       "status": "partial",
-      "lastAttemptAt": "2026-11-18T20:38:50.811Z",
-      "lastSuccessAt": "2026-11-18T20:38:50.811Z",
+      "lastAttemptAt": "2026-11-19T07:34:48.157Z",
+      "lastSuccessAt": "2026-11-19T07:34:48.157Z",
       "lastError": "",
       "courseCount": 60,
-      "notes": "分頁上限 4 頁；取得 60 / 來源約 11363 筆，非完整歷史清單；本次確認前 15 筆詳情；其餘積分採清單值，分類／核定／報名待確認"
+      "notes": "分頁上限 4 頁；取得 60 / 來源約 11364 筆，非完整歷史清單；本次確認前 15 筆詳情；其餘積分採清單值，分類／核定／報名待確認"
     },
     {
       "sourceId": "gtpa-pharmacists",
@@ -5758,8 +5776,8 @@
       "url": "https://www.gtpa.org.tw/",
       "updateMode": "html",
       "status": "ok",
-      "lastAttemptAt": "2026-11-18T20:38:50.811Z",
-      "lastSuccessAt": "2026-11-18T20:38:50.811Z",
+      "lastAttemptAt": "2026-11-19T07:34:48.157Z",
+      "lastSuccessAt": "2026-11-19T07:34:48.157Z",
       "lastError": "",
       "courseCount": 8,
       "notes": "公開來源已擷取；積分與報名狀態依各筆證據"
@@ -5772,7 +5790,7 @@
       "coverage": "審查清單；不是報名清單",
       "updateMode": "taiwan_pharmacy_society",
       "status": "error",
-      "lastAttemptAt": "2026-11-18T20:38:50.811Z",
+      "lastAttemptAt": "2026-11-19T07:34:48.157Z",
       "lastSuccessAt": "",
       "lastError": "HTTP 403",
       "courseCount": 0,
@@ -5785,7 +5803,7 @@
       "url": "https://www.pharm.org.tw/news/index.asp?Type=14",
       "updateMode": "html",
       "status": "error",
-      "lastAttemptAt": "2026-11-18T20:38:50.811Z",
+      "lastAttemptAt": "2026-11-19T07:34:48.157Z",
       "lastSuccessAt": "",
       "lastError": "HTTP 403",
       "courseCount": 0,
@@ -5798,8 +5816,8 @@
       "url": "https://www.pharmacist.org.tw/category/%E2%9E%AA%E6%8C%81%E7%BA%8C%E6%95%99%E8%82%B2%E5%B0%88%E5%8D%80/%E4%B8%8A%E8%AA%B2%E8%B3%87%E8%A8%8A/%E5%85%AC%E6%9C%83%E6%8C%81%E7%BA%8C%E6%95%99%E8%82%B2/feed/",
       "updateMode": "rss",
       "status": "ok",
-      "lastAttemptAt": "2026-11-18T20:38:50.811Z",
-      "lastSuccessAt": "2026-11-18T20:38:50.811Z",
+      "lastAttemptAt": "2026-11-19T07:34:48.157Z",
+      "lastSuccessAt": "2026-11-19T07:34:48.157Z",
       "lastError": "",
       "courseCount": 9,
       "notes": "公開來源已擷取；積分與報名狀態依各筆證據"
@@ -5811,7 +5829,7 @@
       "url": "https://www.tccpa.org.tw/web/index.html",
       "updateMode": "html",
       "status": "error",
-      "lastAttemptAt": "2026-11-18T20:38:50.811Z",
+      "lastAttemptAt": "2026-11-19T07:34:48.157Z",
       "lastSuccessAt": "2026-11-03T19:33:32.368Z",
       "lastError": "未解析到課程；保留上次資料，需檢查來源版型",
       "courseCount": 8,
@@ -5824,7 +5842,7 @@
       "url": "https://www.kpa.org.tw/",
       "updateMode": "html",
       "status": "error",
-      "lastAttemptAt": "2026-11-18T20:38:50.811Z",
+      "lastAttemptAt": "2026-11-19T07:34:48.157Z",
       "lastSuccessAt": "",
       "lastError": "fetch failed",
       "courseCount": 0,
@@ -5837,8 +5855,8 @@
       "url": "https://www.tainan-pharmacist.org.tw/bulletin.php",
       "updateMode": "html",
       "status": "ok",
-      "lastAttemptAt": "2026-11-18T20:38:50.811Z",
-      "lastSuccessAt": "2026-11-18T20:38:50.811Z",
+      "lastAttemptAt": "2026-11-19T07:34:48.157Z",
+      "lastSuccessAt": "2026-11-19T07:34:48.157Z",
       "lastError": "",
       "courseCount": 4,
       "notes": "公開來源已擷取；積分與報名狀態依各筆證據"
@@ -5850,7 +5868,7 @@
       "url": "https://www.vghtpe.gov.tw/pharm/images/sg/Fpage.action?fid=19142&muid=21303",
       "updateMode": "html",
       "status": "error",
-      "lastAttemptAt": "2026-11-18T20:38:50.811Z",
+      "lastAttemptAt": "2026-11-19T07:34:48.157Z",
       "lastSuccessAt": "",
       "lastError": "HTTP 403",
       "courseCount": 0,
@@ -5863,7 +5881,7 @@
       "url": "https://typg.org.tw/feed/",
       "updateMode": "rss",
       "status": "error",
-      "lastAttemptAt": "2026-11-18T20:38:50.811Z",
+      "lastAttemptAt": "2026-11-19T07:34:48.157Z",
       "lastSuccessAt": "2026-09-02T04:42:37.762Z",
       "lastError": "HTTP 403",
       "courseCount": 5,
